@@ -4,7 +4,7 @@ import Svg, { Path } from "react-native-svg";
 
 export default function HomeScreen({ navigation }) {
 	return (
-		<View style={styles.pageContainer}>
+		<View>
 			<View style={styles.mainContainer}>
 				<View style={styles.heroImage}>
 					<Svg width="144" height="80" viewBox="0 0 144 80" fill="none">
@@ -30,8 +30,6 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
 	mainContainer: {
 		marginTop: 60,
-	},
-	pageContainer: {
 	},
 	heroImage: {
 		marginTop: 40,
