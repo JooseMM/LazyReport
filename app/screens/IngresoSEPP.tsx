@@ -2,8 +2,10 @@ import { useState } from "react";
 import RNPickerSelect from 'react-native-picker-select';
 import { Chevron } from "react-native-shapes"
 import { StyleSheet, ScrollView, Text, View, TextInput, Pressable } from "react-native";
+import { selectItems, selectPlaceholder } from "../../constants/constants";
+import { useAuth } from "../ApplicationState";
 
-export default function IngresoSEPPScreen() {
+export default function IngresoSEPPScreen({ navigation }) {
 	const [ date, setDate ] = useState("");
 	const [	storeCode, setStoreCode ] = useState("");
 	const [	storeFormat, setStoreFormat ] = useState("");
@@ -13,19 +15,23 @@ export default function IngresoSEPPScreen() {
 	const [	upscale, setUpscale ] = useState("");
 	const [	secondUpscale, setSecondUpscale ] = useState("");
 	const [	thirdUpscale, setThirdUpscale ] = useState("");
+	const { setReport } = useAuth();
 
-	const placeholder = {
-		label: 'Selecciona un Formato...',
-		value: '',
-		color: 'black'
-	}
-	const items = [
-		{ label: "Hiper Lider", value: "hl" },
-		{ label: "Lider Express", value: "le" },
-		{ label: "Super Bodega Acuenta", value: "sba" },
-		{ label: "Central Mayorista", value: "cm" },
-	];
-
+	const addReport = () => {
+		setReport({ 
+			time: date,
+			reportType: "Detenido en SEPP",
+			storeCode: storeCode,
+			storeName: storeName,
+			storeFormat: storeFormat,
+			informantName: informant,
+			policeCallTime: policeCallTime,
+			upscale: upscale,
+			secondUpscale: secondUpscale,
+			thirdUpscale: thirdUpscale,
+		});
+		navigation.navigate("FinishReport");
+	};
 
 	return (
 		<ScrollView style={styles.mainContainer}>
@@ -35,7 +41,7 @@ export default function IngresoSEPPScreen() {
 				<TextInput style={styles.border} onChangeText={(buffer) => setDate(buffer)} value={date}/>
 				<Text style={styles.label}>Formato:</Text>
 				<RNPickerSelect  style={pickerSelectStyles}
-					items={items} placeholder={placeholder} 
+					items={selectItems} placeholder={selectPlaceholder} 
 					useNativeAndroidPickerStyle={false}
 					onValueChange={(buffer) => setStoreFormat(buffer)}
 					Icon={() =>  <Chevron size={1.5} color="#292929" />}
@@ -54,7 +60,7 @@ export default function IngresoSEPPScreen() {
 				<TextInput style={styles.border} onChangeText={(buffer) => setSecondUpscale(buffer)} value={secondUpscale}/>
 				<Text style={styles.label}>Escalamiento Terciario:</Text>
 				<TextInput style={styles.border} onChangeText={(buffer) => setThirdUpscale(buffer)} value={thirdUpscale}/>
-				<Pressable style={styles.button}>
+				<Pressable style={styles.button} onPress={addReport}>
 					<Text style={styles.buttonText}>Generar Reporte</Text>
 				</Pressable>
 			</View>
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
 		borderStyle: "solid",
 		borderWidth: 1,
 		borderColor: "#70717C",
-		paddingVertical: 10,
+		paddingVertical: 15,
 		paddingHorizontal: 10,
 		borderRadius: 5
 	},
@@ -133,7 +139,7 @@ const pickerSelectStyles = StyleSheet.create({
     paddingRight: 30, // to ensure the text is never behind the icon
   },
   inputWeb: {
-	  paddingVertical: 10,
+	  paddingVertical: 16,
 	  paddingHorizontal: 10,
 	  fontSize: 16,
 	  borderRadius: 5,

@@ -1,5 +1,5 @@
 import { Text, View, StyleSheet, Pressable, } from "react-native";
-import { reportOptions } from "../../constants/actions";
+import { reportOptions } from "../../constants/constants";
 import Svg, { Path } from "react-native-svg";
 
 export default function HomeScreen({ navigation }) {

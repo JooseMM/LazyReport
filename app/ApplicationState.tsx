@@ -1,8 +1,9 @@
 import { Dispatch, SetStateAction, createContext, useContext, useState, ReactNode, ReactElement } from "react";
+import { DetainedReportData } from "../constants/constants";
 
 type AuthContextType = {
-	user: { [key: string]: any } | null;
-	setUser: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
+	report: DetainedReportData | null;
+	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -17,10 +18,10 @@ function useAuth(): AuthContextType {
 }
 
 const AuthProvider = (props: { children: ReactNode }): ReactElement =>  {
-	const [ user, setUser ] = useState<{ [key: string]: any } | null>({ name: "Defaul" });
+	const [ report, setReport ] = useState< DetainedReportData | null>(null);
 
 	return (
-		<AuthContext.Provider {...props} value={{ user, setUser }}>
+		<AuthContext.Provider {...props} value={{ report, setReport }}>
 			{ props.children }
 		</AuthContext.Provider>
 	);

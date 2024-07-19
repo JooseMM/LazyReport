@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/Home";
 import IngresoSEPPScreen from "./screens/IngresoSEPP";
 import { AuthProvider } from './ApplicationState';
+import FinishReportScreen from './screens/FinishReport';
 
 const Stack = createNativeStackNavigator();
 
@@ -15,6 +16,7 @@ export default function App() {
 			<Stack.Navigator>
 				<Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
 				<Stack.Screen name="IngresoSEPP" component={IngresoSEPPScreen}  />
+				<Stack.Screen name="FinishReport" component={FinishReportScreen}  />
 			</Stack.Navigator>
 		  </NavigationContainer>
 	  </AuthProvider>
