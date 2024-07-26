@@ -1,6 +1,6 @@
 import { Text, View, StyleSheet, TextInput, Pressable } from "react-native";
 import { useAuth } from "../ApplicationState";
-import { generateReport } from "../../constants/constants";
+import { generateReport } from "../constants/constants";
 import { useEffect, useState } from "react";
 import * as Clipboard from "expo-clipboard";
 

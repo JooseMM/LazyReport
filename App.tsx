@@ -1,11 +1,11 @@
 import { StyleSheet } from 'react-native';
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import { AuthProvider } from './ApplicationState';
-import HomeScreen from "./screens/Home";
-import IngresoSEPPScreen from "./screens/IngresoSEPP";
-import FinishReportScreen from './screens/FinishReport';
-import { colors } from "../constants/constants";
+import { AuthProvider } from './src/ApplicationState';
+import HomeScreen from "./src/screens/Home";
+import IngresoSEPPScreen from "./src/screens/IngresoSEPP";
+import FinishReportScreen from './src/screens/FinishReport';
+import { colors } from "./src/constants/constants";
 
 const Stack = createNativeStackNavigator();
 

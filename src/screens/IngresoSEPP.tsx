@@ -1,9 +1,7 @@
 import { useState } from "react";
-import RNPickerSelect from 'react-native-picker-select';
-import { Chevron } from "react-native-shapes"
 import { StyleSheet, ScrollView, Text, View, TextInput, Pressable } from "react-native";
-import { selectItems, selectPlaceholder } from "../../constants/constants";
 import { useAuth } from "../ApplicationState";
+import { Picker } from "@react-native-picker/picker";
 
 export default function IngresoSEPPScreen({ navigation }) {
 	const [ date, setDate ] = useState("");
@@ -16,6 +14,7 @@ export default function IngresoSEPPScreen({ navigation }) {
 	const [	secondUpscale, setSecondUpscale ] = useState("");
 	const [	thirdUpscale, setThirdUpscale ] = useState("");
 	const { setReport } = useAuth();
+	const [selectedValue, setSelectedValue] = useState("java");
 
 	const addReport = () => {
 		setReport({ 
@@ -35,35 +34,31 @@ export default function IngresoSEPPScreen({ navigation }) {
 
 	return (
 		<ScrollView style={styles.mainContainer}>
-			<Text style={styles.title}>Ingreso a SEPP</Text>
-			<View style={styles.inputContainer}>
-				<Text style={styles.label}>Hora:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setDate(buffer)} value={date}/>
-				<Text style={styles.label}>Formato:</Text>
-				<RNPickerSelect  style={pickerSelectStyles}
-					items={selectItems} placeholder={selectPlaceholder} 
-					useNativeAndroidPickerStyle={false}
-					onValueChange={(buffer) => setStoreFormat(buffer)}
-					Icon={() =>  <Chevron size={1.5} color="#292929" />}
-					/>
-				<Text style={styles.label}>N. de Local:</Text>
-				<TextInput  style={styles.border} onChangeText={(buffer) => setStoreCode(buffer)} value={storeCode}/>
-				<Text style={styles.label}>Nombre de Local:</Text>
-				<TextInput  style={styles.border} onChangeText={(buffer) => setStoreName(buffer)} value={storeName}/>
-				<Text style={styles.label}>Informante:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setInformant(buffer)} value={informant}/>
-				<Text style={styles.label}>Llamada a Carabineros:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setPoliceCallTime(buffer)} value={policeCallTime}/>
-				<Text style={styles.label}>Escalamiento Principal:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setUpscale(buffer)} value={upscale}/>
-				<Text style={styles.label}>Escalamiento Secundario:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setSecondUpscale(buffer)} value={secondUpscale}/>
-				<Text style={styles.label}>Escalamiento Terciario:</Text>
-				<TextInput style={styles.border} onChangeText={(buffer) => setThirdUpscale(buffer)} value={thirdUpscale}/>
-				<Pressable style={styles.button} onPress={addReport}>
-					<Text style={styles.buttonText}>Generar Reporte</Text>
-				</Pressable>
-			</View>
+		<Text style={styles.title}>Ingreso a SEPP</Text>
+		<View style={styles.inputContainer}>
+		<Text style={styles.label}>Hora:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setDate(buffer)} value={date}/>
+		<Text style={styles.label}>Formato:</Text>
+		<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>
+		</View>
+		<Text style={styles.label}>N. de Local:</Text>
+		<TextInput  style={styles.border} onChangeText={(buffer) => setStoreCode(buffer)} value={storeCode}/>
+		<Text style={styles.label}>Nombre de Local:</Text>
+		<TextInput  style={styles.border} onChangeText={(buffer) => setStoreName(buffer)} value={storeName}/>
+		<Text style={styles.label}>Informante:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setInformant(buffer)} value={informant}/>
+		<Text style={styles.label}>Llamada a Carabineros:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setPoliceCallTime(buffer)} value={policeCallTime}/>
+		<Text style={styles.label}>Escalamiento Principal:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setUpscale(buffer)} value={upscale}/>
+		<Text style={styles.label}>Escalamiento Secundario:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setSecondUpscale(buffer)} value={secondUpscale}/>
+		<Text style={styles.label}>Escalamiento Terciario:</Text>
+		<TextInput style={styles.border} onChangeText={(buffer) => setThirdUpscale(buffer)} value={thirdUpscale}/>
+		<Pressable style={styles.button} onPress={addReport}>
+		<Text style={styles.buttonText}>Generar Reporte</Text>
+		</Pressable>
+		</View>
 		</ScrollView>
 	)
 
