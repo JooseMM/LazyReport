@@ -11,7 +11,10 @@ export type DetainedReportData = {
 	storeName: string,
 	storeFormat: string,
 	informantName: string,
+	underage: boolean,
+	quatity: string,
 	policeCallTime: string,
+	policeOperator: string,
 	upscale: string | null,
 	secondUpscale: string | null,
 	thirdUpscale: string | null
@@ -32,21 +35,30 @@ export const selectPlaceholder = {
 }
 export function generateReport(props: DetainedReportData): string {
 	console.log("render");
-	return `*${props.storeCode} - ${props.storeFormat} - ${props.storeName} - ${props.reportType} - ${props.time}* \nSe visualiza retenido en SEPP por intento de hurto, individuo de sexo femenino/masculino mayor de edad. Confirma ${props.informantName} quien solicita apoyo de Carabineros, se gestiona la llamada siendo las ${props.policeCallTime}hrs bajo el anexo 13565 y se mantiene en visual.
+	return `*${props.storeCode} - ${props.storeFormat} - ${props.storeName} - ${props.reportType} - ${props.time}* \nSe visualiza retenido en SEPP por intento de hurto, individuo de sexo femenino/masculino ${props.underage ? "menor de edad" : "mayor de edad" }. Confirma ${props.informantName} quien solicita apoyo de Carabineros, se gestiona la llamada siendo las ${props.policeCallTime}hrs bajo el anexo/operador ${props.policeOperator} y se mantiene en visual.
 	`;
 }
-export const addReport = (setReport: Function, date: string, storeCode: string, storeName: string, storeFormat: string, informant: string, policeCallTime: string, upscale: string | null, secondUpscale: string | null, thirdUpscale: string | null, navigation: any) => {
+export const addReport = (setReport: Function, time: string, storeCode: string, storeName: string, storeFormat: string, informant: string, underage: boolean, quatity: string, policeCallTime: string, policeOperator: string,  upscale: string | null, secondUpscale: string | null, thirdUpscale: string | null, navigation: any) => {
 	setReport({ 
-		time: date,
+		time: time,
 		reportType: "Detenido en SEPP",
 		storeCode: storeCode,
 		storeName: storeName,
 		storeFormat: storeFormat,
 		informantName: informant,
+		underage: underage,
+		quatity: quatity,
 		policeCallTime: policeCallTime,
+		policeOperator: policeOperator,
 		upscale: upscale,
 		secondUpscale: secondUpscale,
 		thirdUpscale: thirdUpscale,
 	});
 	navigation.navigate("FinishReport");
 };
+export const timeFormat24hrs = new RegExp('^([01]\\d|2[0-3]):[0-5]\\d$');
+export const storeCodeFormat = new RegExp('^(?:[0-6]?\\d{1,3}|7000)$');
+export const lettersOnlyFormat = new RegExp('^[a-zA-Z_ ]+( [a-zA-Z_ ]+)*$');
+export const lettersOrEmptyFormat = new RegExp('^[a-zA-Z0-9_ ]*$');
+export const numberOnlyFormat = new RegExp('\\b[1-9]\\b');
+export const wordsOrNumberFormat = new RegExp('^[\\w\\s]+$');
