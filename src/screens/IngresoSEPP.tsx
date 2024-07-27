@@ -1,150 +1,93 @@
-import { useState } from "react";
-import { StyleSheet, ScrollView, Text, View, TextInput, Pressable } from "react-native";
+import { useEffect, useState } from "react";
+import { ScrollView, Text, View, TextInput, Pressable } from "react-native";
 import { useAuth } from "../ApplicationState";
 import { Picker } from "@react-native-picker/picker";
+import { selectItems, addReport } from "../constants/constants";
+import { styles } from "../constants/ingresoSEPPStyles";
 
 export default function IngresoSEPPScreen({ navigation }) {
 	const [ date, setDate ] = useState("");
 	const [	storeCode, setStoreCode ] = useState("");
-	const [	storeFormat, setStoreFormat ] = useState("");
+	const [	storeFormat, setStoreFormat] = useState(selectItems[0].value);
 	const [	storeName, setStoreName ] = useState("");
 	const [	informant, setInformant ] = useState("");
 	const [	policeCallTime, setPoliceCallTime ] = useState("");
 	const [	upscale, setUpscale ] = useState("");
 	const [	secondUpscale, setSecondUpscale ] = useState("");
 	const [	thirdUpscale, setThirdUpscale ] = useState("");
+
+	const [ error, setError ] = useState("");
+
 	const { setReport } = useAuth();
-	const [selectedValue, setSelectedValue] = useState("java");
+	const submit = () => addReport(
+		setReport,
+		date,
+		storeFormat,
+		storeCode,
+		storeName,
+		informant,
+		policeCallTime,
+		upscale,
+		secondUpscale,
+		thirdUpscale,
+		navigation
+	);
 
-	const addReport = () => {
-		setReport({ 
-			time: date,
-			reportType: "Detenido en SEPP",
-			storeCode: storeCode,
-			storeName: storeName,
-			storeFormat: storeFormat,
-			informantName: informant,
-			policeCallTime: policeCallTime,
-			upscale: upscale,
-			secondUpscale: secondUpscale,
-			thirdUpscale: thirdUpscale,
-		});
-		navigation.navigate("FinishReport");
-	};
+	useEffect(()=> {
 
+	}, [
+		date,
+		storeCode,
+		storeName,
+		informant,
+		policeCallTime,
+		upscale,
+		secondUpscale,
+		thirdUpscale
+	])
 	return (
 		<ScrollView style={styles.mainContainer}>
-		<Text style={styles.title}>Ingreso a SEPP</Text>
-		<View style={styles.inputContainer}>
-		<Text style={styles.label}>Hora:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setDate(buffer)} value={date}/>
-		<Text style={styles.label}>Formato:</Text>
-		<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>
-		</View>
-		<Text style={styles.label}>N. de Local:</Text>
-		<TextInput  style={styles.border} onChangeText={(buffer) => setStoreCode(buffer)} value={storeCode}/>
-		<Text style={styles.label}>Nombre de Local:</Text>
-		<TextInput  style={styles.border} onChangeText={(buffer) => setStoreName(buffer)} value={storeName}/>
-		<Text style={styles.label}>Informante:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setInformant(buffer)} value={informant}/>
-		<Text style={styles.label}>Llamada a Carabineros:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setPoliceCallTime(buffer)} value={policeCallTime}/>
-		<Text style={styles.label}>Escalamiento Principal:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setUpscale(buffer)} value={upscale}/>
-		<Text style={styles.label}>Escalamiento Secundario:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setSecondUpscale(buffer)} value={secondUpscale}/>
-		<Text style={styles.label}>Escalamiento Terciario:</Text>
-		<TextInput style={styles.border} onChangeText={(buffer) => setThirdUpscale(buffer)} value={thirdUpscale}/>
-		<Pressable style={styles.button} onPress={addReport}>
-		<Text style={styles.buttonText}>Generar Reporte</Text>
-		</Pressable>
-		</View>
+			<View style={styles.inputContainer}>
+				<Text style={styles.label}>Hora:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setDate(buffer)} value={date}/>
+				{ error === "time" ? <Text>Bad hour format</Text> : null } 
+
+				<Text style={styles.label}>Formato:</Text>
+				<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>
+					<Picker 
+					selectedValue={storeFormat}
+					onValueChange={itemValue => setStoreFormat(itemValue)}
+					>
+					{ selectItems.map((item, index)=> <Picker.Item key={index} label={item.label} value={item.value} />) }
+					</Picker>
+				</View>
+
+				<Text style={styles.label}>N. de Local:</Text>
+				<TextInput cursorColor="gray"  style={styles.border} onChangeText={(buffer) => setStoreCode(buffer)} value={storeCode}/>
+
+				<Text style={styles.label}>Nombre de Local:</Text>
+				<TextInput cursorColor="gray"  style={styles.border} onChangeText={(buffer) => setStoreName(buffer)} value={storeName}/>
+
+				<Text style={styles.label}>Informante:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setInformant(buffer)} value={informant}/>
+
+				<Text style={styles.label}>Llamada a Carabineros:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setPoliceCallTime(buffer)} value={policeCallTime}/>
+
+				<Text style={styles.label}>Escalamiento Principal:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setUpscale(buffer)} value={upscale}/>
+
+				<Text style={styles.label}>Escalamiento Secundario:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setSecondUpscale(buffer)} value={secondUpscale}/>
+
+				<Text style={styles.label}>Escalamiento Terciario:</Text>
+				<TextInput cursorColor="gray" style={styles.border} onChangeText={(buffer) => setThirdUpscale(buffer)} value={thirdUpscale}/>
+
+				<Pressable style={error ? [styles.button, { opacity: 0.6, backgroundColor: 'gray' }] : styles.button} onPress={submit} disabled={!!error} >
+					<Text style={styles.buttonText}>Generar Reporte</Text>
+				</Pressable>
+			</View>
 		</ScrollView>
 	)
-
 }
 
-const styles = StyleSheet.create({
-	border: {
-		borderStyle: "solid",
-		borderWidth: 1,
-		borderColor: "#70717C",
-		paddingVertical: 15,
-		paddingHorizontal: 10,
-		borderRadius: 5
-	},
-	mainContainer: {
-	},
-	inputContainer: {
-		marginHorizontal: "auto",
-		paddingHorizontal: 20,
-		paddingBottom: 40,
-		maxWidth: 450,
-		width: "100%"
-	},
-	label: {
-		marginTop: 15,
-		marginBottom: 2,
-		fontWeight: "semibold",
-		fontSize: 18,
-	},
-	button: {
-		backgroundColor: "#101224",
-		marginTop: 30,
-		marginHorizontal: "auto",
-		paddingVertical: 20,
-		borderRadius: 5,
-		width: "100%",
-		paddingHorizontal: 20,
-	},
-	buttonText: {
-		color: "white",
-		marginHorizontal: "auto",
-		fontSize: 18,
-		fontWeight: "bold"
-	},
-	title: {
-		marginTop:  40,
-		marginBottom: 10,
-		fontSize: 30,
-		fontWeight: "bold",
-		marginHorizontal: "auto"
-	},
-	inputAndroid: {
-		fontSize: 16,
-		paddingHorizontal: 10,
-		paddingVertical: 8,
-		borderWidth: 0.5,
-		borderColor: 'gray',
-		borderRadius: 8,
-		color: 'black',
-		paddingRight: 30, // to ensure the text is never behind the icon
-	}
-});
-const pickerSelectStyles = StyleSheet.create({
-  inputIOS: {
-  },
-  inputAndroid: {
-    fontSize: 16,
-    paddingHorizontal: 20,
-    paddingVertical: 12,
-    borderWidth: 1,
-    borderColor: 'gray',
-    borderRadius: 5,
-    paddingRight: 30, // to ensure the text is never behind the icon
-  },
-  inputWeb: {
-	  paddingVertical: 16,
-	  paddingHorizontal: 10,
-	  fontSize: 16,
-	  borderRadius: 5,
-	  paddingRight: 30,
-	  borderColor: 'gray',
-	  backgroundColor: 'white',
-  },
-  iconContainer: {
-	  right: 30,
-	  top: "45%",
-	  color: "white"
-  }
-});

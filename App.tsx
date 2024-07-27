@@ -21,7 +21,8 @@ export default function App() {
   return (
 	  <AuthProvider>
 		  <NavigationContainer theme={customTheme}>
-			<Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: colors.blue },  headerTitleStyle: { color: 'white', fontWeight: 'bold', fontSize: 20 } }}>
+
+			<Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: colors.blue },  headerTitleStyle: { color: 'white', fontWeight: 'bold', fontSize: 20 }, headerTintColor: '#fff' }}>
 				<Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
 				<Stack.Screen name="IngresoSEPP" component={IngresoSEPPScreen}  />
 				<Stack.Screen name="FinishReport" component={FinishReportScreen}  />
