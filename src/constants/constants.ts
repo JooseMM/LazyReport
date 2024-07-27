@@ -34,9 +34,10 @@ export const selectPlaceholder = {
 	color: 'black'
 }
 export function generateReport(props: DetainedReportData): string {
-	console.log("render");
-	return `*${props.storeCode} - ${props.storeFormat} - ${props.storeName} - ${props.reportType} - ${props.time}* \nSe visualiza retenido en SEPP por intento de hurto, individuo de sexo femenino/masculino ${props.underage ? "menor de edad" : "mayor de edad" }. Confirma ${props.informantName} quien solicita apoyo de Carabineros, se gestiona la llamada siendo las ${props.policeCallTime}hrs bajo el anexo/operador ${props.policeOperator} y se mantiene en visual.
-	`;
+	const manyDetained = `Se visualizan retenidos en SEPP por intento de hurto, individuos serian ${props.underage ? "menores de edad" : "mayores de edad"}`;
+	const singleDetained = `Se visualiza retenido en SEPP por intento de hurto, individuo seria ${props.underage ? "menor de edad" : "mayor de edad"}`;
+	const underageUpscale = ` En conocimiento ${props.upscale}${props.secondUpscale != "" || props.secondUpscale !== undefined ? ", " + props.secondUpscale : "." }${props.thirdUpscale != "" || props.thirdUpscale !== undefined ? " y " + props.thirdUpscale : "." }`;
+	return `*${props.storeCode} - ${props.storeFormat} - ${props.storeName} - ${props.reportType} - ${props.time}* \n${props.quatity != "1" ? manyDetained : singleDetained}. Confirma ${props.informantName} quien solicita apoyo de Carabineros, cuya llamada se realiza siendo las ${props.policeCallTime}hrs bajo el anexo/operador ${props.policeOperator} y se mantiene en visual.${props.underage ? underageUpscale : ""}`;
 }
 export const addReport = (setReport: Function, time: string, storeCode: string, storeName: string, storeFormat: string, informant: string, underage: boolean, quatity: string, policeCallTime: string, policeOperator: string,  upscale: string | null, secondUpscale: string | null, thirdUpscale: string | null, navigation: any) => {
 	setReport({ 
