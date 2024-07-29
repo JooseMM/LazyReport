@@ -30,6 +30,7 @@ export default function HomeScreen({ navigation }) {
 const styles = StyleSheet.create({
 	mainContainer: {
 		marginTop: 60,
+		paddingHorizontal: 20,
 	},
 	heroImage: {
 		marginTop: 40,
