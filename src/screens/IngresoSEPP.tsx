@@ -26,9 +26,9 @@ export default function IngresoSEPPScreen({ navigation }) {
 	const submit = () => addReport(
 		setReport,
 		time,
-		storeFormat,
 		storeCode,
 		storeName,
+		storeFormat,
 		informant,
 		underage,
 		quatity,
