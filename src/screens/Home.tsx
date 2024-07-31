@@ -1,13 +1,11 @@
 import { Text, View, StyleSheet, Pressable, } from "react-native";
-import { reportOptions } from "../constants/constants";
+import { reportOptions } from "../constants/constantData";
 import Svg, { Path } from "react-native-svg";
-import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen({ navigation }) {
 
 	return (
 		<View>
-		<StatusBar style="light" />
 			<View style={styles.mainContainer}>
 				<View style={styles.heroImage}>
 					<Svg width="144" height="80" viewBox="0 0 144 80" fill="none">

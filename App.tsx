@@ -5,7 +5,8 @@ import { AuthProvider } from './src/ApplicationState';
 import HomeScreen from "./src/screens/Home";
 import IngresoSEPPScreen from "./src/screens/IngresoSEPP";
 import FinishReportScreen from './src/screens/FinishReport';
-import { colors } from "./src/constants/constants";
+import { colors } from "./src/constants/constantData";
+import { StatusBar } from 'expo-status-bar';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ const customTheme = {
 export default function App() {
   return (
 	  <AuthProvider>
+		<StatusBar style="light" />
 		  <NavigationContainer theme={customTheme}>
 			<Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: colors.blue },  headerTitleStyle: { color: 'white', fontWeight: 'bold', fontSize: 20 }, headerTintColor: '#fff' }}>
 				<Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
@@ -30,12 +32,3 @@ export default function App() {
 	  </AuthProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

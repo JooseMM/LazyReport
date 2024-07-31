@@ -2,8 +2,11 @@ import { useEffect, useState } from "react";
 import { ScrollView, Text, View, TextInput, Pressable } from "react-native";
 import { useAuth } from "../ApplicationState";
 import { Picker } from "@react-native-picker/picker";
-import { selectItems, addReport, timeFormat24hrs, storeCodeFormat, lettersOnlyFormat, lettersOrEmptyFormat, numberOnlyFormat, wordsOrNumberFormat} from "../constants/constants";
+import { timeFormat24hrs, storeCodeFormat, lettersOnlyFormat, lettersOrEmptyFormat, numberOnlyFormat, wordsOrNumberFormat} from "../constants/regexPatterns";
+import { addReport } from "../constants/helperMethods";
+import { selectItems } from "../constants/constantData";
 import { styles } from "../constants/ingresoSEPPStyles";
+import { DetainedReportProp } from "../constants/customTypes";
 
 export default function IngresoSEPPScreen({ navigation }) {
 	const [ time, setTime ] = useState("");
@@ -23,22 +26,27 @@ export default function IngresoSEPPScreen({ navigation }) {
 	const [ error, setError ] = useState([]);
 	const { setReport } = useAuth();
 
-	const submit = () => addReport(
-		setReport,
-		time,
-		storeCode,
-		storeName,
-		storeFormat,
-		informant,
-		underage,
-		quatity,
-		policeCallTime,
-		policeOperator,
-		upscale,
-		secondUpscale,
-		thirdUpscale,
-		navigation
-	);
+	const onSubmit = () => {
+		const newReport: DetainedReportProp = {
+			time: time,
+			reportType: "Detenido en SEPP",
+			storeCode: storeCode,
+			storeName: storeName,
+			storeFormat: storeFormat,
+			informantName: informant,
+			underage: underage,
+			quatity: quatity,
+			policeCallTime: policeCallTime,
+			policeOperator: policeOperator,
+			upscale: upscale,
+			secondUpscale: secondUpscale,
+			thirdUpscale: thirdUpscale,
+			setReport: setReport,
+			navigation: navigation
+		};
+
+		addReport(newReport);
+	};
 
 	const touch = (focusInput: string) => {
 		setError(error.filter(value => value != focusInput));
@@ -151,7 +159,7 @@ export default function IngresoSEPPScreen({ navigation }) {
 				/>
 				{ error.includes("thirdUpscale") ? <Text style={{ color: 'red' }}>Nombre de escalamiento invalido</Text> : null } 
 
-				<Pressable style={ !isDataValid() ? [styles.button, { opacity: 0.6, backgroundColor: 'gray' }] : styles.button} onPress={submit} disabled={!isDataValid()} >
+				<Pressable style={ !isDataValid() ? [styles.button, { opacity: 0.6, backgroundColor: 'gray' }] : styles.button} onPress={onSubmit} disabled={!isDataValid()} >
 					<Text style={styles.buttonText}>Generar Reporte</Text>
 				</Pressable>
 			</View>
