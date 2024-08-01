@@ -1,10 +1,6 @@
-import { Dispatch, SetStateAction, createContext, useContext, useState, ReactNode, ReactElement } from "react";
-import { DetainedReportData } from "../constants/constants";
+import { createContext, useContext, useState, ReactNode, ReactElement } from "react";
+import { DetainedReportData, AuthContextType } from "./constants/customTypes";
 
-type AuthContextType = {
-	report: DetainedReportData | null;
-	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
-}
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 

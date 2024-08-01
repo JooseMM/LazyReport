@@ -1,3 +1,5 @@
+import { SetStateAction, Dispatch } from "react";
+
 export type DetainedReportData = {
 	time: string,
 	reportType: string,
@@ -17,4 +19,8 @@ export type DetainedReportData = {
 export interface DetainedReportProp extends DetainedReportData {
 	setReport: Function,
 	navigation: any
+}
+export type AuthContextType = {
+	report: DetainedReportData | null;
+	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
 }
