@@ -1,7 +1,8 @@
-import { Text, View, Pressable } from "react-native";
+import { View } from "react-native";
 import { reportOptions } from "../../constants/constantData";
 import Svg, { Path } from "react-native-svg";
 import { styles } from "./styles";
+import { Button } from "../../components/mainButton";
 
 export default function HomeScreen({ navigation }) {
 
@@ -18,9 +19,9 @@ export default function HomeScreen({ navigation }) {
 				{
 					reportOptions.map((report, index)=> {
 						return (
-							<Pressable key={index} style={[styles.buttonContainer, { marginTop: index != 0 ? 20 : 0 }]} onPress={() => navigation.navigate(report.path)}>
-								<Text style={styles.text}>{report.name}</Text>
-							</Pressable>
+							<View key={index} style={{ marginTop: index != 0 ? 20 : 0 }}>
+							 	<Button text={report.name} onButtonPressed={() => navigation.navigate(report.path)} disable={false} />
+							</View>
 						)})
 				}
 				</View>

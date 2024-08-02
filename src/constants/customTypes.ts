@@ -24,3 +24,10 @@ export type AuthContextType = {
 	report: DetainedReportData | null;
 	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
 }
+
+export type buttonProps = {
+	text: string,
+	onButtonPressed: Function,
+	disable: boolean | undefined
+}
+

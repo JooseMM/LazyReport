@@ -14,6 +14,7 @@ import {
 	numberOnlyFormat,
 	wordsOrNumberFormat
 } from "../../constants/regexPatterns";
+import { Button } from "../../components/mainButton";
 
 export default function IngresoSEPPScreen({ navigation }) {
 	const [ time, setTime ] = useState("");
@@ -166,9 +167,9 @@ export default function IngresoSEPPScreen({ navigation }) {
 				/>
 				{ error.includes("thirdUpscale") ? <Text style={{ color: 'red' }}>Nombre de escalamiento invalido</Text> : null } 
 
-				<Pressable style={ !isDataValid() ? [styles.button, { opacity: 0.6, backgroundColor: 'gray' }] : styles.button} onPress={onSubmit} disabled={!isDataValid()} >
-					<Text style={styles.buttonText}>Generar Reporte</Text>
-				</Pressable>
+				<View style={{ marginTop: 25 }}>
+					<Button onButtonPressed={() => onSubmit} disable={!isDataValid()} text="Generar Reporte" />
+				</View>
 			</View>
 		</ScrollView>
 	)
