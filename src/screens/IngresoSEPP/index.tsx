@@ -14,7 +14,7 @@ import {
 	numberOnlyFormat,
 	wordsOrNumberFormat
 } from "../../constants/regexPatterns";
-import { Button } from "../../components/mainButton";
+import Button from "../../components/MainButton";
 
 export default function IngresoSEPPScreen({ navigation }) {
 	const [ time, setTime ] = useState("");
@@ -64,7 +64,7 @@ export default function IngresoSEPPScreen({ navigation }) {
 	const isDataValid = ():boolean => error.length === 0 && touched ? true : false;
 
 	return (
-		<ScrollView style={styles.mainContainer}>
+		<ScrollView>
 			<View style={styles.inputContainer}>
 				<Text style={styles.label}>Hora:</Text>
 				<TextInput cursorColor="gray" style={error.includes("time") ? [styles.border, { borderColor: 'red' }] : styles.border} 
@@ -72,7 +72,7 @@ export default function IngresoSEPPScreen({ navigation }) {
 				onEndEditing={()=> !timeFormat24hrs.test(time) ? setError([...error, "time"]) : setError(error.filter(value => value != "time"))}
 				onFocus={() => touch("time")}
 				/>
-				{ error.includes("time") ? <Text style={{ color: 'red' }}>Formato de horas invalido</Text> : null } 
+				{ error.includes("time") ? <Text style={{ color: 'red' }}></Text> : null } 
 
 				<Text style={styles.label}>Formato:</Text>
 				<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>

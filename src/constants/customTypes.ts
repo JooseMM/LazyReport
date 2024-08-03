@@ -19,15 +19,22 @@ export type DetainedReportData = {
 export interface DetainedReportProp extends DetainedReportData {
 	setReport: Function,
 	navigation: any
-}
+};
 export type AuthContextType = {
 	report: DetainedReportData | null;
 	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
-}
+};
 
 export type buttonProps = {
 	text: string,
 	onButtonPressed: Function,
 	disable: boolean | undefined
-}
+};
 
+export type CustomInput = {
+	input: string,
+	validationState: string[],
+	setInput: Dispatch<SetStateAction<string | null>>,
+	setValidationState: Dispatch<SetStateAction<string[]>>
+	type: "time" | "name" | "annex" | "storeCode" | "number" | "upscale"
+};
