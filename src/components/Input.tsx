@@ -1,11 +1,12 @@
 import { Text, View, TextInput, StyleSheet } from "react-native";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { timeFormat24hrs, numberOnlyFormat, wordsOrNumberFormat, lettersOnlyFormat, storeCodeFormat, lettersOrEmptyFormat } from "../constants/regexPatterns";
-import { CustomInput, InputTypes } from "../constants/customTypes";
+import { CustomInput, ValidationOutput } from "../constants/customTypes";
+
 
 export default function Input(props: CustomInput) {
 	const [ invalid, setInvalid ] = useState(false);
-	const [ outputKeyword, setOutputKeyword ] = useState("datos");
+	const [ outputKeyword, setOutputKeyword ] = useState<string>();
 	const [ edited, setEdited ] = useState(false);
 
 	const validation = () => {
@@ -13,6 +14,7 @@ export default function Input(props: CustomInput) {
 		case "time":
 			setInvalid(edited && timeFormat24hrs.test(props.input) ? false : true)
 			setOutputKeyword("horas");
+			console.log("time fire");
 			break;
 		case "name":
 			setInvalid(edited && lettersOnlyFormat.test(props.input) ? false : true)
@@ -39,16 +41,30 @@ export default function Input(props: CustomInput) {
 			throw new Error("Validation error: Invalid Input Type");
 		}
 
-		props.setInvalidInput(invalid);
-		
+		if(invalid && !props.invalidInput.includes(outputKeyword as ValidationOutput)) {
+			setValidationError();
+			console.log("fire");
+		}
+		else 
+			props.setInvalidInput(props.invalidInput.filter(value => value !== props.type));
 	}
 
+	const setValidationError = () => {
+		if(props.type != "upscale" && "number")
+			props.setInvalidInput([...props.invalidInput, props.type]);
+	}
+
+	useEffect(() => {
+		setValidationError();
+		console.log(props.type);
+		console.log(props.invalidInput);
+	}, []);
 	return (
 		<View>
 			<Text style={styles.label}>{ props.label + ":" }</Text>
 			<TextInput placeholder={props.placeholder} placeholderTextColor="gray" cursorColor="gray" style={ invalid ? [styles.border, { borderColor: 'red' }] : styles.border} 
 			onChangeText={(buffer) => props.setInput(buffer)} value={props.input} 
-			onEndEditing={()=> validation()}
+			onEndEditing={validation}
 			onFocus={() => setEdited(true)}
 			/>
 			{ invalid ? <Text style={{ color: 'red' }}>Formato de{ " " + outputKeyword }Incorrecto</Text> : null } 
