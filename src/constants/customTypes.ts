@@ -31,10 +31,13 @@ export type buttonProps = {
 	disable: boolean | undefined
 };
 
-export type CustomInput = {
-	input: string,
-	validationState: string[],
-	setInput: Dispatch<SetStateAction<string | null>>,
-	setValidationState: Dispatch<SetStateAction<string[]>>
+export type InputTypes = {
 	type: "time" | "name" | "annex" | "storeCode" | "number" | "upscale"
+};
+export interface CustomInput extends InputTypes  {
+	input: string,
+	placeholder: string
+	label: string,
+	setInput: Dispatch<SetStateAction<string | null>>,
+	setInvalidInput: Dispatch<SetStateAction<boolean>>,
 };

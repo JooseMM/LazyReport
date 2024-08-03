@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { reportOptions } from "../../constants/constantData";
 import Svg, { Path } from "react-native-svg";
 import { styles } from "./styles";
-import { Button } from "../../components/mainButton";
+import Button from "../../components/MainButton";
 
 export default function HomeScreen({ navigation }) {
 

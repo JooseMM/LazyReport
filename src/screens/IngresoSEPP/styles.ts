@@ -10,6 +10,12 @@ export const styles = StyleSheet.create({
 		maxWidth: 450,
 		width: "100%"
 	},
+	label: {
+		marginTop: 15,
+		marginBottom: 2,
+		fontWeight: "semibold",
+		fontSize: 18,
+	},
 	buttonText: mainButtonTextStyle,
 	button: { 
 		...mainButtonStyle,
