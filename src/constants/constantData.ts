@@ -4,6 +4,20 @@ export const reportOptions = [
 	{ name: "Perdida de Enlace", path: "/"},
 	{ name: "Corte de Suministro", path: "/"},
 ];
+export const inputID = {
+	time: "Hora",
+	format: "Formato",
+	storeCode: "Codigo de Local",
+	storeName: "Nombre de Local",
+	informant: "Informante",
+	underage: "Menor de Edad",
+	quatity: "Cantidad de Retenidos",
+	policeCall: "Hora de Llamada a Carabineros",
+	annex: "Operador o Anexo",
+	upscale: "Escalamiento Principal",
+	upscale2: "Escalamiento Secundario",
+	upscale3: "Escalamiento Terciario"
+}
 export const colors = {
 	blue: "#101224"
 };

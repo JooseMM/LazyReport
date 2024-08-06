@@ -35,13 +35,11 @@ export type InputTypes = {
 	type: "time" | "name" | "annex" | "storeCode" | "number" | "upscale"
 };
 
-export type ValidationOutput = "time" | "name" | "annex" | "storeCode" | "number" | "upscale";
-
 export interface CustomInput extends InputTypes  {
 	input: string,
 	placeholder: string
 	label: string,
-	invalidInput: ValidationOutput[],
+	invalidState: string[],
 	setInput: Dispatch<SetStateAction<string | null>>,
-	setInvalidInput: Dispatch<SetStateAction<ValidationOutput[]>>,
+	setInvalidState: Dispatch<SetStateAction<string[]>>,
 };

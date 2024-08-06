@@ -3,9 +3,9 @@ import { ScrollView, Text, View } from "react-native";
 import { useAuth } from "../../ApplicationState";
 import { Picker } from "@react-native-picker/picker";
 import { addReport } from "../../constants/helperMethods";
-import { selectItems } from "../../constants/constantData";
+import { inputID, selectItems } from "../../constants/constantData";
 import { styles } from "./styles";
-import { DetainedReportProp, InputTypes, ValidationOutput } from "../../constants/customTypes";
+import { DetainedReportProp } from "../../constants/customTypes";
 import Button from "../../components/MainButton";
 import Input from "../../components/Input";
 
@@ -23,7 +23,14 @@ export default function IngresoSEPPScreen({ navigation }) {
 	const [	secondUpscale, setSecondUpscale ] = useState("");
 	const [	thirdUpscale, setThirdUpscale ] = useState("");
 
-	const [ invalidReport, setInvalidReport ] = useState(Array<ValidationOutput>);
+	const [ invalidInputState, setInvalidInputState ] = useState<Array<string>>([
+		inputID.time,
+		inputID.storeCode,
+		inputID.storeName,
+		inputID.underage,
+		inputID.policeCall,
+		inputID.annex,
+	]);
 	const { setReport } = useAuth();
 
 	const onSubmit = () => {
@@ -46,13 +53,12 @@ export default function IngresoSEPPScreen({ navigation }) {
 		};
 
 		addReport(newReport);
-		console.log("fire");
 	};
 
 	return (
 		<ScrollView>
 			<View style={styles.inputContainer}>
-				<Input label="Hora" input={time} setInput={setTime} type="time" placeholder="Ejemplo: 03:08" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
+				<Input label={inputID.time} input={time} setInput={setTime} type="time" placeholder="Ejemplo: 03:08" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
 
 				<Text style={styles.label}>Formato:</Text>
 				<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>
@@ -63,8 +69,8 @@ export default function IngresoSEPPScreen({ navigation }) {
 					{ selectItems.map((item, index)=> <Picker.Item key={index} label={item.label} value={item.value} />) }
 					</Picker>
 				</View>
-				<Input label="Codigo de Local" input={storeCode} setInput={setStoreCode} type="storeCode" placeholder="4" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
-				<Input label="Nombre de Local" input={storeName} setInput={setStoreName} type="name" placeholder="Lyons" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
+				<Input label={inputID.storeCode} input={storeCode} setInput={setStoreCode} type="storeCode" placeholder="4" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label="Nombre de Local" input={storeName} setInput={setStoreName} type="name" placeholder="Lyons" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
 
 				<Text style={styles.label}>Retenidos menores de edad:</Text>
 				<View style={{borderWidth: 1, borderColor: 'gray', borderRadius: 5}}>
@@ -77,16 +83,17 @@ export default function IngresoSEPPScreen({ navigation }) {
 					</Picker>
 				</View>
 
-				<Input label="Cantidad" input={quatity} setInput={setQuantity} type="number" placeholder="1" invalidInput={invalidReport} setInvalidInput={setInvalidReport}  />
-				<Input label="Informante" input={informant} setInput={setInformant} type="name" placeholder="Rodrigo Ramirez GGSS" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
-				<Input label="Llamada a Carabineros" input={policeCallTime} setInput={setPoliceCallTime} type="time" placeholder="03:40" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
-				<Input label="Anexo o Operador" input={policeOperator} setInput={setPoliceOperator} type="annex" placeholder="13564 / Cadete Rodrigo Rojas" invalidInput={invalidReport}  setInvalidInput={setInvalidReport} />
-				<Input label="Escalamiento Principal" input={upscale} setInput={setUpscale} type="upscale" placeholder="Juan Garcia GTEO" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
-				<Input label="Escalamiento Secundario" input={secondUpscale} setInput={setSecondUpscale} type="upscale" placeholder="Luis Riquelme Zonal AP" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
-				<Input label="Escalamiento Terciario" input={thirdUpscale} setInput={setThirdUpscale} type="upscale" placeholder="Ana Mendez Jefe de Formato" invalidInput={invalidReport} setInvalidInput={setInvalidReport} />
+				<Input label={inputID.quatity} input={quatity} setInput={setQuantity} type="number" placeholder="1" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.informant} input={informant} setInput={setInformant} type="name" placeholder="Rodrigo Ramirez GGSS" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.policeCall} input={policeCallTime} setInput={setPoliceCallTime} type="time" placeholder="03:40" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.annex} input={policeOperator} setInput={setPoliceOperator} type="annex" placeholder="13564 / Cadete Rodrigo Rojas" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.upscale} input={upscale} setInput={setUpscale} type="upscale" placeholder="Juan Garcia GTEO" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.upscale2} input={secondUpscale} setInput={setSecondUpscale} type="upscale" placeholder="Luis Riquelme Zonal AP" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
+				<Input label={inputID.upscale3} input={thirdUpscale} setInput={setThirdUpscale} type="upscale" placeholder="Ana Mendez Jefe de Formato" invalidState={invalidInputState} setInvalidState={setInvalidInputState} />
 
+				{ invalidInputState.map(value => <Text>{value}</Text>)}
 				<View style={{ marginTop: 25 }}>
-					<Button onButtonPressed={()=> console.log(invalidReport)} disable={false} text="Generar Reporte" />
+					<Button onButtonPressed={()=> null } disable={false} text="Generar Reporte" />
 				</View>
 			</View>
 		</ScrollView>

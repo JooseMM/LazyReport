@@ -1,73 +1,53 @@
 import { Text, View, TextInput, StyleSheet } from "react-native";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { timeFormat24hrs, numberOnlyFormat, wordsOrNumberFormat, lettersOnlyFormat, storeCodeFormat, lettersOrEmptyFormat } from "../constants/regexPatterns";
-import { CustomInput, ValidationOutput } from "../constants/customTypes";
+import { CustomInput } from "../constants/customTypes";
 
 
 export default function Input(props: CustomInput) {
-	const [ invalid, setInvalid ] = useState(false);
-	const [ outputKeyword, setOutputKeyword ] = useState<string>();
 	const [ edited, setEdited ] = useState(false);
+
+	const validateInput = (isValid: boolean) => { 
+		if(isValid) 
+			props.setInvalidState(props.invalidState.filter(value => value != props.input));
+		else if(!props.invalidState.includes(props.label))
+			props.setInvalidState([...props.invalidState, props.label]);
+	}
 
 	const validation = () => {
 		switch(props.type) {
 		case "time":
-			setInvalid(edited && timeFormat24hrs.test(props.input) ? false : true)
-			setOutputKeyword("horas");
-			console.log("time fire");
+			validateInput(timeFormat24hrs.test(props.input));
 			break;
 		case "name":
-			setInvalid(edited && lettersOnlyFormat.test(props.input) ? false : true)
-			setOutputKeyword("nombre");
+			validateInput(lettersOnlyFormat.test(props.input))
 			break;
 		case "annex":
-			setInvalid(edited && wordsOrNumberFormat.test(props.input) ? false : true)
-			setOutputKeyword("anexo o operador");
+			validateInput(wordsOrNumberFormat.test(props.input))
 			break;
 		case "storeCode":
-			setInvalid(edited && storeCodeFormat.test(props.input) ? false : true)
-			setOutputKeyword("codigo");
+			validateInput(storeCodeFormat.test(props.input))
 			break;
 		case "number":
-			setInvalid(edited && numberOnlyFormat.test(props.input) ? false : true)
-			setOutputKeyword("numero");
+			validateInput(numberOnlyFormat.test(props.input))
 			break;
 		case "upscale":
-			setInvalid(lettersOrEmptyFormat.test(props.input) ? false : true)
-			setOutputKeyword("nombre");
+			validateInput(lettersOrEmptyFormat.test(props.input))
 			break;
 		default:
-			console.log("Validation Error: Invalid Input Type");
 			throw new Error("Validation error: Invalid Input Type");
 		}
-
-		if(invalid && !props.invalidInput.includes(outputKeyword as ValidationOutput)) {
-			setValidationError();
-			console.log("fire");
-		}
-		else 
-			props.setInvalidInput(props.invalidInput.filter(value => value !== props.type));
-	}
-
-	const setValidationError = () => {
-		if(props.type != "upscale" && "number")
-			props.setInvalidInput([...props.invalidInput, props.type]);
-	}
-
-	useEffect(() => {
-		setValidationError();
-		console.log(props.type);
-		console.log(props.invalidInput);
-	}, []);
+	};
+			
 	return (
 		<View>
 			<Text style={styles.label}>{ props.label + ":" }</Text>
-			<TextInput placeholder={props.placeholder} placeholderTextColor="gray" cursorColor="gray" style={ invalid ? [styles.border, { borderColor: 'red' }] : styles.border} 
+			<TextInput placeholder={props.placeholder} placeholderTextColor="gray" cursorColor="gray" style={ props.invalidState.includes(props.label) && edited ? [styles.border, { borderColor: 'red' }] : styles.border} 
 			onChangeText={(buffer) => props.setInput(buffer)} value={props.input} 
-			onEndEditing={validation}
+			onEndEditing={() => validateInput(true)}
 			onFocus={() => setEdited(true)}
 			/>
-			{ invalid ? <Text style={{ color: 'red' }}>Formato de{ " " + outputKeyword }Incorrecto</Text> : null } 
+			{ props.invalidState.includes(props.label) && edited ? <Text style={{ color: 'red' }}>Formato de { props.label.toLowerCase() } Incorrecto</Text> : null } 
 		</View>
 	);
 }
