@@ -16,10 +16,6 @@ export type DetainedReportData = {
 	thirdUpscale: string | null
 };
 
-export interface DetainedReportProp extends DetainedReportData {
-	setReport: Function,
-	navigation: any
-};
 export type AuthContextType = {
 	report: DetainedReportData | null;
 	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
@@ -32,14 +28,14 @@ export type buttonProps = {
 };
 
 export type InputTypes = {
-	type: "time" | "name" | "annex" | "storeCode" | "number" | "upscale"
+	type: "entryTime" | "localNumber" | "localFormat" | "localName" |
+		"informantName" | "isUnderage" | "emergencyCallTime" | "callOperator" |
+		"firstUpscale" | "secondUpscale" | "thirdUpscale" | "Quantity";
 };
 
 export interface CustomInput extends InputTypes  {
-	input: string,
-	placeholder: string
-	label: string,
-	invalidState: string[],
-	setInput: Dispatch<SetStateAction<string | null>>,
-	setInvalidState: Dispatch<SetStateAction<string[]>>,
+	placeholder: string,
+	setReport: Dispatch<SetStateAction<DetainedReportData>>;
+	setInvalidInputs: Dispatch<SetStateAction<Array<string>>>;
+
 };

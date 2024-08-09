@@ -1,3 +1,6 @@
+import { Key } from "react";
+import { InputTypes } from "./customTypes";
+
 export const reportOptions = [
 	{ name: "Detenido en SEPP", path: "IngresoSEPP"},
 	{ name: "Status de Detenidos", path: "StatusSEPP"},
@@ -5,14 +8,14 @@ export const reportOptions = [
 	{ name: "Corte de Suministro", path: "/"},
 ];
 export const inputID = {
-	time: "Hora",
-	format: "Formato",
-	storeCode: "Codigo de Local",
-	storeName: "Nombre de Local",
-	informant: "Informante",
-	underage: "Menor de Edad",
-	quatity: "Cantidad de Retenidos",
-	policeCall: "Hora de Llamada a Carabineros",
+	time: "EntryTime",
+	format: "localFormat",
+	storeCode: "localNumber",
+	storeName: "storeName",
+	informant: "informantName",
+	underage: "isUnderage",
+	quatity: "quantity",
+	policeCall: "",
 	annex: "Operador o Anexo",
 	upscale: "Escalamiento Principal",
 	upscale2: "Escalamiento Secundario",
