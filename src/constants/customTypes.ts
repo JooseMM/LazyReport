@@ -3,39 +3,43 @@ import { SetStateAction, Dispatch } from "react";
 export type DetainedReportData = {
 	time: string,
 	reportType: string,
-	storeCode: string,
+	storeNumber: string,
 	storeName: string,
 	storeFormat: string,
 	informantName: string,
-	underage: boolean,
-	quatity: string,
-	policeCallTime: string,
-	policeOperator: string,
-	upscale: string | null,
+	isUnderage: boolean,
+	quantity: string,
+	emergencyCallTime: string,
+	emergencyOperator: string,
+	firstUpscale: string | null,
 	secondUpscale: string | null,
-	thirdUpscale: string | null
+	thirdUpscale: string | null,
 };
 
+export type InputID = 	 "time" | "storeNumber" | "storeFormat" | "storeName" | "informantName" | "isUnderage" | "emergencyCallTime" | "emergencyOperator" | "firstUpscale" | "secondUpscale" | "thirdUpscale" | "quantity";
+
+export type InputTypes = {
+	id: InputID,
+	label: string,
+	placeholder: string,
+	validationKeyword: string,
+	regExpValidator: RegExp,
+}
+
 export type AuthContextType = {
-	report: DetainedReportData | null;
-	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>;
+	report: DetainedReportData | null,
+	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>,
 };
 
 export type buttonProps = {
 	text: string,
 	onButtonPressed: Function,
-	disable: boolean | undefined
+	disable: boolean | undefined,
 };
 
-export type InputTypes = {
-	type: "entryTime" | "localNumber" | "localFormat" | "localName" |
-		"informantName" | "isUnderage" | "emergencyCallTime" | "callOperator" |
-		"firstUpscale" | "secondUpscale" | "thirdUpscale" | "Quantity";
-};
 
-export interface CustomInput extends InputTypes  {
-	placeholder: string,
-	setReport: Dispatch<SetStateAction<DetainedReportData>>;
-	setInvalidInputs: Dispatch<SetStateAction<Array<string>>>;
-
+export interface ReportStateUpdaters {
+	updateReportState: Dispatch<SetStateAction<DetainedReportData>>,
+	updateInvalidInputState: Dispatch<SetStateAction<Array<InputID>>>,
+	arrayIndex: number,
 };
