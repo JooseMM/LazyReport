@@ -1,13 +1,12 @@
 import { Text, View } from "react-native";
-import { Dispatch, SetStateAction, useState } from "react";
+import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { DetainedReportData, ReportStateUpdaters } from  "../../constants/customTypes";
-import { INPUT_ARRAY } from "../../constants/constantData";
+import { ReportStateUpdaters } from  "../../constants/customTypes";
 import { styles } from "./styles";
 
 export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	const [ selected, setSelected ] = useState<string | boolean>();
-	const { id, label, placeholder, options } = INPUT_ARRAY[props.arrayIndex]
+	const { id, label, placeholder, options } = props.inputObject;
 
 	const updateState = (selected: string | boolean) => {
 		setSelected(selected);

@@ -1,12 +1,12 @@
-import { Text, View, TextInput, Pressable } from "react-native";
+import { Text, View, TextInput } from "react-native";
 import { useAuth } from "../../ApplicationState";
 import { generateReport } from "../../constants/helperMethods";
 import { useEffect, useState } from "react";
 import * as Clipboard from "expo-clipboard";
-import { styles } from "./styles";
-import Button from "../../components/MainButton";
+import styles from "./styles";
+import Button from "../../components/MainButton/MainButton";
 
-export default function FinishReportScreen() {
+export default function ReportScreen() {
 	const { report } = useAuth();
 	const [ finalReport, setFinalReport ] = useState(undefined);
 	useEffect(()=> { setFinalReport(generateReport(report)) }, []);

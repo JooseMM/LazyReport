@@ -18,7 +18,7 @@ export type DetainedReportData = {
 
 export type InputID = 	 "time" | "storeNumber" | "storeFormat" | "storeName" | "informantName" | "isUnderage" | "emergencyCallTime" | "emergencyOperator" | "firstUpscale" | "secondUpscale" | "thirdUpscale" | "quantity";
 
-export type InputTypes = {
+export type InputObject = {
 	id: InputID,
 	label: string,
 	placeholder: string,
@@ -42,5 +42,5 @@ export type buttonProps = {
 export interface ReportStateUpdaters {
 	updateReportState: Dispatch<SetStateAction<DetainedReportData>>,
 	updateInvalidInputState: Dispatch<SetStateAction<Array<InputID>>>,
-	arrayIndex: number,
+	inputObject: InputObject,
 };

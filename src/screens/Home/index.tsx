@@ -1,8 +1,8 @@
 import { View } from "react-native";
-import { reportOptions } from "../../constants/constantData";
+import { REPORT_OPTIONS } from "../../constants/constantData";
 import Svg, { Path } from "react-native-svg";
 import { styles } from "./styles";
-import Button from "../../components/MainButton";
+import Button from "../../components/MainButton/MainButton";
 
 export default function HomeScreen({ navigation }) {
 
@@ -17,7 +17,7 @@ export default function HomeScreen({ navigation }) {
 				</View>
 				<View style={styles.optionsContainer}>
 				{
-					reportOptions.map((report, index)=> {
+					REPORT_OPTIONS.map((report, index)=> {
 						return (
 							<View key={index} style={{ marginTop: index != 0 ? 20 : 0 }}>
 							 	<Button text={report.name} onButtonPressed={() => navigation.navigate(report.path)} disable={false} />

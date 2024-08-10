@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { ReportStateUpdaters, InputID } from "../../constants/customTypes";
-import { INPUT_ARRAY, } from "../../constants/constantData";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
 
@@ -9,10 +8,11 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 	const [ input, setInput ] = useState<string>("");
 	const [ validInput, setValidInput ] = useState<boolean>(false);
 	const [ edited, setEdited ] = useState<boolean>(false);
-	const { id, label, placeholder, validationKeyword, regExpValidator } = INPUT_ARRAY[props.arrayIndex]
+	const { id, label, placeholder, validationKeyword, regExpValidator } = props.inputObject;
 
 	const validateInput = () => {
 		const isValid = regExpValidator.test(input);
+
 		if(isValid) {
 			props.updateInvalidInputState((prev: Array<InputID>)=> prev.filter(match=> match != id));
 			props.updateReportState(prev => ({ ...prev, [id]: input}));
