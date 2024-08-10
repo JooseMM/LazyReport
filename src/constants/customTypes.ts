@@ -24,6 +24,7 @@ export type InputTypes = {
 	placeholder: string,
 	validationKeyword: string,
 	regExpValidator: RegExp,
+	options: Array<{ label: string, value: string | boolean }> | null;
 }
 
 export type AuthContextType = {

@@ -7,6 +7,14 @@ export const reportOptions = [
 	{ name: "Perdida de Enlace", path: "/"},
 	{ name: "Corte de Suministro", path: "/"},
 ];
+
+export const FORMATS_ARRAY = [
+	{ label: "Hiper Lider", value: "HL" },
+	{ label: "Lider Express", value: "LE" },
+	{ label: "Super Bodega Acuenta", value: "SBA" },
+	{ label: "Central Mayorista", value: "CM" },
+];
+
 export const INIT_REPORT_STATE: DetainedReportData = {
 		time: "",
 		reportType: "",
@@ -31,6 +39,7 @@ export const INPUT_BASE : Array<InputTypes> = [
 		placeholder: "Ejem: Express",
 		validationKeyword: " ",
 		regExpValidator: null,
+		options: FORMATS_ARRAY,
 	},
 	{
 		id: "storeName",
@@ -38,6 +47,7 @@ export const INPUT_BASE : Array<InputTypes> = [
 		placeholder: "Ejem: Lyons",
 		validationKeyword: "nombre de local",
 		regExpValidator: lettersOnlyFormat,
+		options: null
 	},
 	{
 		id: "storeNumber",
@@ -45,6 +55,7 @@ export const INPUT_BASE : Array<InputTypes> = [
 		placeholder: "Ejem: 04",
 		validationKeyword: "numero de local",
 		regExpValidator: storeCodeFormat,
+		options: null,
 	},
 ];
 
@@ -55,6 +66,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: 03:08 (formato: HH:mm)",
 		validationKeyword: "hora",
 		regExpValidator: timeFormat24hrs,
+		options: null,
 	},
 	{
 		id: "isUnderage",
@@ -62,6 +74,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: No",
 		validationKeyword: "",
 		regExpValidator: null,
+		options: [ { label: "No", value: false }, { label: "Si", value: true } ]
 	},
 	{
 		id: "quantity",
@@ -69,6 +82,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: 1",
 		validationKeyword: "cantidad",
 		regExpValidator: numberOnlyFormat,
+		options: null,
 	}, 
 	{
 		id: "informantName",
@@ -76,6 +90,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: Cristian Sepulveda GGSS",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: lettersOnlyFormat,
+		options: null,
 	},
 	{
 		id: "emergencyCallTime",
@@ -83,6 +98,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: 03:15 (formato: HH:mm)",
 		validationKeyword: "hora",
 		regExpValidator: timeFormat24hrs,
+		options: null,
 	},
 	{
 		id: "emergencyOperator",
@@ -90,6 +106,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: 13653 o Carabinero Juan Alberto",
 		validationKeyword: "nombre o anexo",
 		regExpValidator: wordsOrNumberFormat,
+		options: null,
 	},
 	{
 		id: "firstUpscale",
@@ -97,6 +114,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: Juan Vega GTEO",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: lettersOrEmptyFormat,
+		options: null,
 	}, 
 	{
 		id: "secondUpscale",
@@ -104,6 +122,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: Ingrid Arancibia Zonal AP",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: lettersOrEmptyFormat,
+		options: null,
 	},
 	{
 		id: "thirdUpscale",
@@ -111,6 +130,7 @@ export const DETAINED_INPUT: Array<InputTypes> = [
 		placeholder: "Ejem: Ronald Gonzalez Jefe de Formato",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: lettersOrEmptyFormat,
+		options: null,
 	}
 ];
 
@@ -119,14 +139,3 @@ export const INPUT_ARRAY = [...INPUT_BASE, ...DETAINED_INPUT];
 export const colors = {
 	blue: "#101224"
 };
-export const selectFormats = [
-	{ name: "Hiper Lider", short: "HL" },
-	{ name: "Lider Express", short: "LE" },
-	{ name: "Super Bodega Acuenta", short: "SBA" },
-	{ name: "Central Mayorista", short: "CM" },
-];
-export const selectPlaceholder = {
-	label: 'Selecciona un Formato...',
-	value: '',
-	color: 'black'
-}

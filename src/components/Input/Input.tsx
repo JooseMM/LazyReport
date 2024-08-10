@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { ReportStateUpdaters, InputID } from "../../constants/customTypes";
-import { INPUT_ARRAY, selectFormats } from "../../constants/constantData";
-import { PickerInput } from "./PickerInput";
+import { INPUT_ARRAY, } from "../../constants/constantData";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
 
 
-export default function Input(props: ReportStateUpdaters) {
+export default function TextBaseInput(props: ReportStateUpdaters) {
 	const [ input, setInput ] = useState<string>("");
 	const [ validInput, setValidInput ] = useState<boolean>(false);
 	const [ edited, setEdited ] = useState<boolean>(false);
@@ -27,20 +26,18 @@ export default function Input(props: ReportStateUpdaters) {
 	};
 
 	return (
-		id === "storeFormat" || id === "isUnderage" ? 
-			<PickerInput label={label} input={input} setInput={setInput} id={id}/>
-			:
-				(
-					<View>
-						<Text style={styles.label} >{ label }</Text>
-						<TextInput placeholder={placeholder} placeholderTextColor="gray" cursorColor="gray" style={ edited && !validInput? [styles.border, { borderColor: 'red' }] : styles.border} 
-						onChangeText={(buffer) => setInput(buffer)} value={input} 
-						onEndEditing={validateInput}
-						onFocus={()=> setEdited(false)}
-						/>
-						{ edited && !validInput ? <Text style={{color: "red"}}>Formato de { validationKeyword } invalido</Text> : null}
-					</View>
-			)
+		<View>
+			<Text style={styles.label} >{ label }</Text>
+			<TextInput placeholder={placeholder} 
+			placeholderTextColor="gray"
+			cursorColor="gray"
+			style={ edited && !validInput? [styles.border, { borderColor: 'red' }] : styles.border} 
+			onChangeText={(buffer) => setInput(buffer)} value={input} 
+			onEndEditing={validateInput}
+			onFocus={()=> setEdited(false)}
+			/>
+			{ edited && !validInput ? <Text style={{color: "red"}}>Formato de { validationKeyword } invalido</Text> : null}
+		</View>
 	);
 }
 
