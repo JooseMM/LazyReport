@@ -2,7 +2,7 @@ import { SetStateAction, Dispatch } from "react";
 
 export type DetainedReportData = {
 	time: string,
-	reportType: string,
+	reportType: ReportType,
 	storeNumber: string,
 	storeName: string,
 	storeFormat: string,
@@ -16,6 +16,8 @@ export type DetainedReportData = {
 	thirdUpscale: string | null,
 };
 
+//fill this later!!
+export type ReportType = "Detenido en SEPP" | "Corte de Suministro";
 export type InputID = 	 "time" | "storeNumber" | "storeFormat" | "storeName" | "informantName" | "isUnderage" | "emergencyCallTime" | "emergencyOperator" | "firstUpscale" | "secondUpscale" | "thirdUpscale" | "quantity";
 
 export type InputObject = {
