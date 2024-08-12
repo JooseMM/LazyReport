@@ -7,7 +7,8 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		marginTop: 10,
-		padding: 25,
+		paddingHorizontal: 25,
+		paddingVertical: 15,
 		width: '100%',
 		fontSize: 18,
 		borderColor: 'gray',

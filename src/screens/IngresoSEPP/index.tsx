@@ -21,16 +21,16 @@ export default function IngresoSEPPScreen({ navigation }) {
 	return (
 		<ScrollView>
 			<View style={styles.inputContainer}>
-				{ DETAINED_INPUT.map((value, index)=> {
-					return value.id !== "storeFormat" && value.id !== "isUnderage" ? 
+				{ DETAINED_INPUT.map((object, index)=> {
+					return object.id !== "storeFormat" && object.id !== "isUnderage" ? 
 						<TextBaseInput key={index} 
-						inputObject={value}
+						inputObject={object}
 						updateReportState={setReportState} 
 						updateInvalidInputState={setInvalidInputState} 
 						/>
 						:
 						<PickerBaseInput key={index}
-						inputObject={value}
+						inputObject={object}
 						updateReportState={setReportState}
 						updateInvalidInputState={setInvalidInputState}
 						/>
