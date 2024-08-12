@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { mainButtonStyle, mainButtonTextStyle } from "../../constants/baseStyles";
 
-export const styles = StyleSheet.create({
+const styles = StyleSheet.create({
 	inputContainer: {
 		marginHorizontal: "auto",
 		paddingHorizontal: 20,
@@ -27,5 +27,8 @@ export const styles = StyleSheet.create({
 		fontSize: 30,
 		fontWeight: "bold",
 		marginHorizontal: "auto"
-	}
+	},
+
 });
+
+export default styles;
