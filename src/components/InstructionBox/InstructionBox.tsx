@@ -19,9 +19,11 @@ const props = {
 */
 type InstructionProps = {
     visible: boolean,
-    description: string,
-    steps: Array<string>,
-    warnings: Array<{ keywords: string, description: string }>
+    content: {
+	description: string,
+	steps: Array<string>,
+	warnings: Array<{ keywords: string, description: string }>
+    }
 }
 
 const InstructionBox = (props: InstructionProps ) => {
@@ -31,33 +33,38 @@ const InstructionBox = (props: InstructionProps ) => {
 	setVisible(props.visible)
     }, [props.visible])
 
+    const { description, steps, warnings } = props.content;
     return (
 	    <View style={[styles.blurBackground, { display: visible ? "none" : "flex" }]}>
 		<View style={styles.instructionContainer}>
-		    <Text style={[styles.header, { fontWeight: "bold" }]}>Protocolo</Text>
-		    <Text style={styles.paragraph}>{ props.description }</Text>
+		    <View style={{ marginBottom: 12, marginTop: 5 }}>
+			<Text style={[styles.header, { fontWeight: "bold" }]}>Protocolo</Text>
+			<Text style={styles.paragraph}>{ description }</Text>
+		    </View>
 		    <View>
-			{ props.steps.map((step, index) => {
+			{ steps.map((step, index) => {
 			    return (
-				<View key={index}>
-				    <Text style={styles.stepHeader}>{ "paso" + ( index + 1 ) }</Text>
+				<View key={index} style={styles.stepContainer}>
+				    <Text style={styles.stepHeader}>{ "Paso " + ( index + 1 ) + ":" }</Text>
 				    <Text style={styles.paragraph}>{ step }</Text>
 				</View>
 			    );
 			})}
-			<View style={styles.warningBackground}>
-			    <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>¡Precauciones!</Text>
-			    { props.warnings.map((warning, index) => {
+			<View style={styles.warningContainer}>
+			    <Text style={styles.warningTitle}>¡Precauciones!</Text>
+			    { warnings.map((warning, index) => {
 				return (
-				    <View key={index}>
-					<Text style={styles.warningKeyword}>{ warning.keywords }</Text>
-					<Text style={styles.warningDescription}>{ warning.description }</Text>
-				    </View>
+					<Text key={index} style={styles.warningDescription}>
+					    <Text style={styles.warningKeyword}>
+						{ warning.keywords + " " }
+					    </Text>
+					    { warning.description }
+					</Text>
 				);
 			    })}
 			</View>
 		    </View>
-		    <Button  onButtonPressed={()=> setVisible(prev => !prev)} text="Confirmado" disable={false}/>
+		    <Button  onButtonPressed={()=> setVisible(prev => !prev)} text="Entendido" disable={false}/>
 		</View>
 	    </View>
     );

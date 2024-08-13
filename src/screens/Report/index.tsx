@@ -9,7 +9,18 @@ import Button from "../../components/MainButton/MainButton";
 export default function ReportScreen() {
     const { report } = useAuth();
     const [ finalReport, setFinalReport ] = useState(undefined);
-    useEffect(()=> { setFinalReport(detainedReport(report)) }, []);
+
+    useEffect(()=> { 
+	switch(report.reportType) {
+	    case "Detenido en SEPP":
+		setFinalReport(detainedReport(report)) 
+	    break;
+	    case "Corte de Suministro":
+		//
+		break;
+	}
+
+    }, []);
 
     return (
 	<View style={styles.mainContainer}>

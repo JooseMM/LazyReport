@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native"
+import { colors } from "../../constants/constantData";
 
 const styles = StyleSheet.create({
 	blurBackground: {
@@ -16,32 +17,47 @@ const styles = StyleSheet.create({
 	    marginHorizontal: "auto",
 	    marginTop: "10%",
 	    borderRadius: 5,
-	    paddingVertical: 15,
-	    paddingHorizontal: 20,
+	    padding: 25,
 	},
 	header: {
 		marginBottom: 5,
 		fontWeight: "bold",
-		fontSize: 18,
+		fontSize: 21,
+		color: colors.blue,
 	},
 	stepHeader: {
-		marginTop: 10,
+		color: colors.blue,
 		marginBottom: 5,
-		fontWeight: "semibold",
-		fontSize: 16,
+		fontWeight: "bold",
+		fontSize: 18,
+	},
+	stepContainer: {
+	    marginVertical: 5,
 	},
 	paragraph: {
-	    color: "#585966"
+	    color: "#585966",
+	    fontSize: 16
 	},
-	warningBackground: {
+	warningTitle: {
+	    color: "white",
+	    fontWeight: "bold",
+	    fontSize: 18, 
+	    marginBottom: 5
+	},
+	warningContainer: {
+	    marginVertical: 20,
+	    borderRadius: 5,
+	    paddingVertical: 18,
+	    paddingHorizontal: 15,
 	    backgroundColor: "#C55959",
 	},
 	warningKeyword: {
 	    color: "white",
-	    fontWeight: "bold"
+	    fontWeight: "bold",
 	},
 	warningDescription: {
-	    color: "#F6E6E6"
+	    color: "#F6E6E6",
+	    fontSize: 16
 	}
 })
 

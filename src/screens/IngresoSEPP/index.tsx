@@ -20,9 +20,22 @@ export default function IngresoSEPPScreen({ navigation }) {
 	setReport(reportState);
 	navigation.navigate("Report");
     };
+
+    const Instructions = {
+	description: "Somethings to fill the text in which Im going to put other more important things hehe.",
+	steps: [ 
+	    "Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
+	    "Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
+	    "Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
+	    "Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
+	],
+	warnings: [
+	    { keywords: "This is a keyword", description: "type something here to fill a little bit of the space needed to look good" }
+	]
+    }
     return (
 	<ScrollView>
-	    <InstructionBox visible={showInstructions} description="" steps={["",""]} warnings={[{ keywords: "Menores de Edad", description: "do some when you see those dudes being menors"}]}/>
+	    <InstructionBox visible={showInstructions} content={Instructions}/>
 	    <View style={styles.inputContainer}>
 		{ DETAINED_INPUT.map((object, index)=> {
 		    return object.id !== "storeFormat" && object.id !== "isUnderage" ? 
@@ -41,7 +54,6 @@ export default function IngresoSEPPScreen({ navigation }) {
 
 		<View style={{ marginTop: 25 }}>
 		    <Button onButtonPressed={generateReport} disable={invalidInputState.length > 0 } text="Generar Reporte" />
-		    <Button onButtonPressed={()=> { console.log(invalidInputState); console.log(reportState) } } disable={false} text="Check Invalids" />
 		</View>
 	    </View>
 	</ScrollView>
