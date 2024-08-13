@@ -45,8 +45,8 @@ const InstructionBox = (props: InstructionProps ) => {
 				</View>
 			    );
 			})}
-			<View>
-			    <Text>¡Precauciones!</Text>
+			<View style={styles.warningBackground}>
+			    <Text style={{ color: "white", fontWeight: "bold", fontSize: 18 }}>¡Precauciones!</Text>
 			    { props.warnings.map((warning, index) => {
 				return (
 				    <View key={index}>

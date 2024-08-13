@@ -22,7 +22,7 @@ export default function IngresoSEPPScreen({ navigation }) {
     };
     return (
 	<ScrollView>
-	    <InstructionBox visible/>
+	    <InstructionBox visible={showInstructions} description="" steps={["",""]} warnings={[{ keywords: "Menores de Edad", description: "do some when you see those dudes being menors"}]}/>
 	    <View style={styles.inputContainer}>
 		{ DETAINED_INPUT.map((object, index)=> {
 		    return object.id !== "storeFormat" && object.id !== "isUnderage" ? 
