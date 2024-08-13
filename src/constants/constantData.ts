@@ -1,4 +1,4 @@
-import { InputTypes } from "./customTypes";
+import { InputObject } from "./customTypes";
 import { lettersOnlyFormat, storeCodeFormat } from "./regexPatterns";
 
 export const REPORT_OPTIONS = [
@@ -15,7 +15,7 @@ export const FORMATS_DATA = [
 	{ label: "Central Mayorista", value: "CM" },
 ];
 
-export const INPUT_BASE : Array<InputTypes> = [
+export const INPUT_BASE : Array<InputObject> = [
  	
 	{
 		id: "storeFormat",
@@ -44,5 +44,8 @@ export const INPUT_BASE : Array<InputTypes> = [
 ];
 
 export const colors = {
-	blue: "#101224"
+	blue: "#101224",
+	//paragraphText: "#585966",
+	paragraphText: "#3f4049",
+	statusContainerBackground: "#E8E8EA"
 };
