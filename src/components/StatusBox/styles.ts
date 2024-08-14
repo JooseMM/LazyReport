@@ -34,7 +34,35 @@ const styles = StyleSheet.create({
 	position: "absolute",
 	bottom: 12,
 	right: 20,
+    },
+    infoContainer: {
+	flexDirection: "row",
+	alignItems: "flex-end"
+    },
+    infoText: {
+	marginLeft: 10,
+	fontSize: 18,
+	position: "relative",
+	top: 3,
+	color: colors.paragraphText,
+	fontWeight: "semibold"
+    },
+    openChevron: {
+	position: "absolute",
+	bottom: 60,
+	right: 30,
+	width: 25,
+	height: 25,
+	rotation: 180,
+    },
+    closeChevron: {
+	position: "absolute",
+	top: 25,
+	right: 30,
+	width: 25,
+	height: 25,
     }
+
 
 })
 
