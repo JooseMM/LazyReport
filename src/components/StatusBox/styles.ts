@@ -5,7 +5,8 @@ const styles = StyleSheet.create({
     statusContainer: {
 	backgroundColor: colors.statusContainerBackground,
 	borderRadius: 5,
-	padding: 10,
+	paddingVertical: 10,
+	paddingHorizontal: 20,
     },
     statusMainHeader: {
 	color: colors.blue,
@@ -25,7 +26,6 @@ const styles = StyleSheet.create({
     statusHeaderContainer: {
 	 marginTop: 5,
 	 marginBottom: 25,
-	 marginHorizontal: 10 
     },
     entryTime: {
 	color: colors.blue,
@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
 	position: "relative",
 	top: 3,
 	color: colors.paragraphText,
+	opacity: 0.8,
 	fontWeight: "semibold"
     },
     openChevron: {

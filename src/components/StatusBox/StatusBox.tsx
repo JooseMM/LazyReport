@@ -1,13 +1,20 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import styles from "./styles";
 import { useState } from "react";
 import { Image } from "expo-image";
+import { DetainedReportData } from "../../constants/customTypes";
 
 const StatusBox = () => {
-    const [ visible, setVisible ] = useState(true);
+    const [ visible, setVisible ] = useState(false);
     const index = 2;
+
+
+    const example: DetainedReportData = {
+	//
+    }
+
     return (
-	    <View style={styles.statusContainer}>
+	    <Pressable style={styles.statusContainer} onPress={() => setVisible(prev => !prev)}>
 
 		<View style={styles.statusHeaderContainer}>
 		    <Text style={styles.statusMainHeader}>
@@ -20,7 +27,7 @@ const StatusBox = () => {
 		</View>
 
 		<View style={{ display: visible ? "flex" : "none" }}>
-		    <View style={ index > 0 ? { marginTop: 0} : null }>
+		    <View style={{ marginBottom: 20 } }>
 			<View style={styles.infoContainer}>
 			    <Image style={{ width: 20, height: 20 }} contentFit="fill" source={require("./icons/phone.svg")} />
 			    <Text style={styles.infoText}>13:55hrs</Text>
@@ -34,7 +41,7 @@ const StatusBox = () => {
 		
 		<Image style={ visible ? styles.openChevron : styles.closeChevron } contentFit="fill" source={require("./icons/chevron.svg")} />
 		<Text style={styles.entryTime}>13:40hrs</Text>
-	    </View>
+	    </Pressable>
     );
 }
 
