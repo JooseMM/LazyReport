@@ -3,16 +3,16 @@ import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import { ReportStateUpdaters } from  "../../constants/customTypes";
 import { styles } from "./styles";
+import { useAuth } from "../../ApplicationState";
 
 export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	const [ selected, setSelected ] = useState<string | boolean>();
 	const { id, label, placeholder, options } = props.inputObject;
+	const { setReport } = useAuth();
 
 	const updateState = (selected: string | boolean) => {
 		setSelected(selected);
-		props.updateReportState(prev => ({...prev, [id]: selected }));
-		props.updateInvalidInputState(prev => prev.filter(match => match !== id));
-
+		setReport(prev => ({...prev, [id]: selected }));
 	}
 	return (
 		<View>

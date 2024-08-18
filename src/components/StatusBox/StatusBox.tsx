@@ -3,6 +3,7 @@ import styles from "./styles";
 import { useState } from "react";
 import { Image } from "expo-image";
 import { DetainedReportData } from "../../constants/customTypes";
+import { phoneIcon, userIcon } from "./helper"
 
 const StatusBox = () => {
     const [ visible, setVisible ] = useState(false);
@@ -29,11 +30,11 @@ const StatusBox = () => {
 		<View style={{ display: visible ? "flex" : "none" }}>
 		    <View style={{ marginBottom: 20 } }>
 			<View style={styles.infoContainer}>
-			    <Image style={{ width: 20, height: 20 }} contentFit="fill" source={require("./icons/phone.svg")} />
+			    <Image style={{ width: 20, height: 20 }} contentFit="fill" source={phoneIcon} />
 			    <Text style={styles.infoText}>13:55hrs</Text>
 			</View>
 			<View style={[styles.infoContainer, { marginTop: 10 }]}>
-			    <Image style={{ width: 20, height: 24 }} contentFit="fill" source={require("./icons/user.svg")} />
+			    <Image style={{ width: 20, height: 24 }} contentFit="fill" source={userIcon} />
 			    <Text style={styles.infoText}>13564</Text>
 			</View>
 		    </View>

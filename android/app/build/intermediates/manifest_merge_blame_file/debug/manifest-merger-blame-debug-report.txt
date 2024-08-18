@@ -1,0 +1,294 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="lazy.report"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="23"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+11-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:3-75
+11-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:20-73
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:2:3-64
+12-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:2:20-62
+13    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+13-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:3:3-77
+13-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:3:20-75
+14    <uses-permission android:name="android.permission.VIBRATE" />
+14-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:5:3-63
+14-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:5:20-61
+15    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+15-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:6:3-78
+15-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:6:20-76
+16
+17    <queries>
+17-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:7:3-13:13
+18        <intent>
+18-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:8:5-12:14
+19            <action android:name="android.intent.action.VIEW" />
+19-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:7-58
+19-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:15-56
+20
+21            <category android:name="android.intent.category.BROWSABLE" />
+21-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:7-67
+21-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:17-65
+22
+23            <data android:scheme="https" />
+23-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+23-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+24        </intent>
+25
+26        <package android:name="host.exp.exponent" /> <!-- Query open documents -->
+26-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-53
+26-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-50
+27        <intent>
+27-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-17:18
+28            <action android:name="android.intent.action.OPEN_DOCUMENT_TREE" />
+28-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-79
+28-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:21-76
+29        </intent>
+30    </queries>
+31
+32    <permission
+32-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+33        android:name="lazy.report.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+33-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+34        android:protectionLevel="signature" />
+34-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+35
+36    <uses-permission android:name="lazy.report.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+36-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+36-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+37
+38    <application
+38-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:3-32:17
+39        android:name="lazy.report.MainApplication"
+39-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:16-47
+40        android:allowBackup="true"
+40-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:162-188
+41        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+41-->[androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+42        android:debuggable="true"
+43        android:extractNativeLibs="false"
+44        android:icon="@mipmap/ic_launcher"
+44-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:81-115
+45        android:label="@string/app_name"
+45-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:48-80
+46        android:roundIcon="@mipmap/ic_launcher_round"
+46-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:116-161
+47        android:theme="@style/AppTheme"
+47-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:189-220
+48        android:usesCleartextTraffic="true" >
+48-->/home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:18-53
+49        <meta-data
+49-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:5-83
+50            android:name="expo.modules.updates.ENABLED"
+50-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:16-59
+51            android:value="false" />
+51-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:60-81
+52        <meta-data
+52-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:5-105
+53            android:name="expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH"
+53-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:16-80
+54            android:value="ALWAYS" />
+54-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:81-103
+55        <meta-data
+55-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:5-99
+56            android:name="expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS"
+56-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:16-79
+57            android:value="0" />
+57-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:80-97
+58
+59        <activity
+59-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:5-30:16
+60            android:name="lazy.report.MainActivity"
+60-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:15-43
+61            android:configChanges="keyboard|keyboardHidden|orientation|screenSize|screenLayout|uiMode"
+61-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:44-134
+62            android:exported="true"
+62-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:256-279
+63            android:launchMode="singleTask"
+63-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:135-166
+64            android:screenOrientation="portrait"
+64-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:280-316
+65            android:theme="@style/Theme.App.SplashScreen"
+65-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:210-255
+66            android:windowSoftInputMode="adjustResize" >
+66-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:167-209
+67            <intent-filter>
+67-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:19:7-22:23
+68                <action android:name="android.intent.action.MAIN" />
+68-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:20:9-60
+68-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:20:17-58
+69
+70                <category android:name="android.intent.category.LAUNCHER" />
+70-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:21:9-68
+70-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:21:19-66
+71            </intent-filter>
+72            <intent-filter>
+72-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:23:7-29:23
+73                <action android:name="android.intent.action.VIEW" />
+73-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:7-58
+73-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:15-56
+74
+75                <category android:name="android.intent.category.DEFAULT" />
+75-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:9-67
+75-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:19-65
+76                <category android:name="android.intent.category.BROWSABLE" />
+76-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:7-67
+76-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:17-65
+77
+78                <data android:scheme="lazy.report" />
+78-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+78-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+79                <data android:scheme="exp+lazyreportv2" />
+79-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+79-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+80            </intent-filter>
+81        </activity>
+82        <activity
+82-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:5-106
+83            android:name="com.facebook.react.devsupport.DevSettingsActivity"
+83-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:15-79
+84            android:exported="false" />
+84-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:80-104
+85
+86        <provider
+86-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-15:20
+87            android:name="expo.modules.clipboard.ClipboardFileProvider"
+87-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-72
+88            android:authorities="lazy.report.ClipboardFileProvider"
+88-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-73
+89            android:exported="true" >
+89-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-36
+90            <meta-data
+90-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-14:68
+91                android:name="expo.modules.clipboard.CLIPBOARD_FILE_PROVIDER_PATHS"
+91-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-84
+92                android:resource="@xml/clipboard_provider_paths" />
+92-->[:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:17-65
+93        </provider>
+94
+95        <activity
+95-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-25:20
+96            android:name="expo.modules.devlauncher.launcher.DevLauncherActivity"
+96-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-81
+97            android:exported="true"
+97-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-36
+98            android:launchMode="singleTask"
+98-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+99            android:theme="@style/Theme.DevLauncher.LauncherActivity" >
+99-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-70
+100            <intent-filter>
+100-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-24:29
+101                <action android:name="android.intent.action.VIEW" />
+101-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:7-58
+101-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:15-56
+102
+103                <category android:name="android.intent.category.DEFAULT" />
+103-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:9-67
+103-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:19-65
+104                <category android:name="android.intent.category.BROWSABLE" />
+104-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:7-67
+104-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:17-65
+105
+106                <data android:scheme="expo-dev-launcher" />
+106-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+106-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+107            </intent-filter>
+108        </activity>
+109        <activity
+109-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:9-29:70
+110            android:name="expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity"
+110-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-93
+111            android:screenOrientation="portrait"
+111-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-49
+112            android:theme="@style/Theme.DevLauncher.ErrorActivity" />
+112-->[:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-67
+113        <activity
+113-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-21:20
+114            android:name="expo.modules.devmenu.DevMenuActivity"
+114-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-64
+115            android:exported="true"
+115-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-36
+116            android:launchMode="singleTask"
+116-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-44
+117            android:theme="@style/Theme.AppCompat.Transparent.NoActionBar" >
+117-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-75
+118            <intent-filter>
+118-->[:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-20:29
+119                <action android:name="android.intent.action.VIEW" />
+119-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:7-58
+119-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:15-56
+120
+121                <category android:name="android.intent.category.DEFAULT" />
+121-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:9-67
+121-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:19-65
+122                <category android:name="android.intent.category.BROWSABLE" />
+122-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:7-67
+122-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:17-65
+123
+124                <data android:scheme="expo-dev-menu" />
+124-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+124-->/home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+125            </intent-filter>
+126        </activity>
+127
+128        <provider
+128-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-30:20
+129            android:name="expo.modules.filesystem.FileSystemFileProvider"
+129-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-74
+130            android:authorities="lazy.report.FileSystemFileProvider"
+130-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-74
+131            android:exported="false"
+131-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+132            android:grantUriPermissions="true" >
+132-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-47
+133            <meta-data
+133-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-29:70
+134                android:name="android.support.FILE_PROVIDER_PATHS"
+134-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-67
+135                android:resource="@xml/file_system_provider_paths" />
+135-->[:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-67
+136        </provider>
+137
+138        <meta-data
+138-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:89
+139            android:name="org.unimodules.core.AppLoader#react-native-headless"
+139-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-79
+140            android:value="expo.modules.adapters.react.apploader.RNHeadlessAppLoader" />
+140-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-86
+141        <meta-data
+141-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-15:45
+142            android:name="com.facebook.soloader.enabled"
+142-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-57
+143            android:value="true" />
+143-->[:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-33
+144
+145        <provider
+145-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+146            android:name="androidx.startup.InitializationProvider"
+146-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+147            android:authorities="lazy.report.androidx-startup"
+147-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+148            android:exported="false" >
+148-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+149            <meta-data
+149-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+150                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+150-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+151                android:value="androidx.startup" />
+151-->[androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+152            <meta-data
+152-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+153                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+153-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+154                android:value="androidx.startup" />
+154-->[androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+155        </provider>
+156    </application>
+157
+158</manifest>

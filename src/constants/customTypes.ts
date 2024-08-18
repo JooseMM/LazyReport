@@ -1,47 +1,45 @@
 import { SetStateAction, Dispatch } from "react";
 
 export type DetainedReportData = {
-	time: string,
-	reportType: ReportType,
-	storeNumber: string,
-	storeName: string,
-	storeFormat: string,
-	informantName: string,
-	isUnderage: boolean,
-	quantity: string,
-	emergencyCall: Array<{ time: string, annex: string }>,
-	firstUpscale: string | null,
-	secondUpscale: string | null,
-	thirdUpscale: string | null,
+	time: string
+	reportType: ReportType
+	storeNumber: string
+	storeName: string
+	storeFormat: string
+	informantName: string
+	isUnderage: boolean
+	quantity: string
+	emergencyCall: Array<{ time: string, annex: string }> | null
+	firstUpscale: string | null
+	secondUpscale: string | null
+	thirdUpscale: string | null
 };
 
 //fill this later!!
 export type ReportType = "Detenido en SEPP" | "Corte de Suministro";
-export type InputID = 	 "time" | "storeNumber" | "storeFormat" | "storeName" | "informantName" | "isUnderage" | "emergencyCallTime" | "emergencyOperator" | "firstUpscale" | "secondUpscale" | "thirdUpscale" | "quantity";
+export type InputID = 	 "time" | "storeNumber" | "storeFormat" | "storeName" | "informantName" | "isUnderage" | "emergencyCall" |  "firstUpscale" | "secondUpscale" | "thirdUpscale" | "quantity";
 
-export type InputObject = {
-	id: InputID,
-	label: string,
-	placeholder: string,
-	validationKeyword: string,
-	regExpValidator: RegExp,
-	options: Array<{ label: string, value: string | boolean }> | null;
+export interface InputObject {
+	id: InputID
+	label: string
+	placeholder?: string
+	validationKeyword: string
+	regExpValidator?: Array<RegExp>
+	options?: Array<{ label: string, value: string | boolean }>
 }
 
 export type AuthContextType = {
-	report: DetainedReportData | null,
-	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>,
+	report: DetainedReportData | null
+	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>
 };
 
 export type buttonProps = {
-	text: string,
-	onButtonPressed: Function,
-	disable: boolean | undefined,
+	text: string
+	onButtonPressed: Function
+	disable: boolean | undefined
 };
 
 
 export interface ReportStateUpdaters {
-	updateReportState: Dispatch<SetStateAction<DetainedReportData>>,
-	updateInvalidInputState: Dispatch<SetStateAction<Array<InputID>>>,
-	inputObject: InputObject,
+	inputObject: InputObject
 };

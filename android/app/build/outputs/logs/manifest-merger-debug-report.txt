@@ -1,0 +1,623 @@
+-- Merging decision tree log ---
+manifest
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:1:1-33:12
+MERGED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:1:1-33:12
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:1:1-7:12
+MERGED from [:expo] /home/Antonio/code/nodejs/LazyReport/node_modules/expo/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-safe-area-context] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-screens] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-svg] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-svg/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:react-native-picker_picker] /home/Antonio/code/nodejs/LazyReport/node_modules/@react-native-picker/picker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-asset] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-asset/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-18:12
+MERGED from [:expo-constants] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-constants/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-dev-client] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-client/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-32:12
+MERGED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-24:12
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-33:12
+MERGED from [:expo-font] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-font/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-manifests] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-manifests/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-json-utils] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-json-utils/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-keep-awake] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-keep-awake/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-dev-menu-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-updates-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-updates-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:2:1-18:12
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:2:1-24:12
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/ecba0bc1131bcf96fa88242d2cce789b/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.google.android.material:material:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/8be4aa3a118226401b9d725d56c12ed2/transformed/material-1.6.1/AndroidManifest.xml:17:1-26:12
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/Antonio/.gradle/caches/8.8/transforms/9fd3169372fe147c3357f632ea4f2646/transformed/constraintlayout-2.0.1/AndroidManifest.xml:2:1-11:12
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/734eb6adbc315c2a42b36be76e748554/transformed/appcompat-1.6.1/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b175038c49b971e7df3ee8fe9a55dc2c/transformed/jetified-imagepipeline-okhttp3-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/8f07b26118f719da2544ef08e8c3012e/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1fc995060637fa470a476760140a1eb2/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7ed8fe145ec6c8524948acc3a7d7f049/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Antonio/.gradle/caches/8.8/transforms/691de812e66d6259773533a4e093d8bb/transformed/fragment-1.3.6/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.activity:activity:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/ee21205b8f0d9720db17844347b55be0/transformed/jetified-activity-1.6.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/a62f1a563b1bb3b9d409a24e8e393e89/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/728dae72d470bd1d108b8280de6e573e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7e0a7420c7bbd67b54000440a1636c0f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.loader:loader:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/e0c31fe65b525d995e68bb2241ee04a7/transformed/loader-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/3f29d3c2ecb7135213eeded86865c95e/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/a1af5ec3697d78c1409df6e504b521cd/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e1b23c91f6fcba9776a4c470907dd3ff/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [com.facebook.fresco:fresco:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/be5f092ad2444ad1ecb453eff996c6c4/transformed/jetified-fresco-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:animated-gif:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/190e7004bd6494a0ab5d44f60a572ad5/transformed/jetified-animated-gif-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:animated-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e18db5df74141b95f5e220089940b6cb/transformed/jetified-animated-base-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:animated-drawable:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e388f2a11cb93721c90700d678102cd7/transformed/jetified-animated-drawable-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:vito-options:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b9a3737a034ce5baf93f9134bad1bf0a/transformed/jetified-vito-options-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:drawee:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/46362b06e671b7110f1d8080e57d41c9/transformed/jetified-drawee-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:nativeimagefilters:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/01356cd1b65a8f04ff2b9dcd1ecbf3a3/transformed/jetified-nativeimagefilters-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:memory-type-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/bbe51aa7bbf2a4efeef14862a6d4a65e/transformed/jetified-memory-type-native-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:memory-type-java:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/67e0b2a3fd67b31002be7b9787bd94d5/transformed/jetified-memory-type-java-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:imagepipeline-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/aedba841d00c2f30c46061e668c6e267/transformed/jetified-imagepipeline-native-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:memory-type-ashmem:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/166a229f3e323b479912deed9c1125d7/transformed/jetified-memory-type-ashmem-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:imagepipeline:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/073df902f64aef6b63c411ed55f2192c/transformed/jetified-imagepipeline-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:webpsupport:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3483264e5dccd1e2ef4eeda6e0bc0ac1/transformed/jetified-webpsupport-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:nativeimagetranscoder:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1de8779f483586e84ef4ee83ea41b85c/transformed/jetified-nativeimagetranscoder-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:imagepipeline-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/f9168509b2a37e80e04df947cf2ab260/transformed/jetified-imagepipeline-base-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:middleware:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3e0e4d9cd3d4910b9896f1f9214a98d0/transformed/jetified-middleware-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:ui-common:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1c103d23a801c1088437c88766c7f81e/transformed/jetified-ui-common-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:soloader:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/d7939a83b511f4587c6dd2525bd40a99/transformed/jetified-soloader-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:fbcore:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/2573344f49af77e0cba1cf28793a9abd/transformed/jetified-fbcore-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.fresco:vito-renderer:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e607b6854f940b4113bf1220f593d551/transformed/jetified-vito-renderer-3.1.3/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.autofill:autofill:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/9ac1b74a1345e97a8834344ef8520757/transformed/jetified-autofill-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/917b59ec167eb25456172d74cc8776dd/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/2816127f557ccf04e0c290d1192cd893/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/43734ca999d5ec472d5aea2ab421f425/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:17:1-35:12
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/d207351515a4dab4789fda3ff1c71699/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/c952ddb7782f0ddad8706306fe34102a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.browser:browser:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/2d0f130b0f77b565183a54177d58970f/transformed/browser-1.6.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/12906e36c9402b1864b968a16a5effed/transformed/viewpager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/08e13eeddfe0ee97edb980430273385b/transformed/drawerlayout-1.1.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.transition:transition:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e00d887bcaab79e7ad9f25e37cc96428/transformed/transition-1.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.media:media:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/b716f88a6d34835abaedca90dab47958/transformed/media-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/39b849cd7cd041b2e10be16bf1a0f98b/transformed/recyclerview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1c5abd29a4f25369bfd9893c54a21c68/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.customview:customview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/cd496e704ae720b4a6a9f3da79713f59/transformed/customview-1.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ce1c2c6580569b3ed0013aa46fc0914a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:17:1-30:12
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/cae3834af38591f8505187c8a299f71a/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:17:1-37:12
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:17:1-33:12
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/c2ff400d38ff7c75f950b457144c3cb1/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28d8306ec4b029de7a1e98468b626adc/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.react:hermes-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/7d611db93779a0f4d43cc44e2a0d266d/transformed/jetified-hermes-android-0.74.3-debug/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ada4c5fee42866fa68921c3cd56aa0ac/transformed/cursoradapter-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28dc4c48140f426aecca6cf8dac5eb37/transformed/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f55a859008751c18c4b5b00254c1a249/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/0fbdf7882c9ba9b40dd38209f167854e/transformed/interpolator-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.databinding:viewbinding:8.2.1] /home/Antonio/.gradle/caches/8.8/transforms/dc412bdc7c0398d71ef204bbd3330a6d/transformed/jetified-viewbinding-8.2.1/AndroidManifest.xml:2:1-7:12
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/4c4e587e8792957aa341d612a2502391/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:17:1-27:12
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/5cb51cd7ca652e1be00f4c2bfc98a277/transformed/cardview-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/df9c798dfa3d3448be4e392feb2c7f2c/transformed/lifecycle-livedata-2.2.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f7be7f5f268344e04f7c83638ea53a59/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/Antonio/.gradle/caches/8.8/transforms/1cad1dc75f628b7b26d041d102dc7ef5/transformed/core-runtime-2.1.0/AndroidManifest.xml:17:1-24:12
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/6c3c9217b5c982ecc30209f303e8f461/transformed/documentfile-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/d0594928b0ee5f5bcaf6ee590eaa49aa/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.print:print:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/3e0806b31d27f5b342ee604b4908422f/transformed/print-1.0.0/AndroidManifest.xml:17:1-22:12
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Antonio/.gradle/caches/8.8/transforms/4a7641f37658a1abc54b59c48c323d43/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:17:1-22:12
+MERGED from [com.facebook.fbjni:fbjni:0.6.0] /home/Antonio/.gradle/caches/8.8/transforms/a6d99a76d7bbfd6d168d98d30bbda8d5/transformed/jetified-fbjni-0.6.0/AndroidManifest.xml:2:1-7:12
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:2:1-17:12
+	package
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+	android:versionName
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+	xmlns:tools
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:2:5-51
+	android:versionCode
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+	xmlns:android
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:1:11-69
+uses-permission#android.permission.INTERNET
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:2:3-64
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-67
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-67
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:2:20-62
+uses-permission#android.permission.READ_EXTERNAL_STORAGE
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:3:3-77
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-80
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:5-80
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:3:20-75
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:3-75
+MERGED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:3-75
+MERGED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:3-75
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:16:5-78
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:16:5-78
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:4:20-73
+uses-permission#android.permission.VIBRATE
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:5:3-63
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:5:20-61
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:6:3-78
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:5-81
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:6:20-76
+queries
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:7:3-13:13
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-9:15
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-9:15
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-18:15
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:5-18:15
+intent#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+data:scheme:https
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:8:5-12:14
+action#android.intent.action.VIEW
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:7-58
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:9:15-56
+category#android.intent.category.BROWSABLE
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:7-67
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:10:17-65
+data
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:7-37
+	android:scheme
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:11:13-35
+application
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:3-32:17
+MERGED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:3-32:17
+MERGED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:3-32:17
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:5-162
+MERGED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-16:19
+MERGED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-16:19
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-30:19
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:5-30:19
+MERGED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-22:19
+MERGED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:7:5-22:19
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-31:19
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:20:5-31:19
+MERGED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-16:19
+MERGED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:5-16:19
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:18:5-22:19
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:18:5-22:19
+MERGED from [com.google.android.material:material:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/8be4aa3a118226401b9d725d56c12ed2/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [com.google.android.material:material:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/8be4aa3a118226401b9d725d56c12ed2/transformed/material-1.6.1/AndroidManifest.xml:24:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/Antonio/.gradle/caches/8.8/transforms/9fd3169372fe147c3357f632ea4f2646/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/Antonio/.gradle/caches/8.8/transforms/9fd3169372fe147c3357f632ea4f2646/transformed/constraintlayout-2.0.1/AndroidManifest.xml:9:5-20
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/8f07b26118f719da2544ef08e8c3012e/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/8f07b26118f719da2544ef08e8c3012e/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:23:5-33:19
+MERGED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:28:5-89
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:25:5-35:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:25:5-31:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/4c4e587e8792957aa341d612a2502391/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/4c4e587e8792957aa341d612a2502391/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:24:5-25:19
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:11:5-15:19
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:11:5-15:19
+	android:extractNativeLibs
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+	android:appComponentFactory
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:28:18-86
+	android:label
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:48-80
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:48-80
+	tools:ignore
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:75-114
+	android:roundIcon
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:116-161
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:116-161
+	tools:targetApi
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:54-74
+	android:icon
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:81-115
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:81-115
+	android:allowBackup
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:162-188
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:162-188
+	android:theme
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:189-220
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:189-220
+	tools:replace
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:115-159
+	android:usesCleartextTraffic
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml:6:18-53
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:16-47
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:14:16-47
+meta-data#expo.modules.updates.ENABLED
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:5-83
+	android:value
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:60-81
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:15:16-59
+meta-data#expo.modules.updates.EXPO_UPDATES_CHECK_ON_LAUNCH
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:5-105
+	android:value
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:81-103
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:16:16-80
+meta-data#expo.modules.updates.EXPO_UPDATES_LAUNCH_WAIT_MS
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:5-99
+	android:value
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:80-97
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:17:16-79
+activity#lazy.report.MainActivity
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:5-30:16
+	android:screenOrientation
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:280-316
+	android:launchMode
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:135-166
+	android:windowSoftInputMode
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:167-209
+	android:exported
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:256-279
+	android:configChanges
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:44-134
+	android:theme
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:210-255
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:18:15-43
+intent-filter#action:name:android.intent.action.MAIN+category:name:android.intent.category.LAUNCHER
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:19:7-22:23
+action#android.intent.action.MAIN
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:20:9-60
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:20:17-58
+category#android.intent.category.LAUNCHER
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:21:9-68
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:21:19-66
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:exp+lazyreportv2+data:scheme:lazy.report
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:23:7-29:23
+category#android.intent.category.DEFAULT
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:9-67
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:25:19-65
+activity#com.facebook.react.devsupport.DevSettingsActivity
+ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:5-106
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:19:9-21:40
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:19:9-21:40
+	android:exported
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:80-104
+	android:name
+		ADDED from /home/Antonio/code/nodejs/LazyReport/android/app/src/main/AndroidManifest.xml:31:15-79
+uses-sdk
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml reason: use-sdk injection requested
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+MERGED from [:expo] /home/Antonio/code/nodejs/LazyReport/node_modules/expo/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo] /home/Antonio/code/nodejs/LazyReport/node_modules/expo/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-safe-area-context] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-safe-area-context/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-screens] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-screens/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-svg/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-svg] /home/Antonio/code/nodejs/LazyReport/node_modules/react-native-svg/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-picker_picker] /home/Antonio/code/nodejs/LazyReport/node_modules/@react-native-picker/picker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:react-native-picker_picker] /home/Antonio/code/nodejs/LazyReport/node_modules/@react-native-picker/picker/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-asset] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-asset/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-asset] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-asset/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-constants] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-constants/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-constants] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-constants/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-client] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-client/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-client] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-client/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:expo-font] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-font/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-font] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-font/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-manifests] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-manifests/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-manifests] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-manifests/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-json-utils] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-json-utils/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-json-utils] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-json-utils/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-keep-awake] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-keep-awake/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-keep-awake] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-keep-awake/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-menu-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-dev-menu-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-updates-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-updates-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-updates-interface] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-updates-interface/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:6:5-44
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:10:5-44
+MERGED from [com.facebook.react:react-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/8cb1f02beda561c6a5bffdf2d5073cbf/transformed/jetified-react-android-0.74.3-debug/AndroidManifest.xml:10:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/ecba0bc1131bcf96fa88242d2cce789b/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat-resources:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/ecba0bc1131bcf96fa88242d2cce789b/transformed/jetified-appcompat-resources-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [com.google.android.material:material:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/8be4aa3a118226401b9d725d56c12ed2/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [com.google.android.material:material:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/8be4aa3a118226401b9d725d56c12ed2/transformed/material-1.6.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/Antonio/.gradle/caches/8.8/transforms/9fd3169372fe147c3357f632ea4f2646/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.constraintlayout:constraintlayout:2.0.1] /home/Antonio/.gradle/caches/8.8/transforms/9fd3169372fe147c3357f632ea4f2646/transformed/constraintlayout-2.0.1/AndroidManifest.xml:5:5-7:41
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/734eb6adbc315c2a42b36be76e748554/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [androidx.appcompat:appcompat:1.6.1] /home/Antonio/.gradle/caches/8.8/transforms/734eb6adbc315c2a42b36be76e748554/transformed/appcompat-1.6.1/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b175038c49b971e7df3ee8fe9a55dc2c/transformed/jetified-imagepipeline-okhttp3-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline-okhttp3:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b175038c49b971e7df3ee8fe9a55dc2c/transformed/jetified-imagepipeline-okhttp3-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/8f07b26118f719da2544ef08e8c3012e/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-extensions:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/8f07b26118f719da2544ef08e8c3012e/transformed/lifecycle-extensions-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1fc995060637fa470a476760140a1eb2/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-v4:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1fc995060637fa470a476760140a1eb2/transformed/legacy-support-v4-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7ed8fe145ec6c8524948acc3a7d7f049/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.viewpager2:viewpager2:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7ed8fe145ec6c8524948acc3a7d7f049/transformed/jetified-viewpager2-1.0.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Antonio/.gradle/caches/8.8/transforms/691de812e66d6259773533a4e093d8bb/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.fragment:fragment:1.3.6] /home/Antonio/.gradle/caches/8.8/transforms/691de812e66d6259773533a4e093d8bb/transformed/fragment-1.3.6/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.activity:activity:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/ee21205b8f0d9720db17844347b55be0/transformed/jetified-activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.activity:activity:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/ee21205b8f0d9720db17844347b55be0/transformed/jetified-activity-1.6.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/a62f1a563b1bb3b9d409a24e8e393e89/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.dynamicanimation:dynamicanimation:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/a62f1a563b1bb3b9d409a24e8e393e89/transformed/dynamicanimation-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/728dae72d470bd1d108b8280de6e573e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-ui:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/728dae72d470bd1d108b8280de6e573e/transformed/legacy-support-core-ui-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7e0a7420c7bbd67b54000440a1636c0f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.legacy:legacy-support-core-utils:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/7e0a7420c7bbd67b54000440a1636c0f/transformed/legacy-support-core-utils-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/e0c31fe65b525d995e68bb2241ee04a7/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.loader:loader:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/e0c31fe65b525d995e68bb2241ee04a7/transformed/loader-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/3f29d3c2ecb7135213eeded86865c95e/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel-savedstate:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/3f29d3c2ecb7135213eeded86865c95e/transformed/jetified-lifecycle-viewmodel-savedstate-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/a1af5ec3697d78c1409df6e504b521cd/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-viewmodel:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/a1af5ec3697d78c1409df6e504b521cd/transformed/lifecycle-viewmodel-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e1b23c91f6fcba9776a4c470907dd3ff/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.savedstate:savedstate:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e1b23c91f6fcba9776a4c470907dd3ff/transformed/jetified-savedstate-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [com.facebook.fresco:fresco:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/be5f092ad2444ad1ecb453eff996c6c4/transformed/jetified-fresco-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:fresco:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/be5f092ad2444ad1ecb453eff996c6c4/transformed/jetified-fresco-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-gif:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/190e7004bd6494a0ab5d44f60a572ad5/transformed/jetified-animated-gif-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-gif:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/190e7004bd6494a0ab5d44f60a572ad5/transformed/jetified-animated-gif-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e18db5df74141b95f5e220089940b6cb/transformed/jetified-animated-base-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e18db5df74141b95f5e220089940b6cb/transformed/jetified-animated-base-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-drawable:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e388f2a11cb93721c90700d678102cd7/transformed/jetified-animated-drawable-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:animated-drawable:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e388f2a11cb93721c90700d678102cd7/transformed/jetified-animated-drawable-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:vito-options:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b9a3737a034ce5baf93f9134bad1bf0a/transformed/jetified-vito-options-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:vito-options:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/b9a3737a034ce5baf93f9134bad1bf0a/transformed/jetified-vito-options-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:drawee:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/46362b06e671b7110f1d8080e57d41c9/transformed/jetified-drawee-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:drawee:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/46362b06e671b7110f1d8080e57d41c9/transformed/jetified-drawee-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:nativeimagefilters:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/01356cd1b65a8f04ff2b9dcd1ecbf3a3/transformed/jetified-nativeimagefilters-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:nativeimagefilters:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/01356cd1b65a8f04ff2b9dcd1ecbf3a3/transformed/jetified-nativeimagefilters-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/bbe51aa7bbf2a4efeef14862a6d4a65e/transformed/jetified-memory-type-native-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/bbe51aa7bbf2a4efeef14862a6d4a65e/transformed/jetified-memory-type-native-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-java:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/67e0b2a3fd67b31002be7b9787bd94d5/transformed/jetified-memory-type-java-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-java:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/67e0b2a3fd67b31002be7b9787bd94d5/transformed/jetified-memory-type-java-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/aedba841d00c2f30c46061e668c6e267/transformed/jetified-imagepipeline-native-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline-native:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/aedba841d00c2f30c46061e668c6e267/transformed/jetified-imagepipeline-native-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-ashmem:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/166a229f3e323b479912deed9c1125d7/transformed/jetified-memory-type-ashmem-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:memory-type-ashmem:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/166a229f3e323b479912deed9c1125d7/transformed/jetified-memory-type-ashmem-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/073df902f64aef6b63c411ed55f2192c/transformed/jetified-imagepipeline-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/073df902f64aef6b63c411ed55f2192c/transformed/jetified-imagepipeline-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:webpsupport:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3483264e5dccd1e2ef4eeda6e0bc0ac1/transformed/jetified-webpsupport-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:webpsupport:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3483264e5dccd1e2ef4eeda6e0bc0ac1/transformed/jetified-webpsupport-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:nativeimagetranscoder:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1de8779f483586e84ef4ee83ea41b85c/transformed/jetified-nativeimagetranscoder-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:nativeimagetranscoder:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1de8779f483586e84ef4ee83ea41b85c/transformed/jetified-nativeimagetranscoder-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/f9168509b2a37e80e04df947cf2ab260/transformed/jetified-imagepipeline-base-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:imagepipeline-base:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/f9168509b2a37e80e04df947cf2ab260/transformed/jetified-imagepipeline-base-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:middleware:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3e0e4d9cd3d4910b9896f1f9214a98d0/transformed/jetified-middleware-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:middleware:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/3e0e4d9cd3d4910b9896f1f9214a98d0/transformed/jetified-middleware-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:ui-common:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1c103d23a801c1088437c88766c7f81e/transformed/jetified-ui-common-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:ui-common:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/1c103d23a801c1088437c88766c7f81e/transformed/jetified-ui-common-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:soloader:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/d7939a83b511f4587c6dd2525bd40a99/transformed/jetified-soloader-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:soloader:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/d7939a83b511f4587c6dd2525bd40a99/transformed/jetified-soloader-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:fbcore:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/2573344f49af77e0cba1cf28793a9abd/transformed/jetified-fbcore-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:fbcore:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/2573344f49af77e0cba1cf28793a9abd/transformed/jetified-fbcore-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:vito-renderer:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e607b6854f940b4113bf1220f593d551/transformed/jetified-vito-renderer-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fresco:vito-renderer:3.1.3] /home/Antonio/.gradle/caches/8.8/transforms/e607b6854f940b4113bf1220f593d551/transformed/jetified-vito-renderer-3.1.3/AndroidManifest.xml:5:5-44
+MERGED from [androidx.autofill:autofill:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/9ac1b74a1345e97a8834344ef8520757/transformed/jetified-autofill-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.autofill:autofill:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/9ac1b74a1345e97a8834344ef8520757/transformed/jetified-autofill-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/917b59ec167eb25456172d74cc8776dd/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.swiperefreshlayout:swiperefreshlayout:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/917b59ec167eb25456172d74cc8776dd/transformed/swiperefreshlayout-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/2816127f557ccf04e0c290d1192cd893/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.coordinatorlayout:coordinatorlayout:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/2816127f557ccf04e0c290d1192cd893/transformed/coordinatorlayout-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/43734ca999d5ec472d5aea2ab421f425/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2-views-helper:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/43734ca999d5ec472d5aea2ab421f425/transformed/jetified-emoji2-views-helper-1.2.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:21:5-44
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/d207351515a4dab4789fda3ff1c71699/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable-animated:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/d207351515a4dab4789fda3ff1c71699/transformed/vectordrawable-animated-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/c952ddb7782f0ddad8706306fe34102a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.vectordrawable:vectordrawable:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/c952ddb7782f0ddad8706306fe34102a/transformed/vectordrawable-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.browser:browser:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/2d0f130b0f77b565183a54177d58970f/transformed/browser-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.browser:browser:1.6.0] /home/Antonio/.gradle/caches/8.8/transforms/2d0f130b0f77b565183a54177d58970f/transformed/browser-1.6.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/12906e36c9402b1864b968a16a5effed/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.viewpager:viewpager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/12906e36c9402b1864b968a16a5effed/transformed/viewpager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/08e13eeddfe0ee97edb980430273385b/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.drawerlayout:drawerlayout:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/08e13eeddfe0ee97edb980430273385b/transformed/drawerlayout-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e00d887bcaab79e7ad9f25e37cc96428/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.transition:transition:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/e00d887bcaab79e7ad9f25e37cc96428/transformed/transition-1.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.media:media:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/b716f88a6d34835abaedca90dab47958/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.media:media:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/b716f88a6d34835abaedca90dab47958/transformed/media-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/39b849cd7cd041b2e10be16bf1a0f98b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.recyclerview:recyclerview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/39b849cd7cd041b2e10be16bf1a0f98b/transformed/recyclerview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1c5abd29a4f25369bfd9893c54a21c68/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.slidingpanelayout:slidingpanelayout:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/1c5abd29a4f25369bfd9893c54a21c68/transformed/slidingpanelayout-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.customview:customview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/cd496e704ae720b4a6a9f3da79713f59/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.customview:customview:1.1.0] /home/Antonio/.gradle/caches/8.8/transforms/cd496e704ae720b4a6a9f3da79713f59/transformed/customview-1.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ce1c2c6580569b3ed0013aa46fc0914a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.asynclayoutinflater:asynclayoutinflater:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ce1c2c6580569b3ed0013aa46fc0914a/transformed/asynclayoutinflater-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/cae3834af38591f8505187c8a299f71a/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.core:core-ktx:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/cae3834af38591f8505187c8a299f71a/transformed/jetified-core-ktx-1.12.0/AndroidManifest.xml:5:5-44
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:21:5-23:41
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/c2ff400d38ff7c75f950b457144c3cb1/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/c2ff400d38ff7c75f950b457144c3cb1/transformed/jetified-tracing-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28d8306ec4b029de7a1e98468b626adc/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.tracing:tracing-ktx:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28d8306ec4b029de7a1e98468b626adc/transformed/jetified-tracing-ktx-1.2.0/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.react:hermes-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/7d611db93779a0f4d43cc44e2a0d266d/transformed/jetified-hermes-android-0.74.3-debug/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.react:hermes-android:0.74.3] /home/Antonio/.gradle/caches/8.8/transforms/7d611db93779a0f4d43cc44e2a0d266d/transformed/jetified-hermes-android-0.74.3-debug/AndroidManifest.xml:5:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ada4c5fee42866fa68921c3cd56aa0ac/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cursoradapter:cursoradapter:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/ada4c5fee42866fa68921c3cd56aa0ac/transformed/cursoradapter-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28dc4c48140f426aecca6cf8dac5eb37/transformed/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-service:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28dc4c48140f426aecca6cf8dac5eb37/transformed/jetified-lifecycle-service-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f55a859008751c18c4b5b00254c1a249/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-runtime:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f55a859008751c18c4b5b00254c1a249/transformed/lifecycle-runtime-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/0fbdf7882c9ba9b40dd38209f167854e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.interpolator:interpolator:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/0fbdf7882c9ba9b40dd38209f167854e/transformed/interpolator-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.databinding:viewbinding:8.2.1] /home/Antonio/.gradle/caches/8.8/transforms/dc412bdc7c0398d71ef204bbd3330a6d/transformed/jetified-viewbinding-8.2.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.databinding:viewbinding:8.2.1] /home/Antonio/.gradle/caches/8.8/transforms/dc412bdc7c0398d71ef204bbd3330a6d/transformed/jetified-viewbinding-8.2.1/AndroidManifest.xml:5:5-44
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/4c4e587e8792957aa341d612a2502391/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.versionedparcelable:versionedparcelable:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/4c4e587e8792957aa341d612a2502391/transformed/versionedparcelable-1.1.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/5cb51cd7ca652e1be00f4c2bfc98a277/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.cardview:cardview:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/5cb51cd7ca652e1be00f4c2bfc98a277/transformed/cardview-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/df9c798dfa3d3448be4e392feb2c7f2c/transformed/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata:2.2.0] /home/Antonio/.gradle/caches/8.8/transforms/df9c798dfa3d3448be4e392feb2c7f2c/transformed/lifecycle-livedata-2.2.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f7be7f5f268344e04f7c83638ea53a59/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.lifecycle:lifecycle-livedata-core:2.5.1] /home/Antonio/.gradle/caches/8.8/transforms/f7be7f5f268344e04f7c83638ea53a59/transformed/lifecycle-livedata-core-2.5.1/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/Antonio/.gradle/caches/8.8/transforms/1cad1dc75f628b7b26d041d102dc7ef5/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.arch.core:core-runtime:2.1.0] /home/Antonio/.gradle/caches/8.8/transforms/1cad1dc75f628b7b26d041d102dc7ef5/transformed/core-runtime-2.1.0/AndroidManifest.xml:20:5-22:41
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/6c3c9217b5c982ecc30209f303e8f461/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.documentfile:documentfile:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/6c3c9217b5c982ecc30209f303e8f461/transformed/documentfile-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/d0594928b0ee5f5bcaf6ee590eaa49aa/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.localbroadcastmanager:localbroadcastmanager:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/d0594928b0ee5f5bcaf6ee590eaa49aa/transformed/localbroadcastmanager-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/3e0806b31d27f5b342ee604b4908422f/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.print:print:1.0.0] /home/Antonio/.gradle/caches/8.8/transforms/3e0806b31d27f5b342ee604b4908422f/transformed/print-1.0.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Antonio/.gradle/caches/8.8/transforms/4a7641f37658a1abc54b59c48c323d43/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [androidx.annotation:annotation-experimental:1.3.0] /home/Antonio/.gradle/caches/8.8/transforms/4a7641f37658a1abc54b59c48c323d43/transformed/jetified-annotation-experimental-1.3.0/AndroidManifest.xml:20:5-44
+MERGED from [com.facebook.fbjni:fbjni:0.6.0] /home/Antonio/.gradle/caches/8.8/transforms/a6d99a76d7bbfd6d168d98d30bbda8d5/transformed/jetified-fbjni-0.6.0/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.fbjni:fbjni:0.6.0] /home/Antonio/.gradle/caches/8.8/transforms/a6d99a76d7bbfd6d168d98d30bbda8d5/transformed/jetified-fbjni-0.6.0/AndroidManifest.xml:5:5-44
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:7:5-9:41
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:7:5-9:41
+	android:targetSdkVersion
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+	android:minSdkVersion
+		INJECTED from /home/Antonio/code/nodejs/LazyReport/android/app/src/debug/AndroidManifest.xml
+provider#expo.modules.clipboard.ClipboardFileProvider
+ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-15:20
+	android:authorities
+		ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-73
+	android:exported
+		ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-36
+	android:name
+		ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-72
+meta-data#expo.modules.clipboard.CLIPBOARD_FILE_PROVIDER_PATHS
+ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-14:68
+	android:resource
+		ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:17-65
+	android:name
+		ADDED from [:expo-clipboard] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-clipboard/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:17-84
+package#host.exp.exponent
+ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-53
+	android:name
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:18-50
+activity#expo.modules.devlauncher.launcher.DevLauncherActivity
+ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-25:20
+	android:launchMode
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-44
+	android:exported
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-36
+	android:theme
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-70
+	android:name
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-81
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:expo-dev-launcher
+ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:17:13-24:29
+activity#expo.modules.devlauncher.launcher.errors.DevLauncherErrorActivity
+ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:9-29:70
+	android:screenOrientation
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:13-49
+	android:theme
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:13-67
+	android:name
+		ADDED from [:expo-dev-launcher] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-launcher/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-93
+activity#expo.modules.devmenu.DevMenuActivity
+ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:8:9-21:20
+	android:launchMode
+		ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-44
+	android:exported
+		ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-36
+	android:theme
+		ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:13-75
+	android:name
+		ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:13-64
+intent-filter#action:name:android.intent.action.VIEW+category:name:android.intent.category.BROWSABLE+category:name:android.intent.category.DEFAULT+data:scheme:expo-dev-menu
+ADDED from [:expo-dev-menu] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-dev-menu/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-20:29
+intent#action:name:android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:9-17:18
+action#android.intent.action.OPEN_DOCUMENT_TREE
+ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:13-79
+	android:name
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:16:21-76
+provider#expo.modules.filesystem.FileSystemFileProvider
+ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:21:9-30:20
+	android:grantUriPermissions
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:25:13-47
+	android:authorities
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:23:13-74
+	android:exported
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:24:13-37
+	tools:replace
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:26:13-48
+	android:name
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:22:13-74
+meta-data#android.support.FILE_PROVIDER_PATHS
+ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:27:13-29:70
+	android:resource
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:29:17-67
+	android:name
+		ADDED from [:expo-file-system] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-file-system/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:28:17-67
+meta-data#org.unimodules.core.AppLoader#react-native-headless
+ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:9:9-11:89
+	android:value
+		ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:11:13-86
+	android:name
+		ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:10:13-79
+meta-data#com.facebook.soloader.enabled
+ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:12:9-15:45
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:12:9-14:37
+MERGED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:12:9-14:37
+	tools:replace
+		ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:15:13-42
+	android:value
+		ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:14:13-33
+		REJECTED from [com.facebook.soloader:soloader:0.11.0] /home/Antonio/.gradle/caches/8.8/transforms/7ac0207dcc0e540c334e8f479354f83b/transformed/jetified-soloader-0.11.0/AndroidManifest.xml:14:13-34
+	android:name
+		ADDED from [:expo-modules-core] /home/Antonio/code/nodejs/LazyReport/node_modules/expo-modules-core/android/build/intermediates/merged_manifest/debug/AndroidManifest.xml:13:13-57
+provider#androidx.startup.InitializationProvider
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:26:9-34:20
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+MERGED from [androidx.startup:startup-runtime:1.1.1] /home/Antonio/.gradle/caches/8.8/transforms/5eda25a2a591eb1e5ddd0390b3812f30/transformed/jetified-startup-runtime-1.1.1/AndroidManifest.xml:26:9-30:34
+	tools:node
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:28:13-31
+	android:authorities
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+	android:exported
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+meta-data#androidx.emoji2.text.EmojiCompatInitializer
+ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+	android:value
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+	android:name
+		ADDED from [androidx.emoji2:emoji2:1.2.0] /home/Antonio/.gradle/caches/8.8/transforms/28a459469623e218cced89728f55d8dd/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+permission#lazy.report.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:22:5-24:47
+	android:protectionLevel
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:24:9-44
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:23:9-81
+uses-permission#${applicationId}.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+uses-permission#lazy.report.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION
+ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:5-97
+	android:name
+		ADDED from [androidx.core:core:1.12.0] /home/Antonio/.gradle/caches/8.8/transforms/7b862f2dc1480b3a1ecc172e3af7e5dc/transformed/core-1.12.0/AndroidManifest.xml:26:22-94
+meta-data#androidx.lifecycle.ProcessLifecycleInitializer
+ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+	android:value
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+	android:name
+		ADDED from [androidx.lifecycle:lifecycle-process:2.4.1] /home/Antonio/.gradle/caches/8.8/transforms/8ab6bfba0e788deeafac4dcab04d9b3d/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
