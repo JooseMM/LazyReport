@@ -35,6 +35,7 @@ yarn-error.*
 *.aab
 *.jar
 android/
+android
 
 # typescript
 *.tsbuildinfo
