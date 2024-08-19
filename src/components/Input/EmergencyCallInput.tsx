@@ -31,9 +31,9 @@ const EmergencyCallInput = () => {
     return (
 	<View>
 	    <View>
-		<Text style={styles.label}>Hora de Llamada a Emergencias(A,B,C):</Text>
+		<Text style={styles.label}>Hora de Llamada a Emergencias:</Text>
 		<TextInput 
-		placeholder={placeholder}
+		placeholder="Ejem: 13:40"
 		cursorColor="gray"
 		style={ editedTime && !validTime? [styles.border, { borderColor: 'red' }] : styles.border} 
 		onChangeText={(buffer) => setTime(buffer)} value={time} 

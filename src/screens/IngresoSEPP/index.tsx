@@ -5,7 +5,7 @@ import Button from "../../components/MainButton/MainButton";
 import InstructionBox from "../../components/InstructionBox/InstructionBox";
 import { INSTRUCTIONS } from "./helpers"; 
 import StoreInfoInput from "../../components/Input/StoreInfoInput";
-import DetainedInfoInput from "../../components/Input/StoreInfoInput";
+import DetainedInfoInput from "../../components/Input/DetainedInfoInput";
 import UpscaleInfoInput from "../../components/Input/UpscaleInfoInput";
 import EmergencyCallInput from "../../components/Input/EmergencyCallInput";
 

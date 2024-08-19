@@ -9,10 +9,10 @@ const StoreInfoInput = () => {
     return (
 	<View>
 	{ STORE_INFO.map((obj, index) => {
-	    return obj.id != "storeFormat" ? (
-		<TextBaseInput key={index} inputObject={obj}/>
-	    ) : (
+	    return obj.id == "storeFormat" ? (
 		<PickerBaseInput key={index} inputObject={obj}/>
+	    ) : (
+		<TextBaseInput key={index} inputObject={obj}/>
 	    )
 	})}
 	</View>
