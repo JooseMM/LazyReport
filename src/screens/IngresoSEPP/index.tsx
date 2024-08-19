@@ -18,13 +18,13 @@ export default function IngresoSEPPScreen({ navigation }) {
     };
 
     return (
-	<ScrollView>
+	<ScrollView style={{ position: "relative" }}>
 	    <InstructionBox visible={showInstructions} content={INSTRUCTIONS}/>
 	    <View style={styles.inputContainer}>
 		<StoreInfoInput />
 		<DetainedInfoInput />
 		<UpscaleInfoInput />
-		<EmergencyCallInput />
+		<EmergencyCallInput navigator={navigation}/>
 
 		<View style={{ marginTop: 25 }}>
 		    <Button onButtonPressed={generateReport} disable={true} text="Generar Reporte" />

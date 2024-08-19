@@ -36,7 +36,7 @@ export type AuthContextType = {
 export type buttonProps = {
 	text: string
 	onButtonPressed: Function
-	disable: boolean | undefined
+	disable?: boolean
 };
 
 

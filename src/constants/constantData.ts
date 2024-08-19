@@ -81,7 +81,7 @@ export const EMERGENCY_CALL_INFO: InputObject = {
 		label: "Operador o Anexo",
 		placeholder: "Ejem: 13653 o Carabinero Juan Alberto",
 		validationKeyword: "nombre o anexo",
-		regExpValidator: [wordsOrNumberFormat, timeFormat24hrs],
+		regExpValidator: [timeFormat24hrs, wordsOrNumberFormat],
 };
 
 export const STORE_INFO : Array<InputObject> = [

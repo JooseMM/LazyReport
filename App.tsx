@@ -1,5 +1,5 @@
 import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NativeStackNavigationOptions, createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AuthProvider } from './src/ApplicationState';
 import HomeScreen from "./src/screens/Home";
 import IngresoSEPPScreen from "./src/screens/IngresoSEPP";
@@ -7,6 +7,7 @@ import ReportScreen from './src/screens/Report';
 import { colors } from "./src/constants/constantData";
 import { StatusBar } from 'expo-status-bar';
 import StatusSEPPScreen from "./src/screens/StatusSEPP";
+import EmergencyPopup from "./src/components/EmergencyPopup";
 
 const Stack = createNativeStackNavigator();
 
@@ -17,19 +18,32 @@ const customTheme = {
 		background: 'white',
 	}
 };
+const options: NativeStackNavigationOptions = { 
+    headerStyle: { 
+	backgroundColor: colors.blue 
+    },
+    headerTitleStyle: {
+	color: 'white',
+	fontWeight: 'bold',
+	fontSize: 20 },
+	headerTintColor: '#fff' 
+};
 
 export default function App() {
   return (
-	  <AuthProvider>
-		<StatusBar style="light" />
-		  <NavigationContainer theme={customTheme}>
-			<Stack.Navigator screenOptions={{ headerStyle: { backgroundColor: colors.blue },  headerTitleStyle: { color: 'white', fontWeight: 'bold', fontSize: 20 }, headerTintColor: '#fff' }}>
-				<Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
-				<Stack.Screen name="IngresoSEPP" component={IngresoSEPPScreen}  />
-				<Stack.Screen name="StatusSEPP" component={StatusSEPPScreen}  />
-				<Stack.Screen name="Report" component={ReportScreen}  />
-			</Stack.Navigator>
-		  </NavigationContainer>
-	  </AuthProvider>
+      <AuthProvider>
+	  <StatusBar style="light" />
+	  <NavigationContainer theme={customTheme}>
+	      <Stack.Navigator screenOptions={options}>
+		  <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
+		  <Stack.Screen name="IngresoSEPP" component={IngresoSEPPScreen}  />
+		  <Stack.Screen name="StatusSEPP" component={StatusSEPPScreen}  />
+		  <Stack.Screen name="Report" component={ReportScreen}  />
+		  <Stack.Group screenOptions={{ presentation: "transparentModal", contentStyle: { backgroundColor: "rgba(16,18,36,0.70)" }}}>
+		      <Stack.Screen name="Popup" component={EmergencyPopup}  />
+		  </Stack.Group>
+	      </Stack.Navigator>
+	  </NavigationContainer>
+      </AuthProvider>
   );
 }
