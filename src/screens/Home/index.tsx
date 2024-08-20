@@ -1,13 +1,18 @@
 import { View } from "react-native";
-import { REPORT_OPTIONS } from "../../constants/constantData";
 import Svg, { Path } from "react-native-svg";
 import { styles } from "./styles";
 import Button from "../../components/MainButton/MainButton";
+import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen({ navigation }) {
 
+const REPORT_OPTIONS = [
+	{ name: "Detenido en SEPP", path: "Detained", opts: { screen: "Instruction", initial: false }},
+	{ name: "Status de Detenidos", path: "StatusSEPP"},
+];
 	return (
 		<View>
+		<StatusBar style="light" />
 			<View style={styles.mainContainer}>
 				<View style={styles.heroImage}>
 					<Svg width="144" height="80" viewBox="0 0 144 80" fill="none">
@@ -20,7 +25,7 @@ export default function HomeScreen({ navigation }) {
 					REPORT_OPTIONS.map((report, index)=> {
 						return (
 							<View key={index} style={{ marginTop: index != 0 ? 20 : 0 }}>
-							 	<Button text={report.name} onButtonPressed={() => navigation.navigate(report.path)} disable={false} />
+							 	<Button text={report.name} onButtonPressed={() => navigation.navigate(report.path, report.opts ? report.opts : undefined )} disable={false} />
 							</View>
 						)})
 				}

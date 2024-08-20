@@ -1,5 +1,5 @@
 import { StyleSheet } from "react-native";
-import { mainButtonStyle, mainButtonTextStyle } from "../../constants/baseStyles";
+import { mainButtonStyle, mainButtonTextStyle } from "../../../constants/baseStyles";
 
 const styles = StyleSheet.create({
 	inputContainer: {

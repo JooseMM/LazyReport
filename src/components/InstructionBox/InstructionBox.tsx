@@ -1,7 +1,8 @@
-import { Text, View } from "react-native";
+import { Text, View, Pressable } from "react-native";
 import styles from "./styles";
 import Button from "../MainButton/MainButton";
 import { useEffect, useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 
 /*
 const props = {
@@ -26,7 +27,9 @@ type InstructionProps = {
     }
 }
 
-const InstructionBox = (props: InstructionProps ) => {
+const InstructionBox = () => {
+    const navigation = useNavigation();
+    /*
     const [ visible, setVisible ] = useState(true);
 
     useEffect(()=> {
@@ -34,8 +37,10 @@ const InstructionBox = (props: InstructionProps ) => {
     }, [props.visible])
 
     const { description, steps, warnings } = props.content;
+   */
     return (
-	    <View style={[styles.blurBackground, { display: visible ? "none" : "flex" }]}>
+	    <View style={styles.blurBackground}>
+	    {/*
 		<View style={styles.instructionContainer}>
 		    <View style={{ marginBottom: 12, marginTop: 5 }}>
 			<Text style={[styles.header, { fontWeight: "bold" }]}>Protocolo</Text>
@@ -66,6 +71,10 @@ const InstructionBox = (props: InstructionProps ) => {
 		    </View>
 		    <Button  onButtonPressed={()=> setVisible(prev => !prev)} text="Entendido" disable={false}/>
 		</View>
+		*/}
+	       <Pressable onPress={()=> navigation.goBack()}>
+		   <Text>Hey!</Text>
+	       </Pressable>
 	    </View>
     );
 }

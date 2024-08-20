@@ -8,12 +8,6 @@ wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
 
-export const REPORT_OPTIONS = [
-	{ name: "Detenido en SEPP", path: "IngresoSEPP"},
-	{ name: "Status de Detenidos", path: "StatusSEPP"},
-	{ name: "Perdida de Enlace", path: "/"},
-	{ name: "Corte de Suministro", path: "/"},
-];
 
 export const FORMATS_DATA = [
 	{ label: "Hiper Lider", value: "HL" },

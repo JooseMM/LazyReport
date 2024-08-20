@@ -1,13 +1,11 @@
 import {  useState } from "react";
 import { ScrollView, View } from "react-native";
 import styles from "./styles";
-import Button from "../../components/MainButton/MainButton";
-import InstructionBox from "../../components/InstructionBox/InstructionBox";
-import { INSTRUCTIONS } from "./helpers"; 
-import StoreInfoInput from "../../components/Input/StoreInfoInput";
-import DetainedInfoInput from "../../components/Input/DetainedInfoInput";
-import UpscaleInfoInput from "../../components/Input/UpscaleInfoInput";
-import EmergencyCallInput from "../../components/Input/EmergencyCallInput";
+import Button from "../../../components/MainButton/MainButton";
+import StoreInfoInput from "../../../components/Input/StoreInfoInput";
+import DetainedInfoInput from "../../../components/Input/DetainedInfoInput";
+import UpscaleInfoInput from "../../../components/Input/UpscaleInfoInput";
+import EmergencyCallInput from "../../../components/Input/EmergencyCallInput";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const [ showInstructions, setShowInstructions ] = useState(false);
@@ -19,7 +17,6 @@ export default function IngresoSEPPScreen({ navigation }) {
 
     return (
 	<ScrollView style={{ position: "relative" }}>
-	    <InstructionBox visible={showInstructions} content={INSTRUCTIONS}/>
 	    <View style={styles.inputContainer}>
 		<StoreInfoInput />
 		<DetainedInfoInput />
