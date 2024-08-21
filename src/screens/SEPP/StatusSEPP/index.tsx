@@ -1,7 +1,8 @@
 import { View, ScrollView, Text } from "react-native";
-import Button from "../../../components/MainButton/MainButton";
+import Button from "../../components/MainButton/MainButton";
 import styles from  "./styles";
-import StatusBox from "../../../components/StatusBox/StatusBox";
+import { colors } from "../../constants/constantData";
+import StatusBox from "../../components/StatusBox/StatusBox";
 
 const StatusSEPPScreen = () => {
     return (

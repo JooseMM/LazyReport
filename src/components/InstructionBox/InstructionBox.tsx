@@ -1,53 +1,24 @@
-import { Text, View, Pressable } from "react-native";
+import { Text, View, Pressable, ScrollView } from "react-native";
 import styles from "./styles";
 import Button from "../MainButton/MainButton";
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { useNavigation } from "@react-navigation/native";
-
-/*
-const props = {
-    description: "Somethings to fill the text in which Im going to put other more important things hehe.",
-    steps: [ 
-	"Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
-	"Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
-	"Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
-	"Armando Ramirez GG.SS informa sobre corte de suministro electrico.",
-    ],
-    warnings: [
-	{ keywords: "This is a keyword", description: "type something here to fill a little bit of the space needed to look good" }
-    ]
-}
-*/
-type InstructionProps = {
-    visible: boolean,
-    content: {
-	description: string,
-	steps: Array<string>,
-	warnings: Array<{ keywords: string, description: string }>
-    }
-}
+import { chooseInstructions, Instructions } from "./helper";
 
 const InstructionBox = () => {
     const navigation = useNavigation();
-    /*
-    const [ visible, setVisible ] = useState(true);
+    const { routeNames } = navigation.getState();
+    const [ instructions ] = useState<Instructions>(chooseInstructions(routeNames));
 
-    useEffect(()=> {
-	setVisible(props.visible)
-    }, [props.visible])
-
-    const { description, steps, warnings } = props.content;
-   */
     return (
-	    <View style={styles.blurBackground}>
-	    {/*
+	    <ScrollView style={styles.blurBackground}>
 		<View style={styles.instructionContainer}>
 		    <View style={{ marginBottom: 12, marginTop: 5 }}>
 			<Text style={[styles.header, { fontWeight: "bold" }]}>Protocolo</Text>
-			<Text style={styles.paragraph}>{ description }</Text>
+			<Text style={styles.paragraph}>{ instructions.description }</Text>
 		    </View>
 		    <View>
-			{ steps.map((step, index) => {
+			{ instructions.steps.map((step, index) => {
 			    return (
 				<View key={index} style={styles.stepContainer}>
 				    <Text style={styles.stepHeader}>{ "Paso " + ( index + 1 ) + ":" }</Text>
@@ -57,7 +28,7 @@ const InstructionBox = () => {
 			})}
 			<View style={styles.warningContainer}>
 			    <Text style={styles.warningTitle}>¡Precauciones!</Text>
-			    { warnings.map((warning, index) => {
+			    { instructions.warnings.map((warning, index) => {
 				return (
 					<Text key={index} style={styles.warningDescription}>
 					    <Text style={styles.warningKeyword}>
@@ -69,13 +40,9 @@ const InstructionBox = () => {
 			    })}
 			</View>
 		    </View>
-		    <Button  onButtonPressed={()=> setVisible(prev => !prev)} text="Entendido" disable={false}/>
+		    <Button  onButtonPressed={()=> navigation.goBack()} text="Entendido" disable={false}/>
 		</View>
-		*/}
-	       <Pressable onPress={()=> navigation.goBack()}>
-		   <Text>Hey!</Text>
-	       </Pressable>
-	    </View>
+	    </ScrollView>
     );
 }
 
