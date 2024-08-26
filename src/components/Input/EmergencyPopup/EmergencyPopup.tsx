@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { 
 View,
 StyleSheet,
@@ -6,21 +6,25 @@ Text,
 TextInput,
 Pressable
 } from "react-native";
-import { useAuth } from "../ApplicationState";
+import { useAuth } from "../../../ApplicationState";
 import { Image } from "expo-image";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { useNavigation } from "@react-navigation/native";
-import { colors } from "../constants/constantData";
+import { colors } from "../../../constants/constantData";
+import { closeIcon, trashIcon } from "./helper";
 
 type CallArray = { entryTime: string, annex: string, validEntryTime: boolean, validAnnex: boolean };
-const EmergencyPopup = () => {
-    const [ callTime, setCallTime ] = useState(new Date ());
+const EmergencyPopup = ({route}) => {
+    const [ callTime, setCallTime ] = useState<Date>();
     const [ callOperator, setCallOperator ] = useState("");
     const navigator = useNavigation();
+    const params = route.params;
+    const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
 
+    //useEffect(()=>{ console.log(params)}, [])
     const showTimePicker = () => {
 	DateTimePickerAndroid.open({
-	    value: callTime,
+	    value: callTime ? callTime : new Date(),
 	    mode: "time",
 	    is24Hour: true,
 	    onChange: (_event, selected) => setCallTime(selected)
@@ -30,15 +34,20 @@ const EmergencyPopup = () => {
 	<View style={styles.blurBackground}>
 	    <View style={styles.container}>
 		<Pressable style={styles.closeContainer} onPress={()=> navigator.goBack()}>
-		    <Image source={require("../../assets/close.svg")} style={styles.close}/>
+		    <Image source={closeIcon} style={styles.close}/>
 		</Pressable>
 		<Text style={styles.label} >Hora:</Text>
 		<Pressable 
 		style={styles.inputContainer}
+		onPress={showTimePicker}
 		>
-		    <Text>
-			{callTime
-			    .toLocaleTimeString("es-MX",{ hour12: false, hour: "2-digit", minute: "2-digit" })}
+		    <Text style={{ color: callTime ? colors.blue : colors.paragraphText }}>
+			{
+			    callTime ? 
+				callTime.toLocaleTimeString("es-MX", localTimeOptions)
+				:
+				"Ejem: 13:46"
+			}
 		    </Text>
 		</Pressable>
 		<Text style={[styles.label, { marginTop: 10 }]}>Operador o Anexo:</Text>
@@ -46,7 +55,7 @@ const EmergencyPopup = () => {
 		style={styles.inputContainer}
 		value={callOperator}
 		onChangeText={(buffer) => setCallOperator(buffer)}
-		placeholder="Ejem: Carab. Juan Dominguez; 13564"
+		placeholder="Ejem: Carab. Juan Dominguez"
 		placeholderTextColor={colors.paragraphText}
 		/>
 		<View style={styles.submitContainer}>
@@ -54,7 +63,7 @@ const EmergencyPopup = () => {
 			<Text style={styles.buttonText}>Agregar</Text>
 		    </Pressable>
 		    <Pressable style={styles.deleteButton}>
-			<Image source={require("../../assets/trash.svg")} style={styles.buttonImage}/>
+			<Image source={trashIcon} style={styles.buttonImage}/>
 		    </Pressable>
 		</View>
 	    </View>

@@ -1,7 +1,7 @@
 import IngresoSEPPScreen from "../Detained/IngresoSEPP/index";
 import InstructionBox from "../../components/InstructionBox/InstructionBox";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import EmergencyPopup from "../../components/EmergencyPopup";
+import EmergencyPopup from "../../components/Input/EmergencyPopup/EmergencyPopup";
 
 const Detained = () => {
     const Stack = createNativeStackNavigator();

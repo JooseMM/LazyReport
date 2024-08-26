@@ -5,7 +5,7 @@ import Button from "../../../components/MainButton/MainButton";
 import StoreInfoInput from "../../../components/Input/StoreInfoInput";
 import DetainedInfoInput from "../../../components/Input/DetainedInfoInput";
 import UpscaleInfoInput from "../../../components/Input/UpscaleInfoInput";
-import EmergencyCallInput from "../../../components/Input/EmergencyCallInput";
+import EmergencyCallInput from "../../../components/Input/EmergencyCallInput/EmergencyCallInput";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const generateReport = () => {
