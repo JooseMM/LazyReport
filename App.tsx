@@ -2,10 +2,8 @@ import { NavigationContainer, DefaultTheme } from "@react-navigation/native";
 import { NativeStackNavigationOptions, createNativeStackNavigator } from "@react-navigation/native-stack";
 import { AuthProvider } from './src/ApplicationState';
 import HomeScreen from "./src/screens/Home";
-import ReportScreen from './src/screens/Report';
 import { colors } from "./src/constants/constantData";
 import { StatusBar } from 'expo-status-bar';
-import EmergencyPopup from "./src/components/EmergencyPopup";
 import Detained from "./src/screens/Detained";
 
 const Stack = createNativeStackNavigator();

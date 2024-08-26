@@ -1,9 +1,4 @@
-import {
-View,
-Text,
-StyleSheet
-} from "react-native";
-import IngresoSEPPScreen from "./IngresoSEPP";
+import IngresoSEPPScreen from "../Detained/IngresoSEPP/index";
 import InstructionBox from "../../components/InstructionBox/InstructionBox";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import EmergencyPopup from "../../components/EmergencyPopup";

@@ -8,8 +8,6 @@ import UpscaleInfoInput from "../../../components/Input/UpscaleInfoInput";
 import EmergencyCallInput from "../../../components/Input/EmergencyCallInput";
 
 export default function IngresoSEPPScreen({ navigation }) {
-    const [ showInstructions, setShowInstructions ] = useState(false);
-
     const generateReport = () => {
 	// check not undefined values in critic fields
 	navigation.navigate("Report");
@@ -20,8 +18,8 @@ export default function IngresoSEPPScreen({ navigation }) {
 	    <View style={styles.inputContainer}>
 		<StoreInfoInput />
 		<DetainedInfoInput />
+		<EmergencyCallInput />
 		<UpscaleInfoInput />
-		<EmergencyCallInput navigator={navigation}/>
 
 		<View style={{ marginTop: 25 }}>
 		    <Button onButtonPressed={generateReport} disable={true} text="Generar Reporte" />
