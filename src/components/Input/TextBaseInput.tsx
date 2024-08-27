@@ -3,6 +3,7 @@ import { useAuth } from "../../ApplicationState";
 import { ReportStateUpdaters, InputID } from "../../constants/customTypes";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
+import { colors } from "../../constants/constantData";
 
 
 export default function TextBaseInput(props: ReportStateUpdaters) {
@@ -31,7 +32,7 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 			<TextInput placeholder={placeholder} 
 			placeholderTextColor="gray"
 			cursorColor="gray"
-			style={ edited && !validInput? [styles.border, { borderColor: 'red' }] : styles.border} 
+			style={ edited && !validInput? [styles.border, { borderColor: colors.red }] : styles.border} 
 			onChangeText={(buffer) => setInput(buffer)} value={input} 
 			onEndEditing={validateInput}
 			onFocus={()=> setEdited(false)}

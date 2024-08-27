@@ -107,5 +107,6 @@ export const colors = {
 	blue: "#101224",
 	//paragraphText: "#585966",
 	paragraphText: "#3f4049",
-	statusContainerBackground: "#E8E8EA"
+	statusContainerBackground: "#E8E8EA",
+	red: "#C54545"
 };

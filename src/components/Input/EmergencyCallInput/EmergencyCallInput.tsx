@@ -9,24 +9,13 @@ import { useAuth } from "../../../ApplicationState";
 import { colors } from "../../../constants/constantData";
 import { Image } from "expo-image";
 import { plusIcon } from "./helper";
+import { newArray } from "./helper";
 
-const newArray = [ 
-    { 
-	id: 234,
-	time: new Date().toLocaleTimeString("es-MX",{ hour12: false, hour: "2-digit", minute: "2-digit" }),
-	annex: "Carab. Juan Gomez"
-    },
-    { 
-	id: 231,
-	time: new Date().toLocaleTimeString("es-MX", { hour12: false, hour: "2-digit", minute: "2-digit" }),
-	annex: "13564"
-    },
-]
-//const newArray = [];
-const EmergencyCallInput = () => {
+const EmergencyCallInput = ({route}) => {
     const navigator = useNavigation<any>();
     const { report } = useAuth();
-    const dataLenght = newArray;
+    const editedID = route?.params?.id ? route.params.id : null;
+    const dataLenght = newArray.filter(value => value.id == editedID )
 
     return (
 	<View style={styles.container}>
@@ -60,7 +49,11 @@ const InfoBox = (props: { index: number, annex: string, time: string, navigator:
     return (
 	<Pressable 
 	style={[styles.infoBox, { marginTop: props.index > 0 ? 10 : 0 }]}
-	onPress={()=> props.navigator.navigate("AddEmergencyCall", { reportId: props.id, callIndex: props.index })}
+	onPress={()=> { 
+	    props
+	    .navigator
+	    .navigate("AddEmergencyCall", { reportId: props.id, callIndex: props.index })
+	}}
 	>
 	    <Text style={[styles.infoText, { marginRight: 20 }]}>{ props.time + "hrs" }</Text>
 	    <Text style={styles.infoText}>{ props.annex }</Text>
