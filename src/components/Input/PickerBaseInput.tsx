@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { ReportStateUpdaters } from  "../../constants/customTypes";
+import { DetainedReportData, ReportStateUpdaters } from  "../../constants/customTypes";
 import { styles } from "./styles";
 import { useAuth } from "../../ApplicationState";
 
@@ -12,7 +12,15 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 
 	const updateState = (selected: string | boolean) => {
 		setSelected(selected);
-		setReport(prev => ({...prev, [id]: selected }));
+		setReport(prev => {
+		    return prev.map(obj => {
+				if(obj.id == props.reportID) {
+				    return ({...obj, [id]: selected})
+				}
+				return obj;
+		    })
+		});
+		
 	}
 	return (
 		<View>

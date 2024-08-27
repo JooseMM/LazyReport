@@ -14,7 +14,7 @@ function useAuth(): AuthContextType {
 }
 
 const AuthProvider = (props: { children: ReactNode }): ReactElement =>  {
-	const [ report, setReport ] = useState< DetainedReportData | null>(null);
+	const [ report, setReport ] = useState<DetainedReportData[]>([]);
 
 	return (
 		<AuthContext.Provider {...props} value={{ report, setReport }}>

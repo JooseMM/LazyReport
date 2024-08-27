@@ -1,8 +1,9 @@
 import { SetStateAction, Dispatch } from "react";
 
 export type DetainedReportData = {
-	time: string
-	reportType: ReportType
+	id: string 
+	time: Date | null
+	reportType: ReportType | null
 	storeNumber: string
 	storeName: string
 	storeFormat: string
@@ -29,8 +30,8 @@ export interface InputObject {
 }
 
 export type AuthContextType = {
-	report: DetainedReportData | null
-	setReport: Dispatch<SetStateAction<{ [key: string]: any} | null>>
+	report: Array<DetainedReportData> | null
+	setReport: Dispatch<SetStateAction<Array<DetainedReportData>>>
 };
 
 export type buttonProps = {
@@ -41,5 +42,6 @@ export type buttonProps = {
 
 
 export interface ReportStateUpdaters {
+	reportID: string
 	inputObject: InputObject
 };

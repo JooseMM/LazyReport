@@ -3,7 +3,7 @@ import { DETAINED_INFO } from "../../constants/constantData";
 import TextBaseInput from "./TextBaseInput";
 import { PickerBaseInput } from "./PickerBaseInput";
 
-const DetainedInfoInput = () => {
+const DetainedInfoInput = (props: { id: string }) => {
     return (
 	<View>
 	{ DETAINED_INFO.map((obj, index) => {

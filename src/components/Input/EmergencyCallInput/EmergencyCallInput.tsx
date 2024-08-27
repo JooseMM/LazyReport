@@ -11,11 +11,11 @@ import { Image } from "expo-image";
 import { plusIcon } from "./helper";
 import { newArray } from "./helper";
 
-const EmergencyCallInput = ({route}) => {
+const EmergencyCallInput = (props: { id: string }) => {
     const navigator = useNavigation<any>();
     const { report } = useAuth();
-    const editedID = route?.params?.id ? route.params.id : null;
-    const dataLenght = newArray.filter(value => value.id == editedID )
+    const currentID = props.id;
+    const dataLenght = newArray.filter(value => value.id == currentID )
 
     return (
 	<View style={styles.container}>
@@ -45,7 +45,7 @@ const EmergencyCallInput = ({route}) => {
     );
 }
 
-const InfoBox = (props: { index: number, annex: string, time: string, navigator: any, id: number}) => {
+const InfoBox = (props: { index: number, annex: string, time: string, navigator: any, id: string}) => {
     return (
 	<Pressable 
 	style={[styles.infoBox, { marginTop: props.index > 0 ? 10 : 0 }]}

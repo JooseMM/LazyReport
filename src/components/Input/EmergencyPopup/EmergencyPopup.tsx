@@ -35,7 +35,14 @@ const EmergencyPopup = ({route}) => {
     }
     const submit = () => {
 	if(validateAnnex(callOperator) && callTime)
-	    setReport(prev => ({...prev, emergencyCall: [...prev.emergencyCall, { time: callTime, annex: callOperator} ]}))
+	    setReport(prev => (
+		{
+		    ...prev,
+		    emergencyCall: [
+			...prev.emergencyCall,
+			{ time: callTime, annex: callOperator}
+		    ]
+		}));
     }
     const deleteCalls = (id: string) => null;
 

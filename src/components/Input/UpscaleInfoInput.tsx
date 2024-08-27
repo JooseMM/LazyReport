@@ -2,7 +2,7 @@ import { View } from "react-native";
 import { UPSCALE_INFO } from "../../constants/constantData";
 import TextBaseInput from "./TextBaseInput";
 
-const UpscaleInfoInput = () => {
+const UpscaleInfoInput = (props: { id: string }) => {
     return (
 	<View>
 	    {

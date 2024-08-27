@@ -5,14 +5,14 @@ import {
 import TextBaseInput from "./TextBaseInput";
 import { PickerBaseInput } from "./PickerBaseInput";
 
-const StoreInfoInput = () => {
+const StoreInfoInput = (props: { id: string }) => {
     return (
 	<View>
 	{ STORE_INFO.map((obj, index) => {
 	    return obj.id == "storeFormat" ? (
-		<PickerBaseInput key={index} inputObject={obj}/>
+		<PickerBaseInput key={index} reportID={props.id} inputObject={obj}/>
 	    ) : (
-		<TextBaseInput key={index} inputObject={obj}/>
+		<TextBaseInput key={index} reportID={props.id} inputObject={obj}/>
 	    )
 	})}
 	</View>
