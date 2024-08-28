@@ -10,7 +10,7 @@ export type DetainedReportData = {
 	informantName: string
 	isUnderage: boolean
 	quantity: string
-	emergencyCall: Array<{ time: string, annex: string }> | null
+	emergencyCall: Array<{ time: Date, annex: string }> | null
 	firstUpscale: string | null
 	secondUpscale: string | null
 	thirdUpscale: string | null

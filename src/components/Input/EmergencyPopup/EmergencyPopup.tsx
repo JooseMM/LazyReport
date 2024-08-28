@@ -25,24 +25,43 @@ const EmergencyPopup = ({route}) => {
     const [ dirty, setDirty ] = useState(false);
 
     const navigator = useNavigation();
-    const params = route.params;
-    const { report, setReport } = useAuth();
+    const { reportID, callIndex } = route.params;
+    const { setReport } = useAuth();
 
     const isValid = () => {
 	const res = validateAnnex(callOperator);
 	setDirty(true);
 	setValid(res);
     }
+
     const submit = () => {
-	if(validateAnnex(callOperator) && callTime)
-	    setReport(prev => (
-		{
-		    ...prev,
-		    emergencyCall: [
-			...prev.emergencyCall,
-			{ time: callTime, annex: callOperator}
-		    ]
-		}));
+	const isValid = validateAnnex(callOperator);
+
+	if(isValid && callTime && callIndex != undefined) {
+	    /*
+	    setReport(prev => {
+		const temp = [...prev];
+		temp[reportID].emergencyCall[callIndex].annex = callOperator;
+		temp[reportID].emergencyCall[callIndex].time = callTime;
+		console.log(temp);
+		return temp;
+	    });
+	    */
+	   console.log("uhm");
+	}
+	if(isValid && callTime && callIndex == undefined) {
+	    setReport(prev => {
+		const temp = prev.map(value => {
+		    if(value.id == reportID)
+			value.emergencyCall.push({ time: callTime, annex: callOperator});
+
+			return value;
+		})
+		return temp;
+	    });
+	}
+
+	navigator.goBack();
     }
     const deleteCalls = (id: string) => null;
 
@@ -90,3 +109,12 @@ const EmergencyPopup = ({route}) => {
 }
 
 export default EmergencyPopup;
+/*
+		{
+		    ...prev,
+		    emergencyCall: [
+			...prev[].emergencyCall,
+			{ time: callTime, annex: callOperator}
+		    ]
+		}));
+		*/

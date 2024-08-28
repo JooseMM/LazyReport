@@ -29,3 +29,16 @@ export const initReport: DetainedReportData = {
     thirdUpscale: null
 }
 
+export const reportObjectKeys = [
+	"id",
+	"time",
+	"reportType",
+	"storeNumber",
+	"storeFormat",
+	"storeName",
+	"isUnderage",
+	"quantity",
+	"informantName",
+	"emergencyCall",
+];
+

@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
+import { ScrollView, View, Text } from "react-native";
 import styles from "./styles";
 import Button from "../../../components/MainButton/MainButton";
 import StoreInfoInput from "../../../components/Input/StoreInfoInput";
@@ -9,21 +9,23 @@ import EmergencyCallInput from "../../../components/Input/EmergencyCallInput/Eme
 import { useAuth } from "../../../ApplicationState";
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from "uuid";
-import { initReport } from "./helpers";
+import { initReport, reportObjectKeys } from "./helpers";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const { setReport, report } = useAuth();
     const [ reportID ]  = useState(uuidv4());
     const viewReport = () => {
-	// check not undefined values in critic fields
+	let invalid: boolean;
 	//navigation.navigate("Report");
-	console.log(report);
+	//console.log(report.find(obj => obj.id == reportID)[reportObjectKeys[0]]);
+	const current = report.find(obj => obj.id == reportID);
+	reportObjectKeys.forEach((element)=> {
+	    if(current[element] == undefined || current[element] == null || current[element] == "")
+		console.log("value: " + element + " " + current[element]);
+	})
     };
-
     useEffect(()=> {
-	setReport(prev => {
-	    return [...prev, {...initReport, id: reportID } ]
-	});
+	setReport(prev => [...prev, {...initReport, id: reportID }]);
     }, []);
 
     return (

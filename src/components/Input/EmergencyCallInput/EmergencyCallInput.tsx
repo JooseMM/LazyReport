@@ -37,7 +37,7 @@ const EmergencyCallInput = (props: { id: string }) => {
 		    </View>
 		    <Pressable
 		     style={styles.buttonContainer}
-		     onPress={()=> navigator.navigate("AddEmergencyCall")}
+		     onPress={()=> navigator.navigate("AddEmergencyCall", { reportID: props.id })}
 		     >
 			<Image source={plusIcon} style={styles.buttonImage}/>
 		    </Pressable>
@@ -52,7 +52,7 @@ const InfoBox = (props: { index: number, annex: string, time: string, navigator:
 	onPress={()=> { 
 	    props
 	    .navigator
-	    .navigate("AddEmergencyCall", { reportId: props.id, callIndex: props.index })
+	    .navigate("AddEmergencyCall", { reportID: props.id, callIndex: props.index })
 	}}
 	>
 	    <Text style={[styles.infoText, { marginRight: 20 }]}>{ props.time + "hrs" }</Text>
