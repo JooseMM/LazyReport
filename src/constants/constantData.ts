@@ -1,4 +1,5 @@
 import { InputObject } from "./customTypes";
+import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
 lettersOnlyFormat,
 storeCodeFormat,
@@ -7,6 +8,7 @@ numberOnlyFormat,
 wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
+import { Dispatch, SetStateAction } from "react";
 
 
 export const FORMATS_DATA = [
@@ -112,3 +114,15 @@ export const colors = {
 };
 
 export const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
+
+export const showTimePicker = (callTime: Date, setCallTime: Dispatch<SetStateAction<Date>>) => {
+    DateTimePickerAndroid.open({
+	value: callTime ? callTime : new Date(),
+	mode: "time",
+	is24Hour: true,
+	onChange: (event, selected) => { 
+	    setCallTime(event.type != "dismissed" ? selected : null);
+	} 
+    });
+};
+

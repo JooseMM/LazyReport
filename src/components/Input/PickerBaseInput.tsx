@@ -12,7 +12,6 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 
 	useEffect(()=> {
 	    setReport((prev: DetainedReportData[]) => {
-		console.log(prev);
 		const temp = [...prev];
 
 		return temp.map((report)=> {

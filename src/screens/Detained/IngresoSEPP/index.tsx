@@ -17,16 +17,19 @@ export default function IngresoSEPPScreen({ navigation }) {
 
     const viewReport = () => {
 	let invalid: boolean;
-	
 	const current = report.find(obj => obj.id == reportID);
+
 	reportObjectKeys.forEach((element)=> {
 	    if(current[element] == undefined || current[element] == null || current[element] == "")
 		invalid = true;
 	    else
 		invalid = false;
-	})
+	});
 
-	navigation.navigate("Report", { reportID: reportID });
+	/*
+	if(!invalid) 
+	    navigation.navigate("Report", { reportID: reportID });
+	*/
     };
 
     useEffect(()=> {

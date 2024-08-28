@@ -15,7 +15,7 @@ export const INSTRUCTIONS= {
 
 export const initReport: DetainedReportData = {
     id: "",
-    time: null,
+    time: undefined,
     reportType: "Detenido en SEPP",
     storeNumber: "",
     storeName: "",
@@ -24,9 +24,9 @@ export const initReport: DetainedReportData = {
     isUnderage: false,
     quantity: "",
     emergencyCall: [],
-    firstUpscale: null,
-    secondUpscale: null,
-    thirdUpscale: null
+    firstUpscale: undefined,
+    secondUpscale: undefined,
+    thirdUpscale: undefined,
 }
 
 export const reportObjectKeys = [

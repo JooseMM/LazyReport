@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { 
 View,
 Text,
@@ -7,9 +7,8 @@ Pressable
 } from "react-native";
 import { 
 closeIcon,
-showTimePicker,
 trashIcon,
-validateAnnex
+validateAnnex as annexRegEx
 } from "./helper";
 import { useAuth } from "../../../ApplicationState";
 import { Image } from "expo-image";
@@ -18,28 +17,61 @@ import { colors } from "../../../constants/constantData";
 import styles from "./styles";
 import { localTimeOptions } from "../../../constants/constantData";
 import { DetainedReportData } from "../../../constants/customTypes";
+import { showTimePicker } from "../../../constants/constantData";
 
 const EmergencyPopup = ({route}) => {
     const { setReport, report } = useAuth();
     const { reportID, callIndex } = route.params;
     const currentReport = report?.find(obj => obj.id == reportID)?.emergencyCall[callIndex];
-    const [ callTime, setCallTime ] = useState<Date>(currentReport?.time || undefined);
-    const [ callOperator, setCallOperator ] = useState(currentReport?.annex || undefined);
-    const [ valid, setValid ] = useState(false);
-    const [ dirty, setDirty ] = useState(false);
-
     const navigator = useNavigation();
 
-    const isValid = () => {
-	const res = validateAnnex(callOperator);
-	setDirty(true);
-	setValid(res);
+    const [ callTime, setCallTime ] = useState<Date>(currentReport?.time || undefined);
+    const [ callOperator, setCallOperator ] = useState(currentReport?.annex || undefined);
+    const [ validAnnex, setValidAnnex ] = useState(false);
+    const [ dirtyAnnex, setDirtyAnnex ] = useState(false);
+    const [ validTime, setValidTime ] = useState(false);
+    const [ dirtyTime, setDirtyTime ] = useState(false);
+
+    const checkValidAnnex = ()=> {
+	const isValid = annexRegEx(callOperator);
+
+	if(typeof callOperator != "object" && callOperator == undefined) {
+	    setDirtyAnnex(false);
+	    setValidAnnex(isValid);
+	}
+	else {
+	    setDirtyAnnex(true);
+	    setValidAnnex(isValid);
+	}
     }
+    const checkValidTime = () => {
+	    if(typeof callTime == "object" && callTime == null) {
+		setDirtyTime(true);
+		setValidTime(false);
+	    }
+	    if(typeof callTime != "object" && callTime === undefined) {
+		setValidTime(false);
+		setDirtyTime(false);
+	    }
+	    if(typeof callTime == "object" && callTime != undefined && callTime != null) {
+		setValidTime(true);
+		setDirtyTime(true);
+	    }
+	};
+    
+    const isValidData = ():boolean => dirtyAnnex && dirtyTime && (!validAnnex || !validTime) ? false : true;
+
+    useEffect(()=> {
+
+	checkValidTime();
+	checkValidAnnex();
+
+    }, [callTime, callOperator]);
 
     const submit = () => {
-	const isValid = validateAnnex(callOperator);
-
-	if(isValid && callTime && callIndex != undefined) {
+	const valid = isValidData();
+	console.log(callTime + " " + callOperator);
+	if(valid && callIndex != undefined) {
 	    setReport(prev => {
 		return prev.map(obj => {
 		    if(obj.id == reportID) {
@@ -50,7 +82,8 @@ const EmergencyPopup = ({route}) => {
 		});
 	    });
 	}
-	if(isValid && callTime && callIndex == undefined) {
+
+	if( valid && callIndex == undefined) {
 	    setReport((prev: Array<DetainedReportData>) => {
 		return prev.map(value => {
 		    if(value.id == reportID) {
@@ -63,6 +96,7 @@ const EmergencyPopup = ({route}) => {
 
 	navigator.goBack();
     }
+
     const deleteCalls = () => {
 	setReport(prev => {
 	    return prev.map(obj => {
@@ -84,7 +118,7 @@ const EmergencyPopup = ({route}) => {
 		</Pressable>
 		<Text style={styles.label} >Hora:</Text>
 		<Pressable 
-		style={[styles.inputContainer, { paddingVertical: 14 }]}
+		style={[styles.inputContainer, { paddingVertical: 14 }, dirtyTime && !validTime ? { borderColor: colors.red } : null ]}
 		onPress={() => showTimePicker(callTime, setCallTime)}
 		>
 		    <Text style={{ color: callTime ? colors.blue : colors.paragraphText, fontSize: 16 }}>
@@ -96,18 +130,22 @@ const EmergencyPopup = ({route}) => {
 			}
 		    </Text>
 		</Pressable>
+		{ !validTime && dirtyTime && <Text style={{ color: colors.red }}>Formato de tiempo invalido</Text>}
 		<Text style={[styles.label, { marginTop: 10 }]}>Operador o Anexo:</Text>
 		<TextInput 
-		style={[styles.inputContainer, !valid && dirty ? styles.invalidBorder : null ]}
+		style={[styles.inputContainer, !validAnnex && dirtyAnnex ? styles.invalidBorder : null ]}
 		value={callOperator}
 		onChangeText={(buffer) => setCallOperator(buffer)}
 		placeholder="Ejem: Carab. Juan Dominguez"
 		placeholderTextColor={colors.paragraphText}
-		onEndEditing={isValid}
 		/>
-		{ !valid && dirty ? <Text style={{ color: colors.red }}>Formato de operador o anexo invalido</Text> : null }
+		{ !validAnnex && dirtyAnnex && <Text style={{ color: colors.red }}>Formato de operador o anexo invalido</Text> }
 		<View style={styles.submitContainer}>
-		    <Pressable style={[styles.submitButton, !valid && dirty ? { backgroundColor: "rgba(16, 18, 36, 0.4)" } : null ]} disabled={!valid && dirty} onPress={submit}>
+		    <Pressable 
+		     style={[styles.submitButton, !isValidData() ? { backgroundColor: "rgba(16, 18, 36, 0.4)" } : null ]}
+		     disabled={!isValidData()} 
+		     onPress={submit}
+		     >
 			<Text style={styles.buttonText}>Agregar</Text>
 		    </Pressable>
 		    <Pressable style={styles.deleteButton} onPress={deleteCalls}>
