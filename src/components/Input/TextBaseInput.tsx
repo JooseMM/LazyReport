@@ -18,9 +18,23 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 		const isValid = regExpValidator.test(input);
 
 		if(isValid)
-			setReport(prev => ({ ...prev, [id]: input}));
+			setReport(prev => {
+			    return prev.map(report => {
+				if(report.id == props.reportID) {
+				    return ({...report, [id]: input});
+				}
+				return report;
+			    })
+			});
 		else
-			setReport(prev => ({ ...prev, [id]: ""}));
+			setReport(prev => {
+			    return prev.map(report => {
+				if(report.id == props.reportID) {
+				    return ({...report, [id]: ""});
+				}
+				return report;
+			    })
+			});
 
 		setValidInput(isValid);
 		setEdited(true);

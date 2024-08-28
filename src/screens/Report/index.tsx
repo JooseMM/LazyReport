@@ -6,14 +6,17 @@ import * as Clipboard from "expo-clipboard";
 import styles from "./styles";
 import Button from "../../components/MainButton/MainButton";
 
-export default function ReportScreen() {
+export default function ReportScreen({route}) {
     const { report } = useAuth();
     const [ finalReport, setFinalReport ] = useState(undefined);
+    const { reportID } = route.params;
+    const currentReport = report.find(obj => obj.id == reportID);
+    const reportType = currentReport?.reportType;
 
     useEffect(()=> { 
-	switch(report.reportType) {
+	switch(reportType) {
 	    case "Detenido en SEPP":
-		setFinalReport(detainedReport(report)) 
+		setFinalReport(detainedReport(currentReport));
 	    break;
 	    case "Corte de Suministro":
 		//

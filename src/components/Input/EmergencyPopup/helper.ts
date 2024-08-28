@@ -5,7 +5,6 @@ import { SetStateAction, Dispatch } from "react";
 export const closeIcon = require("../../../../assets/close.svg");
 export const trashIcon = require("../../../../assets/trash.svg");
 export const validateAnnex = (annex: string):boolean => wordsOrNumberFormat.test(annex) ? true : false;
-export const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
 
 export const showTimePicker = (callTime: Date, setCallTime: Dispatch<SetStateAction<Date>>) => {
     DateTimePickerAndroid.open({

@@ -7,7 +7,6 @@ Pressable
 } from "react-native";
 import { 
 closeIcon,
-localTimeOptions,
 showTimePicker,
 trashIcon,
 validateAnnex
@@ -17,16 +16,19 @@ import { Image } from "expo-image";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../../../constants/constantData";
 import styles from "./styles";
+import { localTimeOptions } from "../../../constants/constantData";
+import { DetainedReportData } from "../../../constants/customTypes";
 
 const EmergencyPopup = ({route}) => {
-    const [ callTime, setCallTime ] = useState<Date>();
-    const [ callOperator, setCallOperator ] = useState("");
+    const { setReport, report } = useAuth();
+    const { reportID, callIndex } = route.params;
+    const currentReport = report?.find(obj => obj.id == reportID)?.emergencyCall[callIndex];
+    const [ callTime, setCallTime ] = useState<Date>(currentReport?.time || undefined);
+    const [ callOperator, setCallOperator ] = useState(currentReport?.annex || undefined);
     const [ valid, setValid ] = useState(false);
     const [ dirty, setDirty ] = useState(false);
 
     const navigator = useNavigation();
-    const { reportID, callIndex } = route.params;
-    const { setReport } = useAuth();
 
     const isValid = () => {
 	const res = validateAnnex(callOperator);
@@ -38,32 +40,41 @@ const EmergencyPopup = ({route}) => {
 	const isValid = validateAnnex(callOperator);
 
 	if(isValid && callTime && callIndex != undefined) {
-	    /*
 	    setReport(prev => {
-		const temp = [...prev];
-		temp[reportID].emergencyCall[callIndex].annex = callOperator;
-		temp[reportID].emergencyCall[callIndex].time = callTime;
-		console.log(temp);
-		return temp;
+		return prev.map(obj => {
+		    if(obj.id == reportID) {
+			obj.emergencyCall[callIndex].time = callTime;
+			obj.emergencyCall[callIndex].annex = callOperator;
+		    }
+		    return obj;
+		});
 	    });
-	    */
-	   console.log("uhm");
 	}
 	if(isValid && callTime && callIndex == undefined) {
-	    setReport(prev => {
-		const temp = prev.map(value => {
-		    if(value.id == reportID)
+	    setReport((prev: Array<DetainedReportData>) => {
+		return prev.map(value => {
+		    if(value.id == reportID) {
 			value.emergencyCall.push({ time: callTime, annex: callOperator});
-
-			return value;
+		    }
+		    return value;
 		})
-		return temp;
 	    });
 	}
 
 	navigator.goBack();
     }
-    const deleteCalls = (id: string) => null;
+    const deleteCalls = () => {
+	setReport(prev => {
+	    return prev.map(obj => {
+		if(obj.id == reportID && callIndex != undefined) {
+		    obj.emergencyCall = obj.emergencyCall.filter((_obj, index)=> index != callIndex)
+		}
+		return obj;
+	    })
+	});
+
+	navigator.goBack();
+    };
 
     return (
 	<View style={styles.blurBackground}>
@@ -73,10 +84,10 @@ const EmergencyPopup = ({route}) => {
 		</Pressable>
 		<Text style={styles.label} >Hora:</Text>
 		<Pressable 
-		style={styles.inputContainer}
+		style={[styles.inputContainer, { paddingVertical: 14 }]}
 		onPress={() => showTimePicker(callTime, setCallTime)}
 		>
-		    <Text style={{ color: callTime ? colors.blue : colors.paragraphText }}>
+		    <Text style={{ color: callTime ? colors.blue : colors.paragraphText, fontSize: 16 }}>
 			{
 			    callTime ? 
 				callTime.toLocaleTimeString("es-MX", localTimeOptions)
@@ -99,7 +110,7 @@ const EmergencyPopup = ({route}) => {
 		    <Pressable style={[styles.submitButton, !valid && dirty ? { backgroundColor: "rgba(16, 18, 36, 0.4)" } : null ]} disabled={!valid && dirty} onPress={submit}>
 			<Text style={styles.buttonText}>Agregar</Text>
 		    </Pressable>
-		    <Pressable style={styles.deleteButton}>
+		    <Pressable style={styles.deleteButton} onPress={deleteCalls}>
 			<Image source={trashIcon} style={styles.buttonImage}/>
 		    </Pressable>
 		</View>
@@ -109,12 +120,3 @@ const EmergencyPopup = ({route}) => {
 }
 
 export default EmergencyPopup;
-/*
-		{
-		    ...prev,
-		    emergencyCall: [
-			...prev[].emergencyCall,
-			{ time: callTime, annex: callOperator}
-		    ]
-		}));
-		*/

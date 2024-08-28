@@ -14,16 +14,21 @@ import { initReport, reportObjectKeys } from "./helpers";
 export default function IngresoSEPPScreen({ navigation }) {
     const { setReport, report } = useAuth();
     const [ reportID ]  = useState(uuidv4());
+
     const viewReport = () => {
 	let invalid: boolean;
-	//navigation.navigate("Report");
-	//console.log(report.find(obj => obj.id == reportID)[reportObjectKeys[0]]);
+	
 	const current = report.find(obj => obj.id == reportID);
 	reportObjectKeys.forEach((element)=> {
 	    if(current[element] == undefined || current[element] == null || current[element] == "")
-		console.log("value: " + element + " " + current[element]);
+		invalid = true;
+	    else
+		invalid = false;
 	})
+
+	navigation.navigate("Report", { reportID: reportID });
     };
+
     useEffect(()=> {
 	setReport(prev => [...prev, {...initReport, id: reportID }]);
     }, []);

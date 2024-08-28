@@ -7,10 +7,10 @@ const DetainedInfoInput = (props: { id: string }) => {
     return (
 	<View>
 	{ DETAINED_INFO.map((obj, index) => {
-	    return obj.id != "isUnderage" ? (
-		<TextBaseInput key={index} inputObject={obj}/>
+	    return obj.id == "isUnderage" ? (
+		<PickerBaseInput key={index} reportID={props.id} inputObject={obj}/>
 	    ) : (
-		<PickerBaseInput key={index} inputObject={obj}/>
+		<TextBaseInput key={index} reportID={props.id} inputObject={obj}/>
 	    )
 	})}
 	

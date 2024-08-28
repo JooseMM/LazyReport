@@ -6,30 +6,31 @@ Pressable
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { useAuth } from "../../../ApplicationState";
-import { colors } from "../../../constants/constantData";
+import { colors, localTimeOptions } from "../../../constants/constantData";
 import { Image } from "expo-image";
 import { plusIcon } from "./helper";
-import { newArray } from "./helper";
+import { useEffect, useState } from "react";
 
 const EmergencyCallInput = (props: { id: string }) => {
     const navigator = useNavigation<any>();
     const { report } = useAuth();
-    const currentID = props.id;
-    const dataLenght = newArray.filter(value => value.id == currentID )
+    const currentReport = report?.find(value => value.id == props.id);
+    const callArray = currentReport?.emergencyCall;
+    const arrayLength = callArray?.length || 0;
 
     return (
 	<View style={styles.container}>
 	    <Text style={styles.label}>Llamada de Emergencias:</Text>
 		    <View style={styles.infoContainer}>
-		    {	dataLenght.length > 0 ? (
-			    dataLenght.map((value, index) => {
+		    {	arrayLength > 0 ? (
+			    callArray.map((value, index) => {
 				return  <InfoBox 
 					 key={index}
 					 index={index} 
 					 navigator={navigator}
 					 annex={value.annex}
 					 time={value.time}
-					 id={value.id}
+					 id={props.id}
 					    /> 
 			    }))
 			: <Text style={styles.outputText}>-- Sin Llamadas --</Text>
@@ -45,7 +46,7 @@ const EmergencyCallInput = (props: { id: string }) => {
     );
 }
 
-const InfoBox = (props: { index: number, annex: string, time: string, navigator: any, id: string}) => {
+const InfoBox = (props: { index: number, annex: string, time: Date, navigator: any, id: string}) => {
     return (
 	<Pressable 
 	style={[styles.infoBox, { marginTop: props.index > 0 ? 10 : 0 }]}
@@ -55,7 +56,7 @@ const InfoBox = (props: { index: number, annex: string, time: string, navigator:
 	    .navigate("AddEmergencyCall", { reportID: props.id, callIndex: props.index })
 	}}
 	>
-	    <Text style={[styles.infoText, { marginRight: 20 }]}>{ props.time + "hrs" }</Text>
+	    <Text style={[styles.infoText, { marginRight: 20 }]}>{ props.time.toLocaleTimeString("es-MX", localTimeOptions) + "hrs" }</Text>
 	    <Text style={styles.infoText}>{ props.annex }</Text>
 	</Pressable> 
     );

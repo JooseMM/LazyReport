@@ -1,4 +1,6 @@
 export const plusIcon = require("../../../../assets/plus.svg");
+/*
+ * test mock array 
 export const newArray = [ 
     { 
 	id: "234",
@@ -12,3 +14,4 @@ export const newArray = [
     },
 ];
 
+*/

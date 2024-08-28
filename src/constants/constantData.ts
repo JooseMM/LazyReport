@@ -110,3 +110,5 @@ export const colors = {
 	statusContainerBackground: "#E8E8EA",
 	red: "#C54545"
 };
+
+export const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
