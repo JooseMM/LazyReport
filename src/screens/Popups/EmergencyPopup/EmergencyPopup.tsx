@@ -124,7 +124,7 @@ const EmergencyPopup = ({route}) => {
 		    <Text style={{ color: callTime ? colors.blue : colors.paragraphText, fontSize: 16 }}>
 			{
 			    callTime ? 
-				callTime.toLocaleTimeString("es-MX", localTimeOptions)
+				callTime.toLocaleTimeString("es-MX", localTimeOptions) + "hrs"
 				:
 				"Ejem: 13:46"
 			}

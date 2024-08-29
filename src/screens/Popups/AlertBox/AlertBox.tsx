@@ -40,9 +40,9 @@ const styles = StyleSheet.create({
     container: {
 	backgroundColor: "white",
 	padding: 25,
-	width: "80%",
+	width: "90%",
 	marginHorizontal: "auto",
-	marginVertical: "auto",
+	marginVertical: "45%",
 	borderRadius: 5
     },
     blurBackground: {

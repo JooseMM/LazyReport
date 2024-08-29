@@ -54,7 +54,7 @@ const TimeBaseInput = (props: ReportStateUpdaters) => {
 		<Text style={[styles.output, { color: time ? colors.blue : colors.paragraphText}]}>
 		{
 		    time ? time
-			     .toLocaleTimeString("es-MX", localTimeOptions)
+			     .toLocaleTimeString("es-MX", localTimeOptions) + "hrs"
 			     : placeholder
 		}
 		</Text>
