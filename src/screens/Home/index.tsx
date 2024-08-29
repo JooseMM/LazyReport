@@ -8,7 +8,7 @@ export default function HomeScreen({ navigation }) {
 
 const REPORT_OPTIONS = [
 	{ name: "Detenido en SEPP", path: "Detained", opts: { screen: "Instruction", initial: false }},
-	{ name: "Status de Detenidos", path: "StatusSEPP"},
+	{ name: "Status de Detenidos", path: "Status"},
 ];
 	return (
 		<View>
