@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react";
-import { ScrollView, View, Text } from "react-native";
+import { ScrollView, View } from "react-native";
 import styles from "./styles";
 import Button from "../../../components/MainButton/MainButton";
 import StoreInfoInput from "../../../components/Input/StoreInfoInput";
@@ -9,41 +9,21 @@ import EmergencyCallInput from "../../../components/Input/EmergencyCallInput/Eme
 import { useAuth } from "../../../ApplicationState";
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from "uuid";
-import { initReport, reportObjectKeys } from "./helpers";
+import { initReport, reportValidation } from "./helpers";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const { setReport, report } = useAuth();
     const [ reportID ]  = useState(uuidv4());
+    const [ invalidReport, setInvalidReport ] = useState(false);
 
-    const viewReport = () => {
-	let invalid: boolean;
+    const goToView = () => {
 	const current = report.find(obj => obj.id == reportID);
+	reportValidation(current, setInvalidReport);
 
-	const genericReportProperty = (element: string):boolean => ( 
-	    current[element] == undefined || current[element] == null || current[element] == "" ? true : false 
-	 );
-	
-	reportObjectKeys.forEach((element)=> {
-	    if(element == "isUnderage") {
-		const value = current[element];
-
-		if(typeof value == "object" && value == null)
-		    invalid = true;
-		if(typeof value == "object" && value == undefined)
-		    invalid = true;
-		if(typeof value != "object" && value != null)
-		    invalid = false;
-
-		console.log(element + " picker value is: " + value);
-	    }
-	    else {
-		invalid = genericReportProperty(element);
-		console.log(element + ": " + invalid);
-	    }
-	});
-
-	if(!invalid) 
+	if(!invalidReport) 
 	    navigation.navigate("Report", { reportID: reportID });
+	    
+	//else  implement a popup to tell the client that somwthing is wrong
     };
 
     useEffect(()=> {
@@ -58,7 +38,7 @@ export default function IngresoSEPPScreen({ navigation }) {
 		<EmergencyCallInput id={reportID}/>
 		<UpscaleInfoInput id={reportID}/>
 		<View style={{ marginTop: 25 }}>
-		    <Button onButtonPressed={viewReport} disable={false} text="Generar Reporte" />
+		    <Button onButtonPressed={goToView} disable={false} text="Generar Reporte" />
 		</View>
 	    </View>
 	</ScrollView>

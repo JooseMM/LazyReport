@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import { colors } from "../../constants/constantData";
 
 export const styles = StyleSheet.create({
 	label: {
@@ -10,7 +11,7 @@ export const styles = StyleSheet.create({
 	border: {
 		borderStyle: "solid",
 		borderWidth: 1,
-		borderColor: "#70717C",
+		borderColor: colors.paragraphText,
 		paddingVertical: 12,
 		paddingHorizontal: 15,
 		borderRadius: 5,

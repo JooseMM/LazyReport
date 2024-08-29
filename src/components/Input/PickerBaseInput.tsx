@@ -7,7 +7,7 @@ import { useAuth } from "../../ApplicationState";
 import { colors } from "../../constants/constantData";
 
 export const PickerBaseInput = (props: ReportStateUpdaters) => {
-	const [ selected, setSelected ] = useState<string>();
+	const [ selected, setSelected ] = useState<string | boolean>();
 	const { id, label, options, validationKeyword } = props.inputObject;
 	const { setReport } = useAuth();
 	const [ valid, setValid ] = useState(false);
@@ -39,9 +39,9 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	return (
 		<View>
 			<Text style={styles.label}>{ label + ":" }</Text>
-			<View style={{borderWidth: 1, borderColor: !valid && dirty ? colors.red : '#70717C', borderRadius: 5}}>
+			<View style={{borderWidth: 1, borderColor: !valid && dirty ? colors.red : colors.paragraphText, borderRadius: 5}}>
 				<Picker selectedValue={selected} onValueChange={itemValue => setSelected(itemValue)}>
-					{options.map((option, index) => <Picker.Item key={index} label={option.label} value={option.value}/>)}
+					{options.map((option, index) => <Picker.Item key={index} color={index > 0 ? colors.blue : colors.paragraphText} label={option.label} value={option.value}/>)}
 				</Picker>
 			</View>
 			{ !valid && dirty && <Text style={{ color: colors.red }}>Por favor, selecciona { validationKeyword }</Text>}

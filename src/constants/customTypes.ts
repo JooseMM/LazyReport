@@ -8,7 +8,7 @@ export type DetainedReportData = {
 	storeName: string
 	storeFormat: string
 	informantName: string
-	isUnderage: string
+	isUnderage: boolean
 	quantity: string
 	emergencyCall: Array<{ time: Date, annex: string }> | null
 	firstUpscale: string | null
@@ -26,7 +26,7 @@ export interface InputObject {
 	placeholder?: string
 	validationKeyword: string
 	regExpValidator?: Array<RegExp>
-	options?: Array<{ label: string, value: string }>
+	options?: Array<{ label: string, value: string | boolean }>
 }
 
 export type AuthContextType = {

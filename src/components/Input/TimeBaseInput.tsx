@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
 	borderStyle: "solid",
 	borderWidth: 1,
 	fontSize: 16,
-	borderColor: "#70717C",
+	borderColor: colors.paragraphText,
 	paddingVertical: 14,
 	paddingHorizontal: 20,
 	borderRadius: 5,

@@ -1,3 +1,4 @@
+import { Dispatch, SetStateAction } from "react";
 import { DetainedReportData } from "../../../constants/customTypes";
 
 export const INSTRUCTIONS= {
@@ -19,9 +20,9 @@ export const initReport: DetainedReportData = {
     reportType: "Detenido en SEPP",
     storeNumber: "",
     storeName: "",
-    storeFormat: "",
+    storeFormat: undefined,
     informantName: "",
-    isUnderage: false,
+    isUnderage: undefined,
     quantity: "",
     emergencyCall: [],
     firstUpscale: undefined,
@@ -41,4 +42,29 @@ export const reportObjectKeys = [
 	"informantName",
 	"emergencyCall",
 ];
+export const isPropInvalid = (
+    current: DetainedReportData,
+    element: string
+):boolean => {
+    return current[element] == undefined 
+		|| current[element] == null 
+		    || current[element] == "" ? true : false 
+};
+
+export const reportValidation = (current: DetainedReportData, setInvalidReport: Dispatch<SetStateAction<boolean>>) => {
+    reportObjectKeys.forEach((element)=> {
+	if(element == "isUnderage" || element == "storeFormat") {
+	    const property = current[element];
+
+	    if(typeof property == "boolean" && element === "isUnderage")
+		return setInvalidReport(false)
+	    if(typeof property == "string" && element === "storeFormat")
+		return setInvalidReport(false)
+
+	    return setInvalidReport(true);
+	}
+
+	setInvalidReport(isPropInvalid(current, element));
+    });
+};
 

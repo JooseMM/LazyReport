@@ -12,7 +12,7 @@ import { Dispatch, SetStateAction } from "react";
 
 
 export const FORMATS_DATA = [
-	{ label: "Selecciona un foramto", value: null },
+	{ label: "Selecciona un formato", value: null },
 	{ label: "Hiper Lider", value: "HL" },
 	{ label: "Lider Express", value: "LE" },
 	{ label: "Super Bodega Acuenta", value: "SBA" },
@@ -26,11 +26,11 @@ const YES_NO = [
     },
     {
 	label: "No",
-	value: "No"
+	value: false
     },
     {
 	label: "Si",
-	value: "Si" 
+	value: true
     }
 ]
 export const DETAINED_INFO: Array<InputObject> = [
@@ -122,8 +122,7 @@ export const STORE_INFO : Array<InputObject> = [
 
 export const colors = {
 	blue: "#101224",
-	//paragraphText: "#585966",
-	paragraphText: "#3f4049",
+	paragraphText: "#70717C",
 	statusContainerBackground: "#E8E8EA",
 	red: "#C54545"
 };
