@@ -12,12 +12,27 @@ import { Dispatch, SetStateAction } from "react";
 
 
 export const FORMATS_DATA = [
+	{ label: "Selecciona un foramto", value: null },
 	{ label: "Hiper Lider", value: "HL" },
 	{ label: "Lider Express", value: "LE" },
 	{ label: "Super Bodega Acuenta", value: "SBA" },
 	{ label: "Central Mayorista", value: "CM" },
 ];
 
+const YES_NO = [
+    {
+	label: "¿El detenido es menor de edad?",
+	value: null
+    },
+    {
+	label: "No",
+	value: "No"
+    },
+    {
+	label: "Si",
+	value: "Si" 
+    }
+]
 export const DETAINED_INFO: Array<InputObject> = [
 	{ 
 		id: "time",
@@ -30,8 +45,8 @@ export const DETAINED_INFO: Array<InputObject> = [
 		id: "isUnderage",
 		label: "Menor de Edad",
 		placeholder: "Ejem: No",
-		validationKeyword: "",
-		options: [ { label: "No", value: false }, { label: "Si", value: true } ]
+		validationKeyword: "una opcion valida",
+		options: [...YES_NO]
 	},
 	{
 		id: "quantity",
@@ -86,8 +101,8 @@ export const STORE_INFO : Array<InputObject> = [
 		id: "storeFormat",
 		label: "Formato",
 		placeholder: "Ejem: Express",
-		validationKeyword: " ",
-		options: FORMATS_DATA,
+		validationKeyword: "un formato valido",
+		options: [...FORMATS_DATA],
 	},
 	{
 		id: "storeName",

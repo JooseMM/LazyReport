@@ -19,17 +19,31 @@ export default function IngresoSEPPScreen({ navigation }) {
 	let invalid: boolean;
 	const current = report.find(obj => obj.id == reportID);
 
+	const genericReportProperty = (element: string):boolean => ( 
+	    current[element] == undefined || current[element] == null || current[element] == "" ? true : false 
+	 );
+	
 	reportObjectKeys.forEach((element)=> {
-	    if(current[element] == undefined || current[element] == null || current[element] == "")
-		invalid = true;
-	    else
-		invalid = false;
+	    if(element == "isUnderage") {
+		const value = current[element];
+
+		if(typeof value == "object" && value == null)
+		    invalid = true;
+		if(typeof value == "object" && value == undefined)
+		    invalid = true;
+		if(typeof value != "object" && value != null)
+		    invalid = false;
+
+		console.log(element + " picker value is: " + value);
+	    }
+	    else {
+		invalid = genericReportProperty(element);
+		console.log(element + ": " + invalid);
+	    }
 	});
 
-	/*
 	if(!invalid) 
 	    navigation.navigate("Report", { reportID: reportID });
-	*/
     };
 
     useEffect(()=> {
