@@ -9,7 +9,7 @@ const styles = StyleSheet.create({
 	buttonText: {
 		color: "white",
 		fontWeight: "bold",
-		fontSize: 18,
+		fontSize: 20,
 		marginHorizontal: "auto",
 	},
 	disable: {

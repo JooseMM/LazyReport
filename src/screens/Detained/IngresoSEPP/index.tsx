@@ -9,21 +9,22 @@ import EmergencyCallInput from "../../../components/Input/EmergencyCallInput/Eme
 import { useAuth } from "../../../ApplicationState";
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from "uuid";
-import { initReport, reportValidation } from "./helpers";
+import { initReport, invalidReportMessage, reportValidation } from "./helpers";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const { setReport, report } = useAuth();
     const [ reportID ]  = useState(uuidv4());
-    const [ invalidReport, setInvalidReport ] = useState(false);
 
     const goToView = () => {
-	const current = report.find(obj => obj.id == reportID);
-	reportValidation(current, setInvalidReport);
+	const invalid = reportValidation(report.find(obj => obj.id == reportID));
 
-	if(!invalidReport) 
+	if(!invalid)
 	    navigation.navigate("Report", { reportID: reportID });
-	    
-	//else  implement a popup to tell the client that somwthing is wrong
+	else
+	    navigation.navigate("Alert", { 
+		title: invalidReportMessage.title,
+		message: invalidReportMessage.message
+	    });
     };
 
     useEffect(()=> {

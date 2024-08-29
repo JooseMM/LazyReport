@@ -1,4 +1,3 @@
-import { Dispatch, SetStateAction } from "react";
 import { DetainedReportData } from "../../../constants/customTypes";
 
 export const INSTRUCTIONS= {
@@ -51,20 +50,26 @@ export const isPropInvalid = (
 		    || current[element] == "" ? true : false 
 };
 
-export const reportValidation = (current: DetainedReportData, setInvalidReport: Dispatch<SetStateAction<boolean>>) => {
+export const reportValidation = (current: DetainedReportData):boolean => {
+    let isInvalid: boolean;
+
     reportObjectKeys.forEach((element)=> {
 	if(element == "isUnderage" || element == "storeFormat") {
 	    const property = current[element];
 
 	    if(typeof property == "boolean" && element === "isUnderage")
-		return setInvalidReport(false)
+		return isInvalid = false;
 	    if(typeof property == "string" && element === "storeFormat")
-		return setInvalidReport(false)
+		return isInvalid = false;
 
-	    return setInvalidReport(true);
+	    return isInvalid = true;
 	}
 
-	setInvalidReport(isPropInvalid(current, element));
+	return isInvalid = isPropInvalid(current, element);
     });
+    return isInvalid;
 };
-
+export const invalidReportMessage = {
+    title: "Reporte Invalido",
+    message: "Por favor, revisa que todos los campos tengas datos validos y vuelve a intentarlo."
+}

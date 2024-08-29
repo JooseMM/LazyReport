@@ -2,17 +2,12 @@ import { Text, View, Pressable } from "react-native";
 import styles from "./styles";
 import { useState } from "react";
 import { Image } from "expo-image";
-import { DetainedReportData } from "../../constants/customTypes";
 import { phoneIcon, userIcon } from "./helper"
 
 const StatusBox = () => {
     const [ visible, setVisible ] = useState(false);
     const index = 2;
 
-
-    const example: DetainedReportData = {
-	//
-    }
 
     return (
 	    <Pressable style={styles.statusContainer} onPress={() => setVisible(prev => !prev)}>

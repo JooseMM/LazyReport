@@ -1,7 +1,11 @@
-import { Text, View, Pressable, ScrollView } from "react-native";
+import { 
+Text,
+View,
+ScrollView
+} from "react-native";
 import styles from "./styles";
-import Button from "../MainButton/MainButton";
-import { useCallback, useEffect, useState } from "react";
+import Button from "../../../components/MainButton/MainButton";
+import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { chooseInstructions, Instructions } from "./helper";
 
