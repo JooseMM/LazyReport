@@ -47,13 +47,13 @@ export const stepCounterStyles = StyleSheet.create({
 	paddingHorizontal: 20,
 	borderRadius: 5,
 	color: "black",
-	width: "30%",
+	width: "25%",
     },
     output: {
 	fontSize: 16
     },
     label: {
-	marginBottom: 2,
+	marginBottom: 4,
 	fontWeight: "semibold",
 	fontSize: 18,
     },
@@ -70,7 +70,7 @@ export const stepCounterStyles = StyleSheet.create({
 	...buttonStyles.buttonContainer,
 
 	backgroundColor: "white",
-	borderColor: colors.blue,
+	borderColor: colors.paragraphText,
 	borderStyle: "solid",
 	borderWidth: 1,
 	width: "48%"
@@ -81,7 +81,7 @@ export const stepCounterStyles = StyleSheet.create({
     },
     actionContainer: {
 	flexDirection: "row",
-	width: "65%",
+	width: "72%",
 	justifyContent: "space-between"
     }
 });

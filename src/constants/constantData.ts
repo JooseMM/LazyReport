@@ -9,6 +9,7 @@ wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
 import { Dispatch, SetStateAction } from "react";
+import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 
 
 export const FORMATS_DATA = [
@@ -139,4 +140,16 @@ export const showTimePicker = (callTime: Date, setCallTime: Dispatch<SetStateAct
 	} 
     });
 };
+
+export const options:NativeStackNavigationOptions = ({
+    headerStyle: { 
+	backgroundColor: colors.blue 
+    },
+    headerTitleAlign: "center",
+    headerTitleStyle: {
+	color: 'white',
+	fontWeight: 'bold',
+	fontSize: 20 },
+	headerTintColor: '#fff' 
+});
 

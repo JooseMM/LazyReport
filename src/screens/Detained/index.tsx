@@ -1,23 +1,32 @@
 import IngresoSEPPScreen from "../Detained/IngresoSEPP/index";
 import InstructionBox from "../Popups/InstructionBox/InstructionBox";
-import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { createDrawerNavigator } from "@react-navigation/drawer";
 import EmergencyPopup from "../Popups/EmergencyPopup/EmergencyPopup";
 import ReportScreen from "../Report";
 import AlertBox from "../Popups/AlertBox/AlertBox";
+import { useEffect } from "react";
+import { Pressable, Text, ScrollView } from "react-native";
+import { colors, options } from "../../constants/constantData";
 
-const Detained = () => {
-    const Stack = createNativeStackNavigator();
+const Detained = ({navigation}) => {
+    const Drawer = createDrawerNavigator();
 
     return (
-	<Stack.Navigator screenOptions={{ headerShown: false }}>
-	    <Stack.Screen name="Entry" component={IngresoSEPPScreen}/>
-	    <Stack.Screen name="Report" component={ReportScreen}/>
-	    <Stack.Group screenOptions={{ presentation: "transparentModal" }}>
-		<Stack.Screen name="Instruction" component={InstructionBox} />
-		<Stack.Screen name="AddEmergencyCall" component={EmergencyPopup} />
-		<Stack.Screen name="Alert" component={AlertBox} />
-	    </Stack.Group>
-	</Stack.Navigator>
+	<Drawer.Navigator screenOptions={{
+	    headerBackground: () => <ScrollView style={{ backgroundColor: colors.blue }}/>,
+	    headerTitleStyle: { color: "white" },
+	    headerTintColor: "white",
+	    drawerPosition: "right",
+	    headerTitleAlign: "center",
+	}}>
+	    <Drawer.Screen name="Entry" component={IngresoSEPPScreen}/>
+	    <Drawer.Screen name="Report" component={ReportScreen}/>
+	    <Drawer.Group>
+		<Drawer.Screen name="Instruction" component={InstructionBox} />
+		<Drawer.Screen name="AddEmergencyCall" component={EmergencyPopup} />
+		<Drawer.Screen name="Alert" component={AlertBox} />
+	    </Drawer.Group>
+	</Drawer.Navigator>
     );
 }
 

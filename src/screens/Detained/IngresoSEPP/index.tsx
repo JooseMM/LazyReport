@@ -1,5 +1,5 @@
 import {  useEffect, useState } from "react";
-import { ScrollView, View } from "react-native";
+import { Pressable, ScrollView, Text, View } from "react-native";
 import styles from "./styles";
 import Button from "../../../components/MainButton/MainButton";
 import StoreInfoInput from "../../../components/Input/StoreInfoInput";
@@ -10,10 +10,13 @@ import { useAuth } from "../../../ApplicationState";
 import 'react-native-get-random-values';
 import { v4 as uuidv4 } from "uuid";
 import { initReport, invalidReportMessage, reportValidation } from "./helpers";
+import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import { Image } from "expo-image";
 
 export default function IngresoSEPPScreen({ navigation }) {
     const { setReport, report } = useAuth();
     const [ reportID ]  = useState(uuidv4());
+
 
     const goToView = () => {
 	const invalid = reportValidation(report.find(obj => obj.id == reportID));
@@ -45,4 +48,12 @@ export default function IngresoSEPPScreen({ navigation }) {
 	</ScrollView>
     )
 }
+const MenuSwitcher = () => {
+    const icon = require("../../../../assets/hamburguer-menu-light.svg");
 
+    return (
+	<Pressable onPress={()=> console.log("hello form Test")}>
+	    <Image source={icon} style={{ width: 30, height: 30 }}/>
+	</Pressable>
+    )
+}
