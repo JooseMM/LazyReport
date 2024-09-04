@@ -6,6 +6,7 @@ import { colors } from "./src/constants/constantData";
 import { StatusBar } from 'expo-status-bar';
 import Detained from "./src/screens/Detained";
 import StatusSEPPScreen from "./src/screens/Detained/StatusSEPP";
+import ControlRoomHome from "./src/screens/ControlRoom/Home/ControlRoomHome";
 
 const Stack = createNativeStackNavigator();
 
@@ -36,6 +37,7 @@ export default function App() {
 		  <Stack.Screen name="Home" component={HomeScreen} options={{ title: "Lazy Report"}} />
 		  <Stack.Screen name="Detained" component={Detained}  />
 		  <Stack.Screen name="Status" component={StatusSEPPScreen}  />
+		  <Stack.Screen name="ControlRoom" component={ControlRoomHome}  />
 	      </Stack.Navigator>
 	  </NavigationContainer>
       </AuthProvider>
