@@ -1,12 +1,14 @@
 import {
+ScrollView,
 Text,
-View,
 } from "react-native";
 
-const ControlRoomHome = () => {
+const ControlRoomHome = ({navigation}) => {
     return (
-	<Text>Hello from ControlRoom</Text>
-    );
-}
+	<ScrollView>
+	    <Text>Hello from Control Room Home</Text>
+	</ScrollView>
+    )
+};
 
 export default ControlRoomHome;

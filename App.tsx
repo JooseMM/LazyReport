@@ -8,6 +8,7 @@ import Detained from "./src/screens/Detained";
 import StatusSEPPScreen from "./src/screens/Detained/StatusSEPP";
 import ControlRoomHome from "./src/screens/ControlRoom/Home/ControlRoomHome";
 import { options } from "./src/constants/constantData";
+import ControlRoom from './src/screens/ControlRoom/ControlRoom';
 
 const Stack = createNativeStackNavigator();
 
@@ -38,7 +39,7 @@ export default function App() {
 		   component={Detained}  
 		   />
 		  <Stack.Screen name="Status" component={StatusSEPPScreen}  />
-		  <Stack.Screen name="ControlRoom" component={ControlRoomHome}  />
+		  <Stack.Screen name="ControlRoom" component={ControlRoom}  />
 	      </Stack.Navigator>
 	  </NavigationContainer>
       </AuthProvider>

@@ -9,7 +9,11 @@ wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
 import { Dispatch, SetStateAction } from "react";
+import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
+import {
+ScrollView
+} from "react-native";
 
 
 export const FORMATS_DATA = [
@@ -141,7 +145,7 @@ export const showTimePicker = (callTime: Date, setCallTime: Dispatch<SetStateAct
     });
 };
 
-export const options:NativeStackNavigationOptions = ({
+export const options: NativeStackNavigationOptions = {
     headerStyle: { 
 	backgroundColor: colors.blue 
     },
@@ -151,5 +155,11 @@ export const options:NativeStackNavigationOptions = ({
 	fontWeight: 'bold',
 	fontSize: 20 },
 	headerTintColor: '#fff' 
-});
+};
 
+export const drawerOptions: DrawerNavigationOptions = {
+	    headerTitleStyle: { color: "white" },
+	    headerTintColor: "white",
+	    drawerPosition: "right",
+	    headerTitleAlign: "center",
+}

@@ -13,11 +13,6 @@ const Detained = ({navigation}) => {
 
     return (
 	<Drawer.Navigator screenOptions={{
-	    headerBackground: () => <ScrollView style={{ backgroundColor: colors.blue }}/>,
-	    headerTitleStyle: { color: "white" },
-	    headerTintColor: "white",
-	    drawerPosition: "right",
-	    headerTitleAlign: "center",
 	}}>
 	    <Drawer.Screen name="Entry" component={IngresoSEPPScreen}/>
 	    <Drawer.Screen name="Report" component={ReportScreen}/>
