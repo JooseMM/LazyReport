@@ -4,7 +4,7 @@ View,
 ScrollView
 } from "react-native";
 import styles from "./styles";
-import Button from "../../../components/MainButton/MainButton";
+import Button from "../../../components/Buttons/MainButton/MainButton";
 import { useState } from "react";
 import { useNavigation } from "@react-navigation/native";
 import { chooseInstructions, Instructions } from "./helper";

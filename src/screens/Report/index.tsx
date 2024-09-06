@@ -4,7 +4,7 @@ import { detainedReport  } from "./helper";
 import { useEffect, useState } from "react";
 import * as Clipboard from "expo-clipboard";
 import styles from "./styles";
-import Button from "../../components/MainButton/MainButton";
+import Button from "../../components/Buttons/MainButton/MainButton";
 
 export default function ReportScreen({route}) {
     const { report } = useAuth();

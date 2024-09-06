@@ -1,5 +1,5 @@
 import { Text, TouchableOpacity } from "react-native";
-import { buttonProps } from "../../constants/customTypes";
+import { buttonProps } from "../../../constants/customTypes";
 import styles from "./styles";
 
 const Button = (props: buttonProps) => {

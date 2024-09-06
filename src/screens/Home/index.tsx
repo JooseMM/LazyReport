@@ -1,7 +1,7 @@
 import { View } from "react-native";
 import Svg, { Path } from "react-native-svg";
 import { styles } from "./styles";
-import Button from "../../components/MainButton/MainButton";
+import Button from "../../components/Buttons/MainButton/MainButton";
 import { StatusBar } from 'expo-status-bar';
 
 export default function HomeScreen({ navigation }) {

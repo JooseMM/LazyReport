@@ -6,11 +6,14 @@ import ReportL6020 from "./L6020/L6020";
 import ButtonWithIcon from "../../components/Buttons/ButtonWithIcon";
 import { DrawerActions } from "@react-navigation/native";
 import ReportL90 from "./L90/ReportL90";
+import ControlRoomDrawer from "./ControlRoomDrawer";
 
 const ControlRoom = ({navigation}) => {
     const Drawer = createDrawerNavigator();
     return (
-	<Drawer.Navigator screenOptions={{
+	<Drawer.Navigator 
+	 drawerContent={ControlRoomDrawer}
+	 screenOptions={{
 	    ...drawerOptions,
 	    headerTitleStyle: { fontSize: 18 },
 	    headerBackground: ()=> <ScrollView style={{ backgroundColor: colors.blue }}/>,

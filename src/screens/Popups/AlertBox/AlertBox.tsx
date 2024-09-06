@@ -3,7 +3,7 @@ View,
 Text,
 StyleSheet
 } from "react-native";
-import Button from "../../../components/MainButton/MainButton";
+import Button from "../../../components/Buttons/MainButton/MainButton";
 import { useNavigation } from "@react-navigation/native";
 import { colors } from "../../../constants/constantData";
 

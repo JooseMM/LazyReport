@@ -1,5 +1,5 @@
 import { View, ScrollView, Text } from "react-native";
-import Button from "../../../components/MainButton/MainButton";
+import Button from "../../../components/Buttons/MainButton/MainButton";
 import styles from  "./styles";
 import StatusBox from "../../../components/StatusBox/StatusBox";
 

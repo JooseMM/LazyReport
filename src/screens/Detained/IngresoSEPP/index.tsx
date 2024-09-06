@@ -1,7 +1,7 @@
 import {  useEffect, useState } from "react";
 import { Pressable, ScrollView, Text, View } from "react-native";
 import styles from "./styles";
-import Button from "../../../components/MainButton/MainButton";
+import Button from "../../../components/Buttons/MainButton/MainButton";
 import StoreInfoInput from "../../../components/Input/StoreInfoInput";
 import DetainedInfoInput from "../../../components/Input/DetainedInfoInput";
 import UpscaleInfoInput from "../../../components/Input/UpscaleInfoInput";
