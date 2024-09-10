@@ -8,12 +8,14 @@ numberOnlyFormat,
 wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
 import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
 import {
 ScrollView
 } from "react-native";
+import ReportL90 from "../screens/ControlRoom/L90/ReportL90";
+import ReportL6020 from "../screens/ControlRoom/L6020/L6020";
 
 
 export const FORMATS_DATA = [
@@ -163,3 +165,12 @@ export const drawerOptions: DrawerNavigationOptions = {
 	    drawerPosition: "right",
 	    headerTitleAlign: "center",
 }
+
+export const ControlRoomDrawerRoutes: Array<{ 
+    code: string,
+    name: string,
+    component: ()=>React.JSX.Element
+}> = [
+    { code: "L90", name: "EDS", component: ReportL90 },
+    { code: "L6020", name: "El Penon", component: ReportL6020 },
+]

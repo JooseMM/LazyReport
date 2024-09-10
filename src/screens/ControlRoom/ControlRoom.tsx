@@ -1,12 +1,12 @@
 import {  createDrawerNavigator } from "@react-navigation/drawer";
-import { colors, drawerOptions } from "../../constants/constantData";
+import { ControlRoomDrawerRoutes, colors, drawerOptions } from "../../constants/constantData";
 import { ScrollView } from "react-native-gesture-handler";
 import ControlRoomHome from "./Home/ControlRoomHome";
 import ReportL6020 from "./L6020/L6020";
 import ButtonWithIcon from "../../components/Buttons/ButtonWithIcon";
 import { DrawerActions } from "@react-navigation/native";
 import ReportL90 from "./L90/ReportL90";
-import ControlRoomDrawer from "./ControlRoomDrawer";
+import ControlRoomDrawer from "./Drawer/ControlRoomDrawer";
 
 const ControlRoom = ({navigation}) => {
     const Drawer = createDrawerNavigator();
@@ -32,16 +32,13 @@ const ControlRoom = ({navigation}) => {
 		 />
 	    )
 	}}>
-	    <Drawer.Screen 
-	     name="ControlRoomHome"
-	     component={ReportL90}
-	     options={{ title: "L90", headerTitle: "EDS" }}
-	     />
-	    <Drawer.Screen
-	     name="L6020"
-	     component={ReportL6020}
-	     options={{ headerTitle: "CD El Penon" }}
-	    />
+	{ ControlRoomDrawerRoutes.map((val, index)=> {
+	    return <Drawer.Screen
+		     key={index}
+		     name={val.name}
+		     component={val.component}
+		    />
+	})}
 	</Drawer.Navigator>
     );
 }
