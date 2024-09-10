@@ -131,7 +131,8 @@ export const colors = {
 	blue: "#101224",
 	paragraphText: "#70717C",
 	statusContainerBackground: "#E8E8EA",
-	red: "#C54545"
+	red: "#C54545",
+	softGray: "#CBCCD0"
 };
 
 export const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
