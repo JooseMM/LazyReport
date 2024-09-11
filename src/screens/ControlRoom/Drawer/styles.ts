@@ -2,21 +2,28 @@ import { colors } from "../../../constants/constantData";
 import { StyleSheet } from "react-native";
 
 const drawerStyles = StyleSheet.create({
-    mainContainer: {
+    styleProp: {
+	justifyContent: "space-between",
+	height: "100%" 
+    },
+    container: {
 	paddingHorizontal: 10,
     },
     routeLinkContainer: {
-	marginTop: 12,
 	flexDirection: "row",
-	backgroundColor: "white",
+	alignItems: "center",
+	justifyContent: "space-between",
 	paddingVertical: 10,
 	paddingHorizontal: 20,
+	backgroundColor: "white",
 	borderColor: colors.softGray,
 	borderWidth: 1,
 	borderStyle: "solid",
 	borderRadius: 5,
     },
     routeLink: {
+	flexDirection: "row",
+	alignItems: "center",
     },
     storeCode: {
 	color: colors.blue,
@@ -30,6 +37,7 @@ const drawerStyles = StyleSheet.create({
 	color: colors.paragraphText,
     },
     operatorContainer: {
+	flex: 0.06,
 	borderBottomColor: colors.softGray,
 	borderBottomWidth: 1,
 	borderStyle: "solid",
@@ -48,6 +56,26 @@ const drawerStyles = StyleSheet.create({
 	position: "relative",
 	bottom: 5
     },
+    buttonContainer: {
+	paddingVertical: 10
+    },
+    button: {
+	paddingVertical: 14,
+	backgroundColor: colors.blue,
+	borderRadius: 5,
+    },
+    buttonlabel: {
+	color: "white",
+	fontWeight: "bold",
+	fontSize: 20,
+	marginHorizontal: "auto"
+    },
+    timeLeft: {
+	marginHorizontal: "auto",
+	marginBottom: 5,
+	fontWeight: "medium",
+	color: colors.paragraphText,
+    }
 });
 
 export default drawerStyles;
