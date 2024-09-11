@@ -16,8 +16,9 @@ const ControlRoom = ({navigation}) => {
 	 screenOptions={{
 	    ...drawerOptions,
 	    drawerContentContainerStyle: {
-		justifyContent: "space-between"
+		justifyContent: "space-between",
 	    },
+	    drawerStyle: { width: "75%" },
 	    headerTitleStyle: { fontSize: 18 },
 	    headerBackground: ()=> <ScrollView style={{ backgroundColor: colors.blue }}/>,
 	    headerLeft: ()=> (

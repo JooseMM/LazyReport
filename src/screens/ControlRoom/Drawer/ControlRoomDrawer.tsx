@@ -11,7 +11,6 @@ ViewStyle
 import { ControlRoomDrawerRoutes, colors } from "../../../constants/constantData";
 import  drawerStyles  from "./styles";
 import { Image } from "expo-image";
-import Button from "../../../components/Buttons/MainButton/MainButton";
 
 const ControlRoomDrawer = (props: DrawerContentComponentProps) => {
     const currentIndex = props.state.index;
@@ -35,7 +34,7 @@ const ControlRoomDrawer = (props: DrawerContentComponentProps) => {
 				 key={index}
 				 isFinish={index === 1}
 				 isFocus={ index === currentIndex}
-				 code={index > 0 ? current.code : "L90" }
+				 code={index > 0 ? current.code : 90 }
 				 name={current.name}
 				 onPress={()=> props.navigation.jumpTo(current.name)}
 				 styles={index > 0 && { marginTop: 5 }}
@@ -60,7 +59,7 @@ const RouteLinkButton = (props: {
     isFocus: boolean,
     isFinish: boolean,
     styles?: ViewStyle,
-    code: string,
+    code: number,
     name: string,
     onPress: ()=> void,
 
@@ -69,13 +68,15 @@ const RouteLinkButton = (props: {
     return (
 	<TouchableOpacity onPress={props.onPress} style={[drawerStyles.routeLinkContainer, props.styles, isFocus && { backgroundColor: colors.blue }]}>
 	    <View style={drawerStyles.routeLink}>
-		<Text style={[drawerStyles.storeCode, isFocus && { color: "white" }]}>{ code }</Text>
+		<Text style={[drawerStyles.storeCode, isFocus && { color: "white" }]}>{ code.toString() }</Text>
 		<Text style={drawerStyles.storeName}>{ name }</Text>
 	    </View>
-	    <Image 
-	     source={require("../../../../assets/completedGreenColorIcon.svg")}
-	     style={{ width: 20, height: 20 }}
-	     />
+	    {
+		isFinish && <Image 
+			     source={require("../../../../assets/completedGreenColorIcon.svg")}
+			     style={{ width: 20, height: 20 }}
+			    />
+	    }
 	</TouchableOpacity>
     );
 }

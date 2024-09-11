@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, ReactNode, ReactElement } from "react";
-import { DetainedReportData, AuthContextType } from "./constants/customTypes";
+import { AuthContextType } from "./constants/customTypes";
 
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -14,7 +14,7 @@ function useAuth(): AuthContextType {
 }
 
 const AuthProvider = (props: { children: ReactNode }): ReactElement =>  {
-	const [ report, setReport ] = useState<DetainedReportData[]>([]);
+	const [ report, setReport ] = useState<AppReportState>([]);
 
 	return (
 		<AuthContext.Provider {...props} value={{ report, setReport }}>

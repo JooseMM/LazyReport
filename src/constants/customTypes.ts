@@ -1,7 +1,32 @@
 import { SetStateAction, Dispatch } from "react";
 
-export type DetainedReportData = {
-	id: string 
+export type AppReportState = {
+    ReportState: Array<DetainedReportData | null>
+    ControlRoomState: ControlRoomState
+};
+
+export type ControlRoomState = {
+    operatorNames: { mainOperator: string, backupOperator: string }
+    reportState: Array<ControlRoomReportState>
+};
+
+export type ControlRoomReportState = {
+    L90: null,
+    L6020: null,
+    L515: null,
+}
+export type ControlRoomReport = {
+    storeName: string,
+    storeCode: number,
+    bossStaff: Array<{ name: string, position: string }>
+    securityStaff: Array<{ name: string, position: string }>
+    cctvStaff: Array<{ name: string, position: string }>
+    news: ControlRoomNews
+};
+
+export type ControlRoomNews = {
+
+
 	time: Date | null
 	reportType: ReportType | null
 	storeNumber: string

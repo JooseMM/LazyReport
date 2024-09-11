@@ -168,10 +168,10 @@ export const drawerOptions: DrawerNavigationOptions = {
 }
 
 export const ControlRoomDrawerRoutes: Array<{ 
-    code: string,
+    code: number,
     name: string,
-    component: ()=>React.JSX.Element
+    component: ()=>React.JSX.Element,
 }> = [
-    { code: "L90", name: "EDS", component: ReportL90 },
-    { code: "L6020", name: "El Penon", component: ReportL6020 },
+    { code: 90, name: "EDS", component: ReportL90 },
+    { code: 6020, name: "El Penon", component: ReportL6020 },
 ]
