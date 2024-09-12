@@ -132,7 +132,7 @@ export const colors = {
 	paragraphText: "#70717C",
 	statusContainerBackground: "#E8E8EA",
 	red: "#C54545",
-	softGray: "#CBCCD0"
+	softGray: "#CFD0D3"
 };
 
 export const localTimeOptions: any = { hour12: false, hour: "2-digit", minute: "2-digit" };
@@ -170,8 +170,7 @@ export const drawerOptions: DrawerNavigationOptions = {
 export const ControlRoomDrawerRoutes: Array<{ 
     code: number,
     name: string,
-    component: ()=>React.JSX.Element,
 }> = [
-    { code: 90, name: "EDS", component: ReportL90 },
-    { code: 6020, name: "El Penon", component: ReportL6020 },
+    { code: 90, name: "EDS" },
+    { code: 6020, name: "El Penon" },
 ]

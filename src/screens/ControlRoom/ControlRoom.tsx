@@ -1,11 +1,9 @@
 import {  createDrawerNavigator } from "@react-navigation/drawer";
 import { ControlRoomDrawerRoutes, colors, drawerOptions } from "../../constants/constantData";
 import { ScrollView } from "react-native-gesture-handler";
-import ControlRoomHome from "./Home/ControlRoomHome";
-import ReportL6020 from "./L6020/L6020";
 import ButtonWithIcon from "../../components/Buttons/ButtonWithIcon";
 import { DrawerActions } from "@react-navigation/native";
-import ReportL90 from "./L90/ReportL90";
+import StoreBuilding from "./StoreBuilding/StoreBuilding";
 import ControlRoomDrawer from "./Drawer/ControlRoomDrawer";
 
 const ControlRoom = ({navigation}) => {
@@ -40,7 +38,8 @@ const ControlRoom = ({navigation}) => {
 	    return <Drawer.Screen
 		     key={index}
 		     name={val.name}
-		     component={val.component}
+		     component={StoreBuilding}
+		     initialParams={{ storeCode: val.code, storeName: val.name }}
 		    />
 	})}
 	</Drawer.Navigator>

@@ -68,7 +68,7 @@ const RouteLinkButton = (props: {
     return (
 	<TouchableOpacity onPress={props.onPress} style={[drawerStyles.routeLinkContainer, props.styles, isFocus && { backgroundColor: colors.blue }]}>
 	    <View style={drawerStyles.routeLink}>
-		<Text style={[drawerStyles.storeCode, isFocus && { color: "white" }]}>{ code.toString() }</Text>
+		<Text style={[drawerStyles.storeCode, isFocus && { color: "white" }]}>L{ code.toString() }</Text>
 		<Text style={drawerStyles.storeName}>{ name }</Text>
 	    </View>
 	    {
