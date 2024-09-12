@@ -6,7 +6,7 @@ import { TextInput, View, Text} from "react-native";
 import { colors } from "../../constants/constantData";
 
 
-export default function TextBaseInput(props: ReportStateUpdaters) {
+const TextBaseInput = (props: ReportStateUpdaters) => {
 	const [ input, setInput ] = useState<string>("");
 	const [ validInput, setValidInput ] = useState<boolean>(false);
 	const [ edited, setEdited ] = useState<boolean>(false);
@@ -20,7 +20,7 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 		if(isValid)
 			setReport(prev => {
 			    return prev.map(report => {
-				if(report.id == props.reportID) {
+				if(report.id == props.reportIdentifier) {
 				    return ({...report, [id]: input});
 				}
 				return report;
@@ -29,7 +29,7 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 		else
 			setReport(prev => {
 			    return prev.map(report => {
-				if(report.id == props.reportID) {
+				if(report.id == props.reportIdentifier) {
 				    return ({...report, [id]: ""});
 				}
 				return report;
@@ -56,3 +56,4 @@ export default function TextBaseInput(props: ReportStateUpdaters) {
 	);
 }
 
+export default TextBaseInput;

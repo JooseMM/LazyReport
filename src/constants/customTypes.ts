@@ -3,19 +3,19 @@ import { SetStateAction, Dispatch } from "react";
 type News = Array<StoreInfo | DetainedInfo | UpscaleInfo>;
 
 export type AppReportState = {
-    basicFormatNews: News
-    controlRoomState: ControlRoomState
+    basicFormatState: ReportState
+    controlRoomState: ReportState
 };
-export type ControlRoomState = {
-    operatorNames: { mainOperator: string, backupOperator: string }
-    reportState: Array<ControlRoomReport>
+export type ReportState = {
+    operatorNames: { mainOperator: string, backupOperator?: string }
+    reportState: Array<ControlRoomReport | StoreInfo & any>
 };
 export type ControlRoomReport = {
-    storeName: string,
-    storeCode: number,
-    bossStaff: Array<{ name: string, position: string }>
-    securityStaff: Array<{ name: string, position: string }>
-    cctvStaff: Array<{ name: string, position: string }>
+    storeName: string
+    storeCode: number
+    bossStaff: Array<{ name: string, position: string } | null>
+    securityStaff: Array<{ name: string, position: string } | null>
+    cctvStaff: Array<{ name: string, position: string } | null>
     news: News
 };
 export type DetainedInfo  = {
@@ -38,8 +38,10 @@ export type StoreInfo  = {
 };
 export type ReportType = 
 "Detenido en SEPP" |
-"Corte de Suministro";
+"Corte de Suministro" |
+"Estado de Enlaces"
 export type InputID = 
+/*	Detained:	*/
 "time" |
 "storeNumber" |
 "storeFormat" |
@@ -50,7 +52,9 @@ export type InputID =
 "firstUpscale" |
 "secondUpscale" |
 "thirdUpscale" |
-"quantity";
+"quantity" |
+/*	Others:		*/
+"connectionHealth"
 export interface InputObject {
 	id: InputID
 	label: string
@@ -69,6 +73,16 @@ export type buttonProps = {
 	disable?: boolean
 };
 export interface ReportStateUpdaters {
-	reportID: string
+	targetFormat: keyof AppReportState,
+	reportIdentifier: string
 	inputObject: InputObject
 };
+export type connectionStateOptions = {
+    label: string,
+    value: ConnectionState
+}
+export type ConnectionState = 	
+"bothUp"	|
+"bothDown"	|
+"cctvDown" 	| 
+"bisDown" 	;

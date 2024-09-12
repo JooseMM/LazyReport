@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { ReportStateUpdaters, DetainedReportData } from  "../../constants/customTypes";
+import { ReportStateUpdaters, AppReportState } from  "../../constants/customTypes";
 import { styles } from "./styles";
 import { useAuth } from "../../ApplicationState";
 import { colors } from "../../constants/constantData";
@@ -12,6 +12,7 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	const { setReport } = useAuth();
 	const [ valid, setValid ] = useState(false);
 	const [ dirty, setDirty ] = useState(false);
+	const { targetFormat } = props;
 
 	useEffect(()=> {
 	    if(typeof selected == "object" && selected === null) {
@@ -26,12 +27,24 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 		setDirty(true);
 		setValid(true);
 
-		setReport((prev: DetainedReportData[]) => {
-		    return prev.map((report)=> {
+		setReport((prev: AppReportState) => {
+		    return ({
+			...prev,
+			[targetFormat]: {
+			    ...prev[targetFormat],
+			    reportState: prev[targetFormat].reportState.map(current=> {
+				if(current.id === props.reportIdentifier) {
+				    return ({...current, [id]: selected});
+				}
+			    })
+			}
+		    });
+		    /* return prev[targetFormat].reportState.map((report)=> {
 			if(report.id == props.reportID) {
 			    return ({...report, [id]: selected});
 			}
 		    })
+		    */
 		})
 	    }
 	}, [selected]);

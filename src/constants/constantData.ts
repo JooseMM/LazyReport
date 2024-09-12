@@ -1,4 +1,4 @@
-import { InputObject } from "./customTypes";
+import { InputObject, connectionStateOptions } from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
 lettersOnlyFormat,
@@ -26,6 +26,13 @@ export const FORMATS_DATA = [
 	{ label: "Central Mayorista", value: "CM" },
 ];
 
+export const connectionHealthOptions: Array<connectionStateOptions> = [
+    { label: "Selecciona una opcion", value: null },
+    { label: "Enlaces Operativos", value:  "bothUp" },
+    { label: "Enlaces caidos", value:  "bothDown" },
+    { label: "Enlace CCTV caido", value:  "cctvDown" },
+    { label: "Enlace de Alarmas caido", value:  "bisDown" },
+];
 const YES_NO = [
     {
 	label: "¿El detenido es menor de edad?",
@@ -166,11 +173,21 @@ export const drawerOptions: DrawerNavigationOptions = {
 	    drawerPosition: "right",
 	    headerTitleAlign: "center",
 }
-
+/*
+ * -- Control Room Utils --
+*/
 export const ControlRoomDrawerRoutes: Array<{ 
     code: number,
     name: string,
 }> = [
     { code: 90, name: "EDS" },
     { code: 6020, name: "El Penon" },
-]
+];
+
+export const connectionHealth: InputObject = {
+    id: "connectionHealth" ,
+    label: "Estado de Enlaces",
+    options: connectionHealthOptions,
+    validationKeyword: "opción valida",
+    regExpValidator: [],
+}
