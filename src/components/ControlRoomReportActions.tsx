@@ -52,7 +52,7 @@ const RepeatAction = (props: { storeCode: number }) => {
 	     style={[ownStyles.baseButton, { borderWidth: 2, marginLeft: 25 }]}
 	     onPress={resetValues}
 	    >
-		<Image source={repeatIcon} style={[ownStyles.imageDimensions, { width: 45, height: 45 } ]}/>
+		<Image source={repeatIcon} style={[ownStyles.imageDimensions, { width: 40, height: 40 } ]}/>
 	    </TouchableOpacity>
     );
 }
@@ -100,15 +100,15 @@ const ownStyles = StyleSheet.create({
 	borderRadius: 1000,
 	borderColor: colors.softGray,
 	borderWidth: 1,
-	width: 100,
-	height: 100,
+	width: 85,
+	height: 85,
 	justifyContent: "center",
 	alignItems: "center",
 	borderStyle: "solid",
     },
     imageDimensions: {
-	width: 60,
-	height: 60,
+	width: 50,
+	height: 50,
     }
 })
 export default ControlRoomReportActions;

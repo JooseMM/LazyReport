@@ -9,7 +9,7 @@ import { colors } from "../../constants/constantData";
 import { useAuth } from "../../ApplicationState";
 import { ControlRoomReport, ControlRoomStaffGroup } from "../../constants/customTypes";
 import { translateStaffGroupName, translatedSmallQuantities } from "./helper";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Button from "../Buttons/MainButton/MainButton";
 
 const StaffBox = (props: {
@@ -20,13 +20,28 @@ styles: ViewStyle
 }) => {
     const { report } = useAuth();
     const [ groupName ] = useState(translateStaffGroupName(props.staffGroupName));
-    const [ currentReport ] = useState<ControlRoomReport>(report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode));
-    const [ staffQuantity ] = useState(translatedSmallQuantities(currentReport[props.staffGroupName].length));
+    const [ currentReport, setCurrentReport ] = useState<ControlRoomReport>(
+	report.controlRoomState
+	    .reportState.find((store: ControlRoomReport)=> (
+		store.storeCode === props.storeCode
+	    )));
+    const [ staffQuantity ] = useState(
+	translatedSmallQuantities(currentReport[props.staffGroupName].length)
+    );
+
+    useEffect(()=> {
+	setCurrentReport(report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode));
+    },[report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode)]);
 
     return(
 	<View style={[ownStyles.container, props.styles]}>
 	    <Text style={ownStyles.title}>{ groupName }</Text>
-	    <Text style={ownStyles.secondTitle}>{ staffQuantity + " " + (currentReport[props.staffGroupName].length === 1 ? "Colaborador" : "Colaboradores") }</Text>
+	    <Text style={ownStyles.secondTitle}>{ 
+		staffQuantity +
+		" " +
+		(currentReport[props.staffGroupName]
+		    .length === 1 ? "Colaborador" : "Colaboradores") 
+	    }</Text>
 	    <View style={{ marginHorizontal: 15 }}>
 		{
 		    report.controlRoomState.reportState.map((store: ControlRoomReport)=> {
@@ -85,7 +100,9 @@ const ownStyles = StyleSheet.create({
 	color: colors.paragraphText,
 	fontWeight: "medium",
 	fontSize: 14,
-	marginHorizontal: 10
+	marginHorizontal: 10,
+	position: "relative",
+	bottom: 2
     },
     button: {
 	backgroundColor: colors.blue,
