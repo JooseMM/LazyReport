@@ -3,3 +3,4 @@ export const storeTypeChecker = (storeName: number) => (
 	storeName === 515 || storeName == 524 ? "Edif" :
 	"CD"
 );
+

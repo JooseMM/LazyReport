@@ -13,11 +13,18 @@ export type ReportState = {
 export type ControlRoomReport = {
     storeName: string
     storeCode: number
+    connectionHealth: ConnectionState,
     bossStaff: Array<{ name: string, position: string } | null>
     securityStaff: Array<{ name: string, position: string } | null>
     cctvStaff: Array<{ name: string, position: string } | null>
+    completed: boolean,
     news: News
 };
+export type ControlRoomStaffGroup = 
+"bossStaff" 	|
+"securityStaff" |
+"cctvStaff" 	;
+
 export type DetainedInfo  = {
 	isUnderage: boolean
 	quantity: string

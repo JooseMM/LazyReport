@@ -186,7 +186,7 @@ export const ControlRoomDrawerRoutes: Array<{
 
 export const connectionHealth: InputObject = {
     id: "connectionHealth" ,
-    label: "Estado de Enlaces",
+    label: "Enlaces Operativos",
     options: connectionHealthOptions,
     validationKeyword: "opción valida",
     regExpValidator: [],

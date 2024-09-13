@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { ReportStateUpdaters, AppReportState } from  "../../constants/customTypes";
+import { ReportStateUpdaters, AppReportState, ControlRoomReport } from  "../../constants/customTypes";
 import { styles } from "./styles";
 import { useAuth } from "../../ApplicationState";
 import { colors } from "../../constants/constantData";
@@ -32,19 +32,14 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 			...prev,
 			[targetFormat]: {
 			    ...prev[targetFormat],
-			    reportState: prev[targetFormat].reportState.map(current=> {
-				if(current.id === props.reportIdentifier) {
-				    return ({...current, [id]: selected});
-				}
+			    reportState: prev[targetFormat].reportState.map((store: ControlRoomReport)=> {
+				return ({
+				    ...store,
+				    connectionHealth: selected
+				})
 			    })
 			}
 		    });
-		    /* return prev[targetFormat].reportState.map((report)=> {
-			if(report.id == props.reportID) {
-			    return ({...report, [id]: selected});
-			}
-		    })
-		    */
 		})
 	    }
 	}, [selected]);

@@ -24,5 +24,11 @@ export const storeBuildingStyles = StyleSheet.create({
     },
     titleName: {
 	color: colors.paragraphText
+    },
+    labels: {
+	marginBottom: 5,
+	marginLeft: 20,
+	fontWeight: "semibold",
+	fontSize: 18,
     }
 });

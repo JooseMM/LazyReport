@@ -1,9 +1,33 @@
-import { createContext, useContext, useState, ReactNode, ReactElement } from "react";
-import { AuthContextType } from "./constants/customTypes";
-import { AppReportState } from "./constants/customTypes";
+import { 
+createContext,
+useContext,
+useState,
+ReactNode,
+ReactElement
+} from "react";
+import { 
+AuthContextType,
+AppReportState,
+ControlRoomReport
+} from "./constants/customTypes";
+import { ControlRoomDrawerRoutes } from "./constants/constantData";
 
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
+const ControlRoomInitialState: Array<ControlRoomReport> = ControlRoomDrawerRoutes.map(store => {
+    return ({
+	storeName: store.name,
+	storeCode: store.code,
+	connectionHealth: undefined,
+	completed: false,
+	bossStaff: [
+	    { name: "Mackarenna Jara", position: "Jefe de Seguridad AP" },
+	],
+	securityStaff: [],
+	news: [],
+	cctvStaff: []
+    })
+})
 
 function useAuth(): AuthContextType {
 	const context = useContext(AuthContext);
@@ -18,7 +42,7 @@ const AuthProvider = (props: { children: ReactNode }): ReactElement =>  {
 	const [ report, setReport ] = useState<AppReportState>({
 	    controlRoomState: {
 		operatorNames: { mainOperator: undefined },
-		reportState: []
+		reportState: [...ControlRoomInitialState]
 	    },
 	    basicFormatState: {
 		operatorNames: { mainOperator: undefined, backupOperator: undefined },
