@@ -32,7 +32,7 @@ const StoreBuilding = ({ route }) => {
 		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeType + " " }</Text>
 		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeName }</Text>
 	    </View>
-	    <PickerBaseInput targetFormat="controlRoomState" reportIdentifier={reportIdentifier} inputObject={connectionHealth}/>
+	    <PickerBaseInput targetFormat="controlRoomState" storeCode={storeCode} inputObject={connectionHealth}/>
 	    <View style={{ marginVertical: 15 }}>
 		<Text style={storeBuildingStyles.labels}>Dotaciones:</Text>
 		{

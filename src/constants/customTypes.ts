@@ -80,8 +80,9 @@ export type buttonProps = {
 	disable?: boolean
 };
 export interface ReportStateUpdaters {
-	targetFormat: keyof AppReportState,
-	reportIdentifier: string
+	storeCode?: number
+	targetFormat: keyof AppReportState
+	reportIdentifier?: string
 	inputObject: InputObject
 };
 export type connectionStateOptions = {
