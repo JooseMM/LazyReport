@@ -7,9 +7,9 @@ ViewStyle
 } from "react-native";
 import { colors } from "../../constants/constantData";
 import { useAuth } from "../../ApplicationState";
-import { ControlRoomReport, ControlRoomStaffGroup, StaffBoxProps } from "../../constants/customTypes";
+import { ControlRoomReport, StaffBoxProps } from "../../constants/customTypes";
 import { translateStaffGroupName, translatedSmallQuantities } from "./helper";
-import { Dispatch, useEffect, useState, SetStateAction } from "react";
+import { useEffect, useState } from "react";
 
 const StaffBox = (props: StaffBoxProps) => {
     const { report } = useAuth();

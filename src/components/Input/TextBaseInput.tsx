@@ -1,12 +1,19 @@
 import { useState } from "react";
-import { ReportStateUpdaters } from "../../constants/customTypes";
+import { GetInitialStateParams, ReportStateUpdaters } from "../../constants/customTypes";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
 import { colors } from "../../constants/constantData";
+import { useAuth } from "../../ApplicationState";
 
 
 const TextBaseInput = (props: ReportStateUpdaters) => {
-	const [ input, setInput ] = useState<string>("");
+	const { setReport, report } = useAuth();
+	const [ input, setInput ] = useState(props.getInitialState({
+	    storeCode: props.storeCode,
+	    index: props.index,
+	    staffGroup: props.staffGroup,
+	    report: report
+	}));
 	const [ validInput, setValidInput ] = useState<boolean>(false);
 	const [ edited, setEdited ] = useState<boolean>(false);
 	const { 
@@ -22,7 +29,7 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 		if(isValid) {
 		    props.updateState({
 			storeCode: props.storeCode,
-			setReport: props.setReport,
+			setReport: setReport,
 			index: props.index,
 			staffGroup: props.staffGroup,
 			newValue: input
@@ -39,13 +46,14 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 	return (
 		<View style={props.styles}>
 			<Text style={styles.label} >{ label }</Text>
-			<TextInput placeholder={placeholder} 
-			placeholderTextColor="gray"
-			cursorColor="gray"
-			style={ edited && !validInput? [styles.border, { borderColor: colors.red }] : styles.border} 
-			onChangeText={(buffer) => setInput(buffer)} value={input} 
-			onEndEditing={validateInput}
-			onFocus={()=> setEdited(false)}
+			<TextInput 
+		    	placeholder={placeholder} 
+		    	placeholderTextColor="gray"
+		    	cursorColor="gray"
+		    	style={ edited && !validInput? [styles.border, { borderColor: colors.red }] : styles.border} 
+		    	onChangeText={(buffer) => setInput(buffer)} value={input} 
+		    	onEndEditing={validateInput}
+		    	onFocus={()=> setEdited(false)}
 			/>
 			{ edited && !validInput ? <Text style={{color: "red", position: "absolute", top: "100%" }}>Formato de { validationKeyword } invalido</Text> : null}
 		</View>

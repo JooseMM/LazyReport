@@ -4,7 +4,9 @@ ControlRoomReport,
 InputObject,
 connectionStateOptions,
 UpdaterProps,
-StaffUpdaterParams
+StaffUpdaterParams,
+GetInitialStateParams,
+some
 } from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
@@ -188,16 +190,29 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	placeholder: "Ingresa el nombre del colaborador",
 	validationKeyword: "nombre valido",
 	regExpValidator: [lettersOnlyFormat],
-	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props, staffProperty: "name"})
+	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props, staffProperty: "name"}),
+	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "name" })
     },
     {
 	label: "Cargo",
 	placeholder: "Ingresa el cargo del colaborador",
 	validationKeyword: "cargo valido",
 	regExpValidator: [lettersOnlyFormat],
-	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"})
+	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"}),
+	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" })
     }
 ]
+const getStaffInitialState = (props: some) => {
+    return props.report.controlRoomState.reportState.map((current: ControlRoomReport) => {
+	if(current.storeCode === props.storeCode) {
+	    console.log(current[props.staffGroup][props.index][props.staffProperty]);
+	    return current[props.staffGroup][props.index][props.staffProperty];
+	}
+	else {
+	    return undefined;
+	}
+    });
+}
 const staffUpdater = (props: StaffUpdaterParams) => {
     props.setReport((prev: AppReportState)=> {
 	return ({
@@ -208,7 +223,6 @@ const staffUpdater = (props: StaffUpdaterParams) => {
 		    if(obj.storeCode === props.storeCode) {
 			obj[props.staffGroup].map((op, index)=> {
 			    if(index === props.index) {
-				console.log(obj[props.staffGroup]);
 				op[props.staffProperty] = props.newValue;
 			    }
 			})

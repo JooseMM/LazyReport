@@ -68,7 +68,8 @@ export interface InputObject {
 	placeholder?: string
 	validationKeyword: string
 	regExpValidator?: Array<RegExp>
-	updaterFunction: (params: UpdaterProps)=> void,
+	getInitialState: (params: GetInitialStateParams) => any
+	updaterFunction: (params: UpdaterProps)=> void
 	options?: Array<{ label: string, value: string | boolean }>
 }
 export type AuthContextType = {
@@ -85,8 +86,8 @@ export interface ReportStateUpdaters {
 	inputObject: InputObject
 	styles?: ViewStyle
 	updateState: (props: UpdaterProps)=> void
-	setReport: Dispatch<SetStateAction<AppReportState>> 
 	updateParentValidation: Dispatch<SetStateAction<Array<string>>>
+	getInitialState: (params: GetInitialStateParams) => any,
 	index: number,
 	staffGroup: ControlRoomStaffGroup,
 };
@@ -96,6 +97,15 @@ export type UpdaterProps = {
     index: number,
     staffGroup: ControlRoomStaffGroup,
     newValue: string,
+}
+export type  GetInitialStateParams = {
+    storeCode: number,
+    report: AppReportState
+    index: number,
+    staffGroup: ControlRoomStaffGroup,
+}
+export interface some extends GetInitialStateParams {
+    staffProperty: "name" | "position"
 }
 export interface StaffUpdaterParams extends UpdaterProps {
     staffProperty: "name" | "position"

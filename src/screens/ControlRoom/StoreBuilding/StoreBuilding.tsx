@@ -2,15 +2,12 @@ import { useState } from "react";
 import {
 View,
 Text,
-StyleSheet,
 ScrollView,
 ViewStyle
 } from "react-native";
 import { storeTypeChecker } from "./helper";
 import { storeBuildingStyles } from "./styles";
 import { ControlRoomReport, ControlRoomStaffGroup } from "../../../constants/customTypes";
-import { connectionHealth } from "../../../constants/constantData";
-import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 import StaffBox from "../../../components/StaffBox/StaffBox";
 import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
@@ -33,7 +30,13 @@ const StoreBuilding = ({ route }) => {
 	 style={storeBuildingStyles.container}
 	 contentContainerStyle={{ justifyContent: "center", alignItems: "center" }}
 	>
-	    { currentUpdateStaff.length > 0 && <StaffUpdatePopup storeCode={storeCode} staffGroup={currentUpdateStaff[0] as ControlRoomStaffGroup} toggleVisibility={setCurrentUpdateStaff}/> }
+	    { currentUpdateStaff.length > 0 && 
+		<StaffUpdatePopup
+		 index={currentUpdateStaff[1] as number}
+		 storeCode={storeCode}
+		 staffGroup={currentUpdateStaff[0] as ControlRoomStaffGroup}
+		 toggleVisibility={setCurrentUpdateStaff}
+		/> }
 	    <View style={storeBuildingStyles.titleContainer}>
 		<Text style={storeBuildingStyles.title}>{ "L" + storeCode + " " }</Text>
 		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeType + " " }</Text>

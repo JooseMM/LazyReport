@@ -81,11 +81,11 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		{
 		    STAFF_UPDATE.map((current: InputObject, index: number)=> (
 			<TextBaseInput 
+			 getInitialState={current.getInitialState}
 			 updateParentValidation={setValidation}
 			 key={index}
 			 inputObject={current}
 			 storeCode={props.storeCode}
-			 setReport={setReport}
 			 index={currentIndex}
 			 staffGroup={props.staffGroup}
 			 updateState={current.updaterFunction} 
