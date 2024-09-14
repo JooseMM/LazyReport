@@ -16,7 +16,6 @@ import { useNavigation } from "@react-navigation/native";
 import { colors } from "../../../constants/constantData";
 import styles from "./styles";
 import { localTimeOptions } from "../../../constants/constantData";
-import { DetainedReportData } from "../../../constants/customTypes";
 import { showTimePicker } from "../../../constants/constantData";
 
 const EmergencyPopup = ({route}) => {

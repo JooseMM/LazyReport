@@ -3,7 +3,7 @@ import { colors } from "../../../constants/constantData";
 
 export const storeBuildingStyles = StyleSheet.create({
     container: {
-	padding: 20,
+	position: "relative",
     },
     titleContainer: {
 	flexDirection: "row",
@@ -14,8 +14,8 @@ export const storeBuildingStyles = StyleSheet.create({
 	borderStyle: "solid",
 	justifyContent: "center",
 	borderColor: colors.softGray,
-	width: "100%",
-	marginHorizontal: "auto",
+	width: "90%",
+	maxWidth: 400,
     },
     title: {
 	fontSize: 20,
@@ -30,5 +30,10 @@ export const storeBuildingStyles = StyleSheet.create({
 	marginLeft: 20,
 	fontWeight: "semibold",
 	fontSize: 18,
+    },
+    staffContainer: {
+	width: "90%",
+	maxWidth: 400,
+	marginVertical: 15
     }
 });

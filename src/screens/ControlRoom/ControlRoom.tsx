@@ -5,6 +5,9 @@ import ButtonWithIcon from "../../components/Buttons/ButtonWithIcon";
 import { DrawerActions } from "@react-navigation/native";
 import StoreBuilding from "./StoreBuilding/StoreBuilding";
 import ControlRoomDrawer from "./Drawer/ControlRoomDrawer";
+import InstructionBox from "../Popups/InstructionBox/InstructionBox";
+import AlertBox from "../Popups/AlertBox/AlertBox";
+import PopupInput from "./PopupInput/PopupInput";
 
 const ControlRoom = ({navigation}) => {
     const Drawer = createDrawerNavigator();
@@ -34,14 +37,14 @@ const ControlRoom = ({navigation}) => {
 		 />
 	    )
 	}}>
-	{ ControlRoomDrawerRoutes.map((val, index)=> {
-	    return <Drawer.Screen
-		     key={index}
-		     name={val.name}
-		     component={StoreBuilding}
-		     initialParams={{ storeCode: val.code, storeName: val.name }}
-		    />
-	})}
+	    { ControlRoomDrawerRoutes.map((val, index)=> {
+		return <Drawer.Screen
+			 key={index}
+			 name={val.name}
+			 component={StoreBuilding}
+			 initialParams={{ storeCode: val.code, storeName: val.name }}
+			/>
+	    })}
 	</Drawer.Navigator>
     );
 }

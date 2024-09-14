@@ -7,7 +7,7 @@ const UpscaleInfoInput = (props: { id: string }) => {
 	<View>
 	    {
 		UPSCALE_INFO.map((obj, index) => {
-		    return <TextBaseInput reportID={props.id} key={index} inputObject={obj}/>
+		    return <TextBaseInput key={index} inputObject={obj} targetFormat="basicFormatState" deepReportTargetProperties={[]}/>
 		})
 	    }
 	</View>

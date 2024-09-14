@@ -1,6 +1,8 @@
 import { SetStateAction, Dispatch } from "react";
+import { ViewStyle } from "react-native";
 
-type News = Array<StoreInfo | DetainedInfo | UpscaleInfo>;
+export type StateNews = Array<News>;
+export type News = BaseNewsInfo
 
 export type AppReportState = {
     basicFormatState: ReportState
@@ -8,7 +10,7 @@ export type AppReportState = {
 };
 export type ReportState = {
     operatorNames: { mainOperator: string, backupOperator?: string }
-    reportState: Array<ControlRoomReport | StoreInfo & any>
+    reportState: Array<ControlRoomReport | BaseNewsInfo & any>
 };
 export type ControlRoomReport = {
     storeName: string
@@ -18,7 +20,7 @@ export type ControlRoomReport = {
     securityStaff: Array<{ name: string, position: string } | null>
     cctvStaff: Array<{ name: string, position: string } | null>
     completed: boolean,
-    news: News
+    news: StateNews
 };
 export type ControlRoomStaffGroup = 
 "bossStaff" 	|
@@ -36,7 +38,8 @@ export type UpscaleInfo  = {
 	secondUpscale: string | null
 	thirdUpscale: string | null
 };
-export type StoreInfo  = {
+export type BaseNewsInfo  = {
+	reportIdentifier: string,
 	time: Date | null
 	reportType: ReportType | null
 	storeNumber: string
@@ -59,15 +62,13 @@ export type InputID =
 "firstUpscale" |
 "secondUpscale" |
 "thirdUpscale" |
-"quantity" |
-/*	Others:		*/
-"connectionHealth"
+"quantity" ;
 export interface InputObject {
-	id: InputID
 	label: string
 	placeholder?: string
 	validationKeyword: string
 	regExpValidator?: Array<RegExp>
+	updaterFunction: (params: UpdaterProps)=> void,
 	options?: Array<{ label: string, value: string | boolean }>
 }
 export type AuthContextType = {
@@ -81,10 +82,23 @@ export type buttonProps = {
 };
 export interface ReportStateUpdaters {
 	storeCode?: number
-	targetFormat: keyof AppReportState
-	reportIdentifier?: string
 	inputObject: InputObject
+	styles?: ViewStyle
+	updateState: (props: UpdaterProps)=> void
+	setReport: Dispatch<SetStateAction<AppReportState>> 
+	index: number,
+	staffGroup: ControlRoomStaffGroup,
 };
+export type UpdaterProps = {
+    storeCode: number,
+    setReport: Dispatch<SetStateAction<AppReportState>> 
+    index: number,
+    staffGroup: ControlRoomStaffGroup,
+    newValue: string,
+}
+export interface StaffUpdaterParams extends UpdaterProps {
+    staffProperty: "name" | "position"
+}
 export type connectionStateOptions = {
     label: string,
     value: ConnectionState
@@ -94,3 +108,10 @@ export type ConnectionState =
 "bothDown"	|
 "cctvDown" 	| 
 "bisDown" 	;
+
+export type StaffUpdatedPopupProps = {
+    staffGroup: ControlRoomStaffGroup,
+    index?: number,
+    storeCode: number,
+    toggleVisibility: Dispatch<SetStateAction<boolean>>  
+}

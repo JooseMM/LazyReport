@@ -3,7 +3,6 @@ import { colors } from "../../constants/constantData";
 
 export const styles = StyleSheet.create({
 	label: {
-		marginTop: 15,
 		marginBottom: 2,
 		marginLeft: 20,
 		fontWeight: "semibold",

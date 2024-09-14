@@ -1,4 +1,11 @@
-import { InputObject, connectionStateOptions } from "./customTypes";
+import {
+AppReportState,
+ControlRoomReport,
+InputObject,
+connectionStateOptions,
+UpdaterProps,
+StaffUpdaterParams
+} from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
 lettersOnlyFormat,
@@ -8,14 +15,9 @@ numberOnlyFormat,
 wordsOrNumberFormat,
 lettersOrEmptyFormat 
 } from "./regexPatterns";
-import { Dispatch, ReactElement, ReactNode, SetStateAction } from "react";
+import { Dispatch, SetStateAction } from "react";
 import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
-import {
-ScrollView
-} from "react-native";
-import ReportL90 from "../screens/ControlRoom/L90/ReportL90";
-import ReportL6020 from "../screens/ControlRoom/L6020/L6020";
 
 
 export const FORMATS_DATA = [
@@ -49,28 +51,24 @@ const YES_NO = [
 ]
 export const DETAINED_INFO: Array<InputObject> = [
 	{ 
-		id: "time",
 		label: "Hora de Ingreso",
 		placeholder: "Ejem: 03:08 (formato: HH:mm)",
 		validationKeyword: "hora",
 		regExpValidator: [timeFormat24hrs],
 	},
 	{
-		id: "isUnderage",
 		label: "Menor de Edad",
 		placeholder: "Ejem: No",
 		validationKeyword: "una opcion valida",
 		options: [...YES_NO]
 	},
 	{
-		id: "quantity",
 		label: "Cantidad de Retenidos",
 		placeholder: "Ejem: 1",
 		validationKeyword: "cantidad",
 		regExpValidator: [numberOnlyFormat],
 	}, 
 	{
-		id: "informantName",
 		label: "Informante",
 		placeholder: "Ejem: Cristian Sepulveda GGSS",
 		validationKeyword: "nombre y cargo",
@@ -79,21 +77,18 @@ export const DETAINED_INFO: Array<InputObject> = [
 ]
 export const UPSCALE_INFO: Array<InputObject> = [
 	{
-		id: "firstUpscale",
 		label: "Escalamiento Principal",
 		placeholder: "Ejem: Juan Vega GTEO",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: [lettersOrEmptyFormat],
 	}, 
 	{
-		id: "secondUpscale",
 		label: "Escalamiento Secundario",
 		placeholder: "Ejem: Ingrid Arancibia Zonal AP",
 		validationKeyword: "nombre y cargo",
 		regExpValidator: [lettersOrEmptyFormat],
 	},
 	{
-		id: "thirdUpscale",
 		label: "Escalamiento Terciario",
 		placeholder: "Ejem: Ronald Gonzalez Jefe de Formato",
 		validationKeyword: "nombre y cargo",
@@ -102,7 +97,6 @@ export const UPSCALE_INFO: Array<InputObject> = [
 
 ]
 export const EMERGENCY_CALL_INFO: InputObject = {
-		id: "emergencyCall",
 		label: "Operador o Anexo",
 		placeholder: "Ejem: 13653 o Carabinero Juan Alberto",
 		validationKeyword: "nombre o anexo",
@@ -112,21 +106,18 @@ export const EMERGENCY_CALL_INFO: InputObject = {
 export const STORE_INFO : Array<InputObject> = [
  	
 	{
-		id: "storeFormat",
 		label: "Formato",
 		placeholder: "Ejem: Express",
 		validationKeyword: "un formato valido",
 		options: [...FORMATS_DATA],
 	},
 	{
-		id: "storeName",
 		label: "Nombre de Local",
 		placeholder: "Ejem: Lyons",
 		validationKeyword: "nombre de local",
 		regExpValidator: [lettersOnlyFormat],
 	},
 	{
-		id: "storeNumber",
 		label: "Numero de Local",
 		placeholder: "Ejem: 04",
 		validationKeyword: "numero de local",
@@ -185,9 +176,44 @@ export const ControlRoomDrawerRoutes: Array<{
 ];
 
 export const connectionHealth: InputObject = {
-    id: "connectionHealth" ,
     label: "Enlaces Operativos",
     options: connectionHealthOptions,
     validationKeyword: "opción valida",
     regExpValidator: [],
+    updaterFunction: ()=> {}
+};
+export const STAFF_UPDATE: Array<InputObject> = [
+    {
+	label: "Nombre",
+	placeholder: "Ingresa el nombre del colaborador",
+	validationKeyword: "nombre valido",
+	regExpValidator: [lettersOnlyFormat],
+	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props, staffProperty: "name"})
+    },
+    {
+	label: "Cargo",
+	placeholder: "Ingresa el cargo del colaborador",
+	validationKeyword: "cargo valido",
+	regExpValidator: [lettersOnlyFormat],
+	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"})
+    }
+]
+
+const staffUpdater = (props: StaffUpdaterParams) => {
+    props.setReport((prev: AppReportState)=> {
+	return ({
+	    ...prev,
+	    controlRoomState: ({
+		...prev.controlRoomState,
+		reportState: prev.controlRoomState.reportState.map((report: ControlRoomReport)=> {
+		    if(report.storeCode === props.storeCode) 
+			report[props.staffGroup][props.index] = ({
+			    ...report[props.staffGroup][props.index],
+			    [props.staffProperty]: props.newValue
+			})
+		    return report;
+		})
+	    })
+	})
+    })
 }

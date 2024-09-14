@@ -12,8 +12,7 @@ const Detained = ({navigation}) => {
     const Drawer = createDrawerNavigator();
 
     return (
-	<Drawer.Navigator screenOptions={{
-	}}>
+	<Drawer.Navigator>
 	    <Drawer.Screen name="Entry" component={IngresoSEPPScreen}/>
 	    <Drawer.Screen name="Report" component={ReportScreen}/>
 	    <Drawer.Group>

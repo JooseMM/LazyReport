@@ -57,7 +57,7 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	}
 
 	return (
-		<View>
+		<View style={props.styles}>
 			<Text style={styles.label}>{ label + ":" }</Text>
 			<View style={{borderWidth: 1, borderColor: !valid && dirty ? colors.red : colors.paragraphText, borderRadius: 5}}>
 				<Picker selectedValue={selected} onValueChange={itemValue => updateState(itemValue)}>

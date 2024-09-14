@@ -1,6 +1,5 @@
 import { useState } from "react";
-import { useAuth } from "../../ApplicationState";
-import { ReportStateUpdaters, InputID } from "../../constants/customTypes";
+import { ReportStateUpdaters } from "../../constants/customTypes";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
 import { colors } from "../../constants/constantData";
@@ -10,38 +9,31 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 	const [ input, setInput ] = useState<string>("");
 	const [ validInput, setValidInput ] = useState<boolean>(false);
 	const [ edited, setEdited ] = useState<boolean>(false);
-	const { id, label, placeholder, validationKeyword } = props.inputObject;
+	const { 
+	    label,
+	    placeholder,
+	    validationKeyword,
+	} = props.inputObject;
 	const regExpValidator = props.inputObject.regExpValidator[0];
-	const { setReport } = useAuth();
 
 	const validateInput = () => {
 		const isValid = regExpValidator.test(input);
 
-		if(isValid)
-			setReport(prev => {
-			    return prev.map(report => {
-				if(report.id == props.reportIdentifier) {
-				    return ({...report, [id]: input});
-				}
-				return report;
-			    })
-			});
-		else
-			setReport(prev => {
-			    return prev.map(report => {
-				if(report.id == props.reportIdentifier) {
-				    return ({...report, [id]: ""});
-				}
-				return report;
-			    })
-			});
-
+		if(isValid) {
+		    props.updateState({
+			storeCode: props.storeCode,
+			setReport: props.setReport,
+			index: props.index,
+			staffGroup: props.staffGroup,
+			newValue: input
+		    });
+		}
 		setValidInput(isValid);
 		setEdited(true);
 	};
 
 	return (
-		<View>
+		<View style={props.styles}>
 			<Text style={styles.label} >{ label }</Text>
 			<TextInput placeholder={placeholder} 
 			placeholderTextColor="gray"
@@ -51,7 +43,7 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 			onEndEditing={validateInput}
 			onFocus={()=> setEdited(false)}
 			/>
-			{ edited && !validInput ? <Text style={{color: "red"}}>Formato de { validationKeyword } invalido</Text> : null}
+			{ edited && !validInput ? <Text style={{color: "red", position: "absolute", top: "100%" }}>Formato de { validationKeyword } invalido</Text> : null}
 		</View>
 	);
 }
