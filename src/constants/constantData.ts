@@ -198,21 +198,24 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"})
     }
 ]
-
 const staffUpdater = (props: StaffUpdaterParams) => {
     props.setReport((prev: AppReportState)=> {
 	return ({
 	    ...prev,
 	    controlRoomState: ({
 		...prev.controlRoomState,
-		reportState: prev.controlRoomState.reportState.map((report: ControlRoomReport)=> {
-		    if(report.storeCode === props.storeCode) {
-			console.log(report[props.staffProperty]);
-			report[props.staffGroup][props.index][props.staffProperty] = props.newValue;
+		reportState: prev.controlRoomState.reportState.map((obj: ControlRoomReport)=>{
+		    if(obj.storeCode === props.storeCode) {
+			obj[props.staffGroup].map((op, index)=> {
+			    if(index === props.index) {
+				console.log(obj[props.staffGroup]);
+				op[props.staffProperty] = props.newValue;
+			    }
+			})
 		    }
-		    return report;
+		    return obj;
 		})
 	    })
 	})
-    })
+    });
 }

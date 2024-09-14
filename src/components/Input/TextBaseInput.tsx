@@ -27,6 +27,10 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 			staffGroup: props.staffGroup,
 			newValue: input
 		    });
+		    props.updateParentValidation(prev => prev.filter(match => match !== label));
+		}
+		else {
+		    props.updateParentValidation(prev => [...prev, label]);
 		}
 		setValidInput(isValid);
 		setEdited(true);

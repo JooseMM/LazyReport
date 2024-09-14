@@ -13,18 +13,40 @@ StaffUpdatedPopupProps
 import TextBaseInput from "../../../components/Input/TextBaseInput";
 import { STAFF_UPDATE, colors } from "../../../constants/constantData";
 import { useAuth } from "../../../ApplicationState";
-import { Image } from "expo-image";
 import { useEffect, useState } from "react";
+import { Image } from "expo-image";
 
 const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
-    const { report, setReport } = useAuth();
+    const { setReport } = useAuth();
     const [ currentIndex, setCurrentIndex ] = useState(props.index)
     const trashIcon = require("../../../../assets/trash.svg");
-    const submitData = ()=> {
-	console.log(report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode)[props.staffGroup])
-	props.toggleVisibility(false);
-    }
+    const [ validation, setValidation ] = useState<Array<string>>([]);
 
+    const submitData = ()=> {
+	if(validation.length === 0)
+	    props.toggleVisibility([]);
+    };
+    const deleteCurrentInfo = () => {
+	    setReport((prev: AppReportState)=> ({
+		...prev,
+		controlRoomState: ({
+		    ...prev.controlRoomState,
+		    reportState: prev.controlRoomState.reportState.map((current: ControlRoomReport)=> {
+			if(current.storeCode === props.storeCode && props.index === undefined) {
+			    current[props.staffGroup] = 
+				current[props.staffGroup].filter((_match, index) => index !== currentIndex);
+				console.log(current[props.staffGroup]);
+			}
+			return current;
+		    })
+		})
+		    
+	    }));
+    }
+    const closeBox = () => {
+	deleteCurrentInfo();
+	props.toggleVisibility([]);
+    }
     useEffect(()=> {
 	if(props.index === undefined || props.index === null) {
 	    setReport((prev: AppReportState)=> ({
@@ -32,30 +54,34 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		controlRoomState: ({
 		    ...prev.controlRoomState,
 		    reportState: prev.controlRoomState.reportState.map((current: ControlRoomReport)=> {
-			if(current.storeCode === props.storeCode && props.index !== undefined) {
+			if(current.storeCode === props.storeCode && props.index === undefined) {
 			    current[props.staffGroup] = [
 				...current[props.staffGroup],
 				{ name: undefined, position: undefined } 
 			    ]
 			    setCurrentIndex(
-				current[props.staffGroup].length > 0 ? current[props.staffGroup].length - 1 : 0
-			    );
+				current[props.staffGroup]
+				 .length > 0 ? current[props.staffGroup].length - 1 : 0
+			    )
 			}
 			return current;
 		    })
 		})
 		    
 	    })
-	    )
+	    );
 	}
-	console.log(currentIndex)
     },[])
     return(
 	<View style={ownStyles.background}>
 	    <View style={ownStyles.container}>
+		<TouchableOpacity style={ownStyles.closeButton} onPress={closeBox}>
+		    <Image source={require("../../../../assets/close.svg")} style={{ width: 35, height: 35 }}/>
+		</TouchableOpacity>
 		{
 		    STAFF_UPDATE.map((current: InputObject, index: number)=> (
 			<TextBaseInput 
+			 updateParentValidation={setValidation}
 			 key={index}
 			 inputObject={current}
 			 storeCode={props.storeCode}
@@ -68,7 +94,7 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		    ))
 		}
 		<View style={ownStyles.actionContainer}>
-		    <TouchableOpacity style={ownStyles.button} onPress={submitData}>
+		    <TouchableOpacity style={[ownStyles.button, validation.length > 0 && ownStyles.invalidButton]} disabled={validation.length > 0} onPress={submitData}>
 			<Text style={ownStyles.buttonlabel}>Actualizar</Text>
 		    </TouchableOpacity>
 		    <TouchableOpacity style={ownStyles.deleteButtonContainer}>
@@ -91,16 +117,22 @@ const ownStyles = StyleSheet.create({
 	backgroundColor: "rgba(51,51,51, 0.85)",
 	alignItems: "center"
     },
+    invalidButton: {
+	opacity: 0.6,
+	backgroundColor: 'gray' 
+    },
     container: {
+	position: "relative",
 	backgroundColor: "white",
 	marginTop: "10%",
 	width: "90%",
 	maxWidth: 400,
 	padding: 20,
+	borderRadius: 5
     },
     actionContainer: {
 	flexDirection: "row",
-	marginTop: 20,
+	marginTop: 25,
 	justifyContent: "space-between",
 	alignItems: "center",
 	width: "100%",
@@ -131,6 +163,11 @@ const ownStyles = StyleSheet.create({
 	marginHorizontal: "auto",
 	fontSize: 18,
 	fontWeight: "bold"
+    },
+    closeButton: {
+	position: "relative",
+	alignSelf: "flex-end",
+	zIndex: 100
     }
 })
 export default StaffUpdatePopup;

@@ -86,6 +86,7 @@ export interface ReportStateUpdaters {
 	styles?: ViewStyle
 	updateState: (props: UpdaterProps)=> void
 	setReport: Dispatch<SetStateAction<AppReportState>> 
+	updateParentValidation: Dispatch<SetStateAction<Array<string>>>
 	index: number,
 	staffGroup: ControlRoomStaffGroup,
 };
@@ -113,5 +114,13 @@ export type StaffUpdatedPopupProps = {
     staffGroup: ControlRoomStaffGroup,
     index?: number,
     storeCode: number,
-    toggleVisibility: Dispatch<SetStateAction<boolean>>  
-}
+    toggleVisibility: Dispatch<SetStateAction<Array<ControlRoomStaffGroup>>>
+};
+
+export type StaffBoxProps = {
+staffGroupName: ControlRoomStaffGroup,
+storeCode: number,
+completed: boolean,
+update: Dispatch<SetStateAction<Array<ControlRoomStaffGroup | number | null>>>
+styles: ViewStyle,
+};

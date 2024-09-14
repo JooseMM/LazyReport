@@ -8,7 +8,7 @@ ViewStyle
 } from "react-native";
 import { storeTypeChecker } from "./helper";
 import { storeBuildingStyles } from "./styles";
-import { ControlRoomReport } from "../../../constants/customTypes";
+import { ControlRoomReport, ControlRoomStaffGroup } from "../../../constants/customTypes";
 import { connectionHealth } from "../../../constants/constantData";
 import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 import StaffBox from "../../../components/StaffBox/StaffBox";
@@ -25,15 +25,15 @@ const StoreBuilding = ({ route }) => {
 	report.controlRoomState
 	    .reportState.find(store => store.storeCode === storeCode)
     );
-    const [ updateStaff, setUpdateStaff ] = useState<boolean>(true);
+    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<Array<ControlRoomStaffGroup | number | null>>([]);
 
     return (
 	<ScrollView 
-	 scrollEnabled={!updateStaff}
+	 scrollEnabled={currentUpdateStaff?.length < 1}
 	 style={storeBuildingStyles.container}
 	 contentContainerStyle={{ justifyContent: "center", alignItems: "center" }}
 	>
-	    { updateStaff && <StaffUpdatePopup storeCode={storeCode} staffGroup="bossStaff" toggleVisibility={setUpdateStaff}/> }
+	    { currentUpdateStaff.length > 0 && <StaffUpdatePopup storeCode={storeCode} staffGroup={currentUpdateStaff[0] as ControlRoomStaffGroup} toggleVisibility={setCurrentUpdateStaff}/> }
 	    <View style={storeBuildingStyles.titleContainer}>
 		<Text style={storeBuildingStyles.title}>{ "L" + storeCode + " " }</Text>
 		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeType + " " }</Text>
@@ -54,6 +54,7 @@ const StoreBuilding = ({ route }) => {
 		{
 		    STAFF_GROUPS.map((group, index)=> (
 			<StaffBox 
+			 update={setCurrentUpdateStaff}
 			 key={index}
 			 staffGroupName={group}
 			 storeCode={storeCode}

@@ -7,17 +7,11 @@ ViewStyle
 } from "react-native";
 import { colors } from "../../constants/constantData";
 import { useAuth } from "../../ApplicationState";
-import { ControlRoomReport, ControlRoomStaffGroup } from "../../constants/customTypes";
+import { ControlRoomReport, ControlRoomStaffGroup, StaffBoxProps } from "../../constants/customTypes";
 import { translateStaffGroupName, translatedSmallQuantities } from "./helper";
-import { useEffect, useState } from "react";
-import Button from "../Buttons/MainButton/MainButton";
+import { Dispatch, useEffect, useState, SetStateAction } from "react";
 
-const StaffBox = (props: {
-staffGroupName: ControlRoomStaffGroup,
-storeCode: number,
-completed: boolean,
-styles: ViewStyle
-}) => {
+const StaffBox = (props: StaffBoxProps) => {
     const { report } = useAuth();
     const [ groupName ] = useState(translateStaffGroupName(props.staffGroupName));
     const [ currentReport, setCurrentReport ] = useState<ControlRoomReport>(
@@ -30,8 +24,10 @@ styles: ViewStyle
     );
 
     useEffect(()=> {
-	setCurrentReport(report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode));
-    },[report.controlRoomState.reportState.find((store: ControlRoomReport)=> store.storeCode === props.storeCode)]);
+	setCurrentReport(
+	    report.controlRoomState.reportState
+	     .find((store: ControlRoomReport)=> store.storeCode === props.storeCode));
+    },[report]);
 
     return(
 	<View style={[ownStyles.container, props.styles]}>
@@ -48,17 +44,17 @@ styles: ViewStyle
 			if(store.storeCode === props.storeCode) {
 			    return store[props.staffGroupName].map((operator, index) => {
 				return (
-				    <View key={index} style={[ownStyles.operatorNameContainer, index == (store.bossStaff.length - 1) && { borderBottomWidth: 0 } ]} >
+				    <TouchableOpacity onPress={()=>props.update([props.staffGroupName, index])} key={index} style={[ownStyles.operatorNameContainer, index == (store.bossStaff.length - 1) && { borderBottomWidth: 0 } ]} >
 					<Text style={ownStyles.operatorName}>{operator.name}</Text>
 					<Text style={ownStyles.operatorPosition}>{operator.position}</Text>
-				    </View>
+				    </TouchableOpacity>
 				)
 			    })
 			}
 		    })
 		}
 	    </View>
-	    <TouchableOpacity style={ownStyles.button}>
+	    <TouchableOpacity style={ownStyles.button} onPress={() => props.update([props.staffGroupName, null])}>
 		<Text style={ownStyles.buttonLabel}>Agregar</Text>
 	    </TouchableOpacity>
 	</View>
