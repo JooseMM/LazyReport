@@ -4,12 +4,17 @@ Text,
 TouchableOpacity,
 StyleSheet
 } from "react-native";
-import { ControlRoomReport, ControlRoomStaffGroup, InputObject, AppReportState, StaffUpdatedPopupProps } from "../../../constants/customTypes";
+import {
+ControlRoomReport,
+InputObject,
+AppReportState,
+StaffUpdatedPopupProps
+} from "../../../constants/customTypes";
 import TextBaseInput from "../../../components/Input/TextBaseInput";
 import { STAFF_UPDATE, colors } from "../../../constants/constantData";
 import { useAuth } from "../../../ApplicationState";
 import { Image } from "expo-image";
-import { Dispatch, SetStateAction, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
     const { report, setReport } = useAuth();
@@ -28,8 +33,13 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		    ...prev.controlRoomState,
 		    reportState: prev.controlRoomState.reportState.map((current: ControlRoomReport)=> {
 			if(current.storeCode === props.storeCode && props.index !== undefined) {
-			    current[props.staffGroup] = [...current[props.staffGroup], { name: undefined, position: undefined } ]
-			    setCurrentIndex(current[props.staffGroup].length - 1);
+			    current[props.staffGroup] = [
+				...current[props.staffGroup],
+				{ name: undefined, position: undefined } 
+			    ]
+			    setCurrentIndex(
+				current[props.staffGroup].length > 0 ? current[props.staffGroup].length - 1 : 0
+			    );
 			}
 			return current;
 		    })
@@ -38,6 +48,7 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 	    })
 	    )
 	}
+	console.log(currentIndex)
     },[])
     return(
 	<View style={ownStyles.background}>
@@ -49,7 +60,7 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 			 inputObject={current}
 			 storeCode={props.storeCode}
 			 setReport={setReport}
-			 index={index}
+			 index={currentIndex}
 			 staffGroup={props.staffGroup}
 			 updateState={current.updaterFunction} 
 			 styles={index > 0 && { marginTop: 14 }}

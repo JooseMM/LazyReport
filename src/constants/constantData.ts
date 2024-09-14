@@ -206,11 +206,10 @@ const staffUpdater = (props: StaffUpdaterParams) => {
 	    controlRoomState: ({
 		...prev.controlRoomState,
 		reportState: prev.controlRoomState.reportState.map((report: ControlRoomReport)=> {
-		    if(report.storeCode === props.storeCode) 
-			report[props.staffGroup][props.index] = ({
-			    ...report[props.staffGroup][props.index],
-			    [props.staffProperty]: props.newValue
-			})
+		    if(report.storeCode === props.storeCode) {
+			console.log(report[props.staffProperty]);
+			report[props.staffGroup][props.index][props.staffProperty] = props.newValue;
+		    }
 		    return report;
 		})
 	    })
