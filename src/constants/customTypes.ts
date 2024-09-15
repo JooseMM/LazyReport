@@ -86,16 +86,16 @@ export interface ReportStateUpdaters {
 	inputObject: InputObject
 	styles?: ViewStyle
 	updateState: (props: UpdaterProps)=> void
-	updateParentValidation: Dispatch<SetStateAction<Array<string>>>
-	getInitialState: (params: GetInitialStateParams) => any,
-	index: number,
-	staffGroup: ControlRoomStaffGroup,
+	updateParentValidation?: Dispatch<SetStateAction<Array<string>>>
+	getInitialState?: (params: GetInitialStateParams) => any,
+	index?: number,
+	keyProperty?: string,
 };
 export type UpdaterProps = {
     storeCode: number,
     setReport: Dispatch<SetStateAction<AppReportState>> 
     index: number,
-    staffGroup: ControlRoomStaffGroup,
+    keyProperty?: ControlRoomStaffGroup,
     newValue: string,
 }
 export type  GetInitialStateParams = {

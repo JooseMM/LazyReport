@@ -13,11 +13,13 @@ import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
 import ControlRoomReportActions from "../../../components/ControlRoomReportActions";
 import StaffUpdatePopup from "../PopupInput/PopupInput";
+import { CONNECTION_HEALTH } from "../../../constants/constantData";
+import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
 const StoreBuilding = ({ route }) => {
     const { storeCode, storeName } = route.params!;
     const [ storeType ] = useState(storeTypeChecker(storeCode));
-    const { report } = useAuth();
+    const { report, setReport } = useAuth();
     const [ currentStoreState ] = useState<ControlRoomReport>(
 	report.controlRoomState
 	    .reportState.find(store => store.storeCode === storeCode)
@@ -43,14 +45,12 @@ const StoreBuilding = ({ route }) => {
 		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeName }</Text>
 	    </View>
 	    {
-		/*
-	    <PickerBaseInput 
+	    <PickerBaseInput  
 	     styles={{ width: "90%", maxWidth: 400 }}
 	     storeCode={storeCode}
-	     inputObject={connectionHealth}
-	     updateState={null}
+	     inputObject={CONNECTION_HEALTH}
+	     updateState={CONNECTION_HEALTH.updaterFunction}
 	    />
-		 */
 	    }
 	    <View style={storeBuildingStyles.staffContainer}>
 		<Text style={storeBuildingStyles.labels}>Dotaciones:</Text>

@@ -176,12 +176,13 @@ export const ControlRoomDrawerRoutes: Array<{
     { code: 6020, name: "El Penon" },
 ];
 
-export const connectionHealth: InputObject = {
+export const CONNECTION_HEALTH: InputObject = {
     label: "Enlaces Operativos",
     options: connectionHealthOptions,
     validationKeyword: "opción valida",
     regExpValidator: [],
-    updaterFunction: ()=> {}
+    updaterFunction: ()=> {},
+    getInitialState: ()=> {},
 };
 export const STAFF_UPDATE: Array<InputObject> = [
     {
@@ -189,7 +190,7 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	placeholder: "Ingresa el nombre del colaborador",
 	validationKeyword: "nombre valido",
 	regExpValidator: [lettersOnlyFormat],
-	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props, staffProperty: "name"}),
+	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props,  staffProperty: "name"}),
 	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "name" })
     },
     {
@@ -219,7 +220,7 @@ const staffUpdater = (props: UpdaterProps & { staffProperty: "position" | "name"
 		...prev.controlRoomState,
 		reportState: prev.controlRoomState.reportState.map((obj: ControlRoomReport)=>{
 		    if(obj.storeCode === props.storeCode) {
-			obj[props.staffGroup].map((op, index)=> {
+			obj[props.keyProperty].map((op, index)=> {
 			    console.log(op);
 			    console.log("index is: " + index + "focus is: " + props.index);
 			    if(index === props.index) {

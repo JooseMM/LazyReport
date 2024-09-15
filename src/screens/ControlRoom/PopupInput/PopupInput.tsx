@@ -32,10 +32,9 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		controlRoomState: ({
 		    ...prev.controlRoomState,
 		    reportState: prev.controlRoomState.reportState.map((current: ControlRoomReport)=> {
-			if(current.storeCode === props.storeCode && props.index === undefined) {
+			if(current.storeCode === props.storeCode && currentIndex !== undefined) {
 			    current[props.staffGroup] = 
 				current[props.staffGroup].filter((_match, index) => index !== currentIndex);
-				console.log(current[props.staffGroup]);
 			}
 			return current;
 		    })
@@ -93,10 +92,16 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 		    ))
 		}
 		<View style={ownStyles.actionContainer}>
-		    <TouchableOpacity style={[ownStyles.button, validation.length > 0 && ownStyles.invalidButton]} disabled={validation.length > 0} onPress={submitData}>
+		    <TouchableOpacity
+		     style={[ownStyles.button, validation.length > 0 && ownStyles.invalidButton]} disabled={validation.length > 0}
+		     onPress={submitData}
+		    >
 			<Text style={ownStyles.buttonlabel}>Actualizar</Text>
 		    </TouchableOpacity>
-		    <TouchableOpacity style={ownStyles.deleteButtonContainer}>
+		    <TouchableOpacity
+		     style={ownStyles.deleteButtonContainer}
+		     onPress={closeBox}
+		    >
 			<Image source={trashIcon} style={ownStyles.trashImage}/>
 		    </TouchableOpacity>
 		</View>
