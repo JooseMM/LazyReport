@@ -3,7 +3,6 @@ View,
 StyleSheet,
 Text,
 TouchableOpacity,
-ViewStyle
 } from "react-native";
 import { colors } from "../../constants/constantData";
 import { useAuth } from "../../ApplicationState";
@@ -44,7 +43,14 @@ const StaffBox = (props: StaffBoxProps) => {
 			if(store.storeCode === props.storeCode) {
 			    return store[props.staffGroupName].map((operator, index) => {
 				return (
-				    <TouchableOpacity onPress={()=>props.update([props.staffGroupName, index])} key={index} style={[ownStyles.operatorNameContainer, index == (store.bossStaff.length - 1) && { borderBottomWidth: 0 } ]} >
+				    <TouchableOpacity 
+				     onPress={()=>props.update([props.staffGroupName, index])}
+				     key={index}
+				     style={[
+					 ownStyles.operatorNameContainer,
+					 index == (store.bossStaff.length - 1) && { borderBottomWidth: 0 } 
+				     ]}
+				     >
 					<Text style={ownStyles.operatorName}>{operator.name}</Text>
 					<Text style={ownStyles.operatorPosition}>{operator.position}</Text>
 				    </TouchableOpacity>

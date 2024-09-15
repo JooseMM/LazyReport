@@ -20,7 +20,7 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
     const { setReport } = useAuth();
     const [ currentIndex, setCurrentIndex ] = useState(props.index)
     const trashIcon = require("../../../../assets/trash.svg");
-    const [ validation, setValidation ] = useState<Array<string>>([]);
+    const [ validation, setValidation ] = useState<Array<"name" | "position">>([]);
 
     const submitData = ()=> {
 	if(validation.length === 0)
@@ -48,17 +48,17 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 	props.toggleVisibility([]);
     }
     useEffect(()=> {
-	if(props.index === undefined || props.index === null) {
+	if(currentIndex === undefined || currentIndex === null) {
 	    setReport((prev: AppReportState)=> ({
 		...prev,
 		controlRoomState: ({
 		    ...prev.controlRoomState,
 		    reportState: prev.controlRoomState.reportState.map((current: ControlRoomReport)=> {
-			if(current.storeCode === props.storeCode && props.index === undefined) {
+			if(current.storeCode === props.storeCode) {
 			    current[props.staffGroup] = [
 				...current[props.staffGroup],
 				{ name: undefined, position: undefined } 
-			    ]
+			    ];
 			    setCurrentIndex(
 				current[props.staffGroup]
 				 .length > 0 ? current[props.staffGroup].length - 1 : 0
@@ -66,8 +66,7 @@ const StaffUpdatePopup = (props: StaffUpdatedPopupProps) => {
 			}
 			return current;
 		    })
-		})
-		    
+		}) 
 	    })
 	    );
 	}

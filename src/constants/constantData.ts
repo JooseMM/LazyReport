@@ -4,7 +4,6 @@ ControlRoomReport,
 InputObject,
 connectionStateOptions,
 UpdaterProps,
-StaffUpdaterParams,
 GetInitialStateParams,
 some
 } from "./customTypes";
@@ -202,18 +201,17 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" })
     }
 ]
-const getStaffInitialState = (props: some) => {
-    return props.report.controlRoomState.reportState.map((current: ControlRoomReport) => {
-	if(current.storeCode === props.storeCode) {
-	    console.log(current[props.staffGroup][props.index][props.staffProperty]);
-	    return current[props.staffGroup][props.index][props.staffProperty];
+const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "position" | "name" }):string | null=> {
+    const currentLenght = props.report.controlRoomState.reportState.length;
+    for(let i = 0; i < currentLenght; i++) {
+	const item = props.report.controlRoomState.reportState[i];
+	if(item?.storeCode === props.storeCode) {
+	    return item?.[props.staffGroup]?.[props.index]?.[props.staffProperty] ?? null;
 	}
-	else {
-	    return undefined;
-	}
-    });
+    }
+    return null;
 }
-const staffUpdater = (props: StaffUpdaterParams) => {
+const staffUpdater = (props: UpdaterProps & { staffProperty: "position" | "name" }) => {
     props.setReport((prev: AppReportState)=> {
 	return ({
 	    ...prev,
@@ -222,6 +220,8 @@ const staffUpdater = (props: StaffUpdaterParams) => {
 		reportState: prev.controlRoomState.reportState.map((obj: ControlRoomReport)=>{
 		    if(obj.storeCode === props.storeCode) {
 			obj[props.staffGroup].map((op, index)=> {
+			    console.log(op);
+			    console.log("index is: " + index + "focus is: " + props.index);
 			    if(index === props.index) {
 				op[props.staffProperty] = props.newValue;
 			    }

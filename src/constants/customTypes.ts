@@ -104,12 +104,6 @@ export type  GetInitialStateParams = {
     index: number,
     staffGroup: ControlRoomStaffGroup,
 }
-export interface some extends GetInitialStateParams {
-    staffProperty: "name" | "position"
-}
-export interface StaffUpdaterParams extends UpdaterProps {
-    staffProperty: "name" | "position"
-}
 export type connectionStateOptions = {
     label: string,
     value: ConnectionState
