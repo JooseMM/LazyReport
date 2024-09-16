@@ -1,27 +1,28 @@
 import { Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { ReportStateUpdaters, AppReportState, ControlRoomReport, StoreInfo } from  "../../constants/customTypes";
+import { ReportStateUpdaters } from  "../../constants/customTypes";
 import { styles } from "./styles";
 import { useAuth } from "../../ApplicationState";
 import { colors } from "../../constants/constantData";
 
 export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	const { setReport, report } = useAuth();
-	const { targetFormat } = props;
-	const { id, label, options, validationKeyword } = props.inputObject;
-	const [ selected, setSelected ] = useState<string | boolean>();
+	const { keyProperty } = props;
+	const { 
+	    label,
+	    options,
+	    validationKeyword,
+	    updaterFunction,
+	    getInitialState,
+	} = props.inputObject;
+	const [ selected, setSelected ] = useState<string | boolean>(getInitialState({
+	    identifier: props.identifier,
+	    report: report,
+	    targetKey: props.keyProperty,
+	}));
 	const [ valid, setValid ] = useState(false);
 	const [ dirty, setDirty ] = useState(false);
-
-	useEffect(()=> {
-	    setSelected(report[targetFormat].reportState.find(obj => obj.storeCode === props.storeCode)[id]);
-	}, [report[targetFormat].reportState.find(obj => {
-	    if(props.storeCode !== undefined) {
-		return props.storeCode === obj.storeCode;
-	    }
-	    return props.reportIdentifier === obj.id;
-	})[id]]);
 
 	useEffect(()=> {
 	    if(typeof selected == "object" && selected === null) {
@@ -39,19 +40,11 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	}, [selected]);
 
 	const updateState = (newValue: string | boolean ) => {
-	    setReport((prev: AppReportState) => {
-		return ({
-		    ...prev,
-		    [targetFormat]: {
-			...prev[targetFormat],
-			reportState: prev[targetFormat].reportState.map((store)=> {
-			    if(props.storeCode !== undefined) {
-				return store.storeCode === props.storeCode ? ({ ...store, [id]: newValue}) : store;
-			    }
-			    return store.id === props.reportIdentifier ? ({ ...store, [id]: newValue}) : store;
-			})
-		    }
-		});
+	    updaterFunction({
+		identifier: props.identifier,
+		index: props.index,
+		newValue: selected,
+		setReport: setReport
 	    });
 	    setSelected(newValue);
 	}

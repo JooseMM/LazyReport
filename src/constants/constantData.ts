@@ -176,13 +176,36 @@ export const ControlRoomDrawerRoutes: Array<{
     { code: 6020, name: "El Penon" },
 ];
 
-export const CONNECTION_HEALTH: InputObject = {
+export const CONTROL_ROOM_CONNECTION_HEALTH: InputObject = {
     label: "Enlaces Operativos",
     options: connectionHealthOptions,
     validationKeyword: "opción valida",
     regExpValidator: [],
-    updaterFunction: ()=> {},
-    getInitialState: ()=> {},
+    updaterFunction: (props: UpdaterProps)=> updateState(props),
+    getInitialState: (props: GetInitialStateParams)=> getInitialSelectedValue(props),
+};
+const updateState = (props: UpdaterProps) => {
+    props.setReport((prev: AppReportState) => ({
+	...prev,
+	controlRoomState: ({
+	    ...prev.controlRoomState,
+	    reportState: prev.controlRoomState.reportState.map((report: ControlRoomReport, _index)=> {
+		if(report.storeCode === props.identifier) {
+		    report[props.keyProperty] = props.newValue;
+		}
+		return report;
+	    })
+	})
+    }))
+}
+const getInitialSelectedValue = (props: GetInitialStateParams) => {
+    const arrState = props.report.controlRoomState.reportState;
+    for(let i = 0; i < arrState.length; i++) {
+	if(arrState[i].storeCode === props.identifier) {
+	    return arrState?.[props.targetKey];
+	}
+    }
+    return undefined;
 };
 export const STAFF_UPDATE: Array<InputObject> = [
     {
@@ -202,15 +225,15 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" })
     }
 ]
-const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "position" | "name" }):string | null=> {
+const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "position" | "name" }):string | undefined=> {
     const currentLenght = props.report.controlRoomState.reportState.length;
     for(let i = 0; i < currentLenght; i++) {
 	const item = props.report.controlRoomState.reportState[i];
-	if(item?.storeCode === props.storeCode) {
-	    return item?.[props.staffGroup]?.[props.index]?.[props.staffProperty] ?? null;
+	if(item?.storeCode === props.identifier) {
+	    return item?.[props.targetKey]?.[props.index]?.[props.staffProperty] ?? null;
 	}
     }
-    return null;
+    return undefined;
 }
 const staffUpdater = (props: UpdaterProps & { staffProperty: "position" | "name" }) => {
     props.setReport((prev: AppReportState)=> {
@@ -219,10 +242,8 @@ const staffUpdater = (props: UpdaterProps & { staffProperty: "position" | "name"
 	    controlRoomState: ({
 		...prev.controlRoomState,
 		reportState: prev.controlRoomState.reportState.map((obj: ControlRoomReport)=>{
-		    if(obj.storeCode === props.storeCode) {
+		    if(obj.storeCode === props.identifier) {
 			obj[props.keyProperty].map((op, index)=> {
-			    console.log(op);
-			    console.log("index is: " + index + "focus is: " + props.index);
 			    if(index === props.index) {
 				op[props.staffProperty] = props.newValue;
 			    }

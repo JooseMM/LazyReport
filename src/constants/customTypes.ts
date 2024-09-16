@@ -82,27 +82,26 @@ export type buttonProps = {
 	disable?: boolean
 };
 export interface ReportStateUpdaters {
-	storeCode?: number
+	identifier?: number | string
 	inputObject: InputObject
 	styles?: ViewStyle
 	updateState: (props: UpdaterProps)=> void
 	updateParentValidation?: Dispatch<SetStateAction<Array<string>>>
-	getInitialState?: (params: GetInitialStateParams) => any,
 	index?: number,
 	keyProperty?: string,
 };
 export type UpdaterProps = {
-    storeCode: number,
+    identifier: number | string,
     setReport: Dispatch<SetStateAction<AppReportState>> 
     index: number,
-    keyProperty?: ControlRoomStaffGroup,
-    newValue: string,
+    keyProperty?: ControlRoomStaffGroup | string,
+    newValue: string | boolean,
 }
 export type  GetInitialStateParams = {
-    storeCode: number,
+    identifier: number | string,
     report: AppReportState
-    index: number,
-    staffGroup: ControlRoomStaffGroup,
+    index?: number,
+    targetKey: string | ControlRoomStaffGroup,
 }
 export type connectionStateOptions = {
     label: string,

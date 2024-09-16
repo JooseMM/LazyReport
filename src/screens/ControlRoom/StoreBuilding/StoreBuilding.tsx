@@ -13,7 +13,7 @@ import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
 import ControlRoomReportActions from "../../../components/ControlRoomReportActions";
 import StaffUpdatePopup from "../PopupInput/PopupInput";
-import { CONNECTION_HEALTH } from "../../../constants/constantData";
+import { CONTROL_ROOM_CONNECTION_HEALTH } from "../../../constants/constantData";
 import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
 const StoreBuilding = ({ route }) => {
@@ -47,9 +47,9 @@ const StoreBuilding = ({ route }) => {
 	    {
 	    <PickerBaseInput  
 	     styles={{ width: "90%", maxWidth: 400 }}
-	     storeCode={storeCode}
-	     inputObject={CONNECTION_HEALTH}
-	     updateState={CONNECTION_HEALTH.updaterFunction}
+	     identifier={storeCode}
+	     inputObject={CONTROL_ROOM_CONNECTION_HEALTH}
+	     updateState={CONTROL_ROOM_CONNECTION_HEALTH.updaterFunction}
 	    />
 	    }
 	    <View style={storeBuildingStyles.staffContainer}>

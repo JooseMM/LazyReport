@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { GetInitialStateParams, ReportStateUpdaters } from "../../constants/customTypes";
+import { ControlRoomStaffGroup, GetInitialStateParams, ReportStateUpdaters } from "../../constants/customTypes";
 import { styles } from "./styles";
 import { TextInput, View, Text} from "react-native";
 import { colors } from "../../constants/constantData";
@@ -8,19 +8,20 @@ import { useAuth } from "../../ApplicationState";
 
 const TextBaseInput = (props: ReportStateUpdaters) => {
 	const { setReport, report } = useAuth();
-	const [ input, setInput ] = useState(props.getInitialState({
-	    storeCode: props.storeCode,
-	    index: props.index,
-	    staffGroup: props.staffGroup,
-	    report: report
-	}));
-	const [ validInput, setValidInput ] = useState<boolean>(input !== null ? true : false);
-	const [ edited, setEdited ] = useState<boolean>(input !== null ? true : false);
 	const { 
 	    label,
 	    placeholder,
 	    validationKeyword,
+	    getInitialState
 	} = props.inputObject;
+	const [ input, setInput ] = useState(getInitialState({
+	    identifier: props.identifier,
+	    index: props.index,
+	    targetKey: props.keyProperty,
+	    report: report
+	}));
+	const [ validInput, setValidInput ] = useState<boolean>(input !== null ? true : false);
+	const [ edited, setEdited ] = useState<boolean>(input !== null ? true : false);
 	const regExpValidator = props.inputObject.regExpValidator[0];
 
 	useEffect(()=> {
@@ -38,10 +39,10 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 		const isValid = regExpValidator.test(input);
 		if(isValid) {
 		    props.updateState({
-			storeCode: props.storeCode,
+			identifier: props.identifier,
 			setReport: setReport,
 			index: props.index,
-			staffGroup: props.staffGroup,
+			keyProperty: props.keyProperty,
 			newValue: input
 		    });
 		    props.updateParentValidation(prev => prev.filter(match => match !== label));
