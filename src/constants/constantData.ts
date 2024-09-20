@@ -5,7 +5,6 @@ InputObject,
 connectionStateOptions,
 UpdaterProps,
 GetInitialStateParams,
-some
 } from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
@@ -171,42 +170,13 @@ export const drawerOptions: DrawerNavigationOptions = {
 export const ControlRoomDrawerRoutes: Array<{ 
     code: number,
     name: string,
+    type?: string,
 }> = [
-    { code: 90, name: "EDS" },
-    { code: 6020, name: "El Penon" },
+    { code: 90, name: "EDS", type: "Edif." },
+    { code: 6020, name: "El Penon", type: "CD" },
 ];
 
-export const CONTROL_ROOM_CONNECTION_HEALTH: InputObject = {
-    label: "Enlaces Operativos",
-    options: connectionHealthOptions,
-    validationKeyword: "opción valida",
-    regExpValidator: [],
-    updaterFunction: (props: UpdaterProps)=> updateState(props),
-    getInitialState: (props: GetInitialStateParams)=> getInitialSelectedValue(props),
-};
-const updateState = (props: UpdaterProps) => {
-    props.setReport((prev: AppReportState) => ({
-	...prev,
-	controlRoomState: ({
-	    ...prev.controlRoomState,
-	    reportState: prev.controlRoomState.reportState.map((report: ControlRoomReport, _index)=> {
-		if(report.storeCode === props.identifier) {
-		    report[props.keyProperty] = props.newValue;
-		}
-		return report;
-	    })
-	})
-    }))
-}
-const getInitialSelectedValue = (props: GetInitialStateParams) => {
-    const arrState = props.report.controlRoomState.reportState;
-    for(let i = 0; i < arrState.length; i++) {
-	if(arrState[i].storeCode === props.identifier) {
-	    return arrState?.[props.targetKey];
-	}
-    }
-    return undefined;
-};
+
 export const STAFF_UPDATE: Array<InputObject> = [
     {
 	label: "Nombre",
@@ -214,7 +184,8 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	validationKeyword: "nombre valido",
 	regExpValidator: [lettersOnlyFormat],
 	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props,  staffProperty: "name"}),
-	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "name" })
+	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "name" }),
+	targetProperty: "name"
     },
     {
 	label: "Cargo",
@@ -222,7 +193,8 @@ export const STAFF_UPDATE: Array<InputObject> = [
 	validationKeyword: "cargo valido",
 	regExpValidator: [lettersOnlyFormat],
 	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"}),
-	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" })
+	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" }),
+	targetProperty: "position"
     }
 ]
 const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "position" | "name" }):string | undefined=> {
@@ -234,24 +206,4 @@ const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "p
 	}
     }
     return undefined;
-}
-const staffUpdater = (props: UpdaterProps & { staffProperty: "position" | "name" }) => {
-    props.setReport((prev: AppReportState)=> {
-	return ({
-	    ...prev,
-	    controlRoomState: ({
-		...prev.controlRoomState,
-		reportState: prev.controlRoomState.reportState.map((obj: ControlRoomReport)=>{
-		    if(obj.storeCode === props.identifier) {
-			obj[props.keyProperty].map((op, index)=> {
-			    if(index === props.index) {
-				op[props.staffProperty] = props.newValue;
-			    }
-			})
-		    }
-		    return obj;
-		})
-	    })
-	})
-    });
 }

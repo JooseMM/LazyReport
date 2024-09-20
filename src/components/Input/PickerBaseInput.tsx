@@ -1,26 +1,30 @@
 import { Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Picker } from "@react-native-picker/picker";
-import { ReportStateUpdaters } from  "../../constants/customTypes";
+import { InitialStateConnectionHealthProps, ReportStateUpdaters, UpdateStateConnectionHealthProps, UtilMethods } from  "../../constants/customTypes";
 import { styles } from "./styles";
-import { useAuth } from "../../ApplicationState";
 import { colors } from "../../constants/constantData";
 
-export const PickerBaseInput = (props: ReportStateUpdaters) => {
-	const { setReport, report } = useAuth();
-	const { keyProperty } = props;
+type Utils = {
+    utils : {
+	targetProperty: string
+	methods: {
+	    getInitialState: (props: InitialStateConnectionHealthProps) => string
+	    updateState: (props: UpdateStateConnectionHealthProps) => void
+	}
+    }
+}
+export const PickerBaseInput = (props: ReportStateUpdaters & Utils) => {
 	const { 
 	    label,
 	    options,
 	    validationKeyword,
-	    updaterFunction,
-	    getInitialState,
 	} = props.inputObject;
-	const [ selected, setSelected ] = useState<string | boolean>(getInitialState({
-	    identifier: props.identifier,
-	    report: report,
-	    targetKey: props.keyProperty,
-	}));
+	const [ selected, setSelected ] = useState<string>(
+	    props.utils.methods.getInitialState({
+		state: { current:  props.state.current },
+	    })
+	);
 	const [ valid, setValid ] = useState(false);
 	const [ dirty, setDirty ] = useState(false);
 
@@ -39,12 +43,10 @@ export const PickerBaseInput = (props: ReportStateUpdaters) => {
 	    }
 	}, [selected]);
 
-	const updateState = (newValue: string | boolean ) => {
-	    updaterFunction({
-		identifier: props.identifier,
-		index: props.index,
-		newValue: selected,
-		setReport: setReport
+	const updateState = (newValue: string) => {
+	    props.utils.methods.updateState({
+		state: { current: props.state.current, updater: props.state.updater },
+		newValue: selected
 	    });
 	    setSelected(newValue);
 	}

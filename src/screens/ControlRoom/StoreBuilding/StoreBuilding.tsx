@@ -1,55 +1,69 @@
-import { useState } from "react";
+import { 
+useEffect,
+useState
+} from "react";
 import {
 View,
 Text,
 ScrollView,
 ViewStyle
 } from "react-native";
-import { storeTypeChecker } from "./helper";
 import { storeBuildingStyles } from "./styles";
-import { ControlRoomReport, ControlRoomStaffGroup } from "../../../constants/customTypes";
+import { 
+ControlRoomReport,
+UpdateStaff
+} from "../../../constants/customTypes";
 import StaffBox from "../../../components/StaffBox/StaffBox";
 import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
 import ControlRoomReportActions from "../../../components/ControlRoomReportActions";
 import StaffUpdatePopup from "../PopupInput/PopupInput";
-import { CONTROL_ROOM_CONNECTION_HEALTH } from "../../../constants/constantData";
+import { CONTROL_ROOM_CONNECTION_HEALTH } from "./helper";
 import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
 const StoreBuilding = ({ route }) => {
-    const { storeCode, storeName } = route.params!;
-    const [ storeType ] = useState(storeTypeChecker(storeCode));
-    const { report, setReport } = useAuth();
-    const [ currentStoreState ] = useState<ControlRoomReport>(
-	report.controlRoomState
-	    .reportState.find(store => store.storeCode === storeCode)
+    const { report } = useAuth();
+    const [ currentStoreInfo, setCurrentStoreInfo ] = useState<ControlRoomReport>({
+	...route.params,
+	...report.controlRoomState
+	    .reportState.find(store => store.storeCode === route.params.code)
+    }
     );
-    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<Array<ControlRoomStaffGroup | number | null>>([]);
+    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<UpdateStaff>({
+	isOpen: false,
+	utils: undefined,
+	index: undefined
+    });
 
     return (
 	<ScrollView 
-	 scrollEnabled={currentUpdateStaff?.length < 1}
+	 scrollEnabled={!currentUpdateStaff.isOpen}
 	 style={storeBuildingStyles.container}
 	 contentContainerStyle={{ justifyContent: "center", alignItems: "center" }}
 	>
-	    { currentUpdateStaff.length > 0 && 
-		<StaffUpdatePopup
-		 index={currentUpdateStaff[1] as number}
-		 storeCode={storeCode}
-		 staffGroup={currentUpdateStaff[0] as ControlRoomStaffGroup}
-		 toggleVisibility={setCurrentUpdateStaff}
-		/> }
+	    {
+		currentUpdateStaff.isOpen && 
+		    <StaffUpdatePopup
+		     index={currentUpdateStaff.index}
+		     state={{ current: currentStoreInfo, updater: setCurrentStoreInfo, popupControl: setCurrentUpdateStaff }}
+		     utils={currentUpdateStaff.utils}
+		    /> 
+	    }
 	    <View style={storeBuildingStyles.titleContainer}>
-		<Text style={storeBuildingStyles.title}>{ "L" + storeCode + " " }</Text>
-		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeType + " " }</Text>
-		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ storeName }</Text>
+		<Text style={storeBuildingStyles.title}>{ "L" + currentStoreInfo.storeCode + " " }</Text>
+		{
+		    currentStoreInfo.storeCode !== 90 && 
+			<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ currentStoreInfo.storeCode + " " }</Text> 
+		}
+		<Text style={[storeBuildingStyles.title, storeBuildingStyles.titleName]}>{ currentStoreInfo.storeName }</Text>
 	    </View>
 	    {
 	    <PickerBaseInput  
+	     utils={CONTROL_ROOM_CONNECTION_HEALTH.utils}
 	     styles={{ width: "90%", maxWidth: 400 }}
-	     identifier={storeCode}
 	     inputObject={CONTROL_ROOM_CONNECTION_HEALTH}
-	     updateState={CONTROL_ROOM_CONNECTION_HEALTH.updaterFunction}
+	     state={{ current: currentStoreInfo, updater: setCurrentStoreInfo }}
+
 	    />
 	    }
 	    <View style={storeBuildingStyles.staffContainer}>
@@ -57,18 +71,16 @@ const StoreBuilding = ({ route }) => {
 		{
 		    STAFF_GROUPS.map((group, index)=> (
 			<StaffBox 
-			 update={setCurrentUpdateStaff}
+			 state={{ state: currentStoreInfo, popupControl: setCurrentUpdateStaff}}
 			 key={index}
-			 staffGroupName={group}
-			 storeCode={storeCode}
-			 completed={currentStoreState.completed} 
+			 utils={group}
+			 completed={currentStoreInfo.completed} 
 			 styles={index > 0 && { marginTop: 20 } as ViewStyle}
 			/>
 		    ))
-
 		}
 	    </View>
-	    <ControlRoomReportActions completed={currentStoreState.completed} storeCode={storeCode}/>
+	    <ControlRoomReportActions completed={currentStoreInfo.completed} storeCode={currentStoreInfo.storeCode}/>
 	</ScrollView>
     );
 };

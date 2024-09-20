@@ -1,4 +1,4 @@
-import { ControlRoomStaffGroup } from "../../constants/customTypes";
+import { ControlRoomReport, ControlRoomStaffGroup, StaffUtilityMethods, UtilMethods } from "../../constants/customTypes";
 
 export const translateStaffGroupName = (name: ControlRoomStaffGroup) => {
     switch(name) {
@@ -10,10 +10,36 @@ export const translateStaffGroupName = (name: ControlRoomStaffGroup) => {
 	    return "Personal de Seguridad";
     };
 };
-export const STAFF_GROUPS: Array<ControlRoomStaffGroup> = [
-    "bossStaff",
-    "securityStaff",
-    "cctvStaff" 	
+export const ControlRoomStaffMethods = {
+    removeElement: (props: StaffUtilityMethods) => {
+	props.state.updater((prev: ControlRoomReport) => ({
+		...prev,
+		[props.targetProperty]: prev?.[props.targetProperty].filter((_, index: number) => index !== props.indexState.current)
+	    })
+	);
+	props.indexState.updater(undefined);
+    },
+    createEmptyElement: (props: StaffUtilityMethods) => {
+	props.state.updater((prev: ControlRoomReport) => ({
+		...prev,
+		[props.targetProperty]: [
+		    ...prev?.[props.targetProperty],
+		    { name: undefined, position: undefined }
+		]
+	    })
+	);
+	props.indexState.updater(
+	    props.state.current?.[props.targetProperty]?.length - 1
+	);
+    },
+}
+export const STAFF_GROUPS: Array<{ 
+name: ControlRoomStaffGroup,
+methods: UtilMethods 
+}> = [
+     { name: "bossStaff", methods: ControlRoomStaffMethods },
+     { name: "securityStaff", methods: ControlRoomStaffMethods },
+     { name: "cctvStaff", methods: ControlRoomStaffMethods },
 ];
 const spanishNumbers = [
     "Sin",

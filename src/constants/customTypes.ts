@@ -68,8 +68,6 @@ export interface InputObject {
 	placeholder?: string
 	validationKeyword: string
 	regExpValidator?: Array<RegExp>
-	getInitialState: (params: GetInitialStateParams) => any
-	updaterFunction: (params: UpdaterProps)=> void
 	options?: Array<{ label: string, value: string | boolean }>
 }
 export type AuthContextType = {
@@ -82,24 +80,22 @@ export type buttonProps = {
 	disable?: boolean
 };
 export interface ReportStateUpdaters {
-	identifier?: number | string
 	inputObject: InputObject
 	styles?: ViewStyle
-	updateState: (props: UpdaterProps)=> void
+	state: { current: ControlRoomReport | any, updater: Dispatch<SetStateAction<ControlRoomReport>> }
 	updateParentValidation?: Dispatch<SetStateAction<Array<string>>>
-	index?: number,
-	keyProperty?: string,
+	targetIndexElement?: number,
 };
 export type UpdaterProps = {
     identifier: number | string,
-    setReport: Dispatch<SetStateAction<AppReportState>> 
+    updater: Dispatch<SetStateAction<any>> 
     index: number,
     keyProperty?: ControlRoomStaffGroup | string,
     newValue: string | boolean,
 }
 export type  GetInitialStateParams = {
-    identifier: number | string,
-    report: AppReportState
+    identifier?: number | string,
+    state: ControlRoomReport 
     index?: number,
     targetKey: string | ControlRoomStaffGroup,
 }
@@ -113,17 +109,43 @@ export type ConnectionState =
 "cctvDown" 	| 
 "bisDown" 	;
 
+export type UtilMethods = {
+    removeElement: (props: StaffUtilityMethods) => void,
+    createEmptyElement: (props: StaffUtilityMethods) => void
+}
 export type StaffUpdatedPopupProps = {
-    staffGroup: ControlRoomStaffGroup,
+    state: { current: any, updater: Dispatch<SetStateAction<ControlRoomReport>>, popupControl: Dispatch<SetStateAction<UpdateStaff>> }
+    utils: { name: string, methods: UtilMethods } 
     index?: number,
-    storeCode: number,
-    toggleVisibility: Dispatch<SetStateAction<Array<ControlRoomStaffGroup>>>
 };
-
+export type StaffUtilityMethods = {
+    state: { current: ControlRoomReport, updater: Dispatch<SetStateAction<ControlRoomReport>> }
+    indexState: { current?: number, updater: Dispatch<SetStateAction<number>> }
+    targetProperty: string
+    newValue?: string
+}
+export type Utils = {
+    name: string,
+    methods: UtilMethods 
+} 
+export interface UpdateStaff {
+    isOpen: boolean,
+    utils: Utils
+    index: number
+}
 export type StaffBoxProps = {
-staffGroupName: ControlRoomStaffGroup,
-storeCode: number,
+state: { state: any, popupControl: Dispatch<SetStateAction<UpdateStaff>>} 
+utils: { name: string, methods: UtilMethods } 
 completed: boolean,
-update: Dispatch<SetStateAction<Array<ControlRoomStaffGroup | number | null>>>
 styles: ViewStyle,
 };
+
+export type InitialStateConnectionHealthProps = {
+    state: { current: ControlRoomReport }
+    elementIndex?: number
+}
+export type UpdateStateConnectionHealthProps = {
+    state: { current: ControlRoomReport, updater: Dispatch<SetStateAction<ControlRoomReport>> }
+    elementIndex?: number
+    newValue: string
+}

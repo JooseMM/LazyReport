@@ -1,25 +1,21 @@
 import { useEffect, useState } from "react";
-import { ControlRoomStaffGroup, GetInitialStateParams, ReportStateUpdaters } from "../../constants/customTypes";
+import {  ReportStateUpdaters } from "../../constants/customTypes";
 import { styles } from "./styles";
-import { TextInput, View, Text} from "react-native";
+import { 
+TextInput,
+View,
+Text
+} from "react-native";
 import { colors } from "../../constants/constantData";
-import { useAuth } from "../../ApplicationState";
 
 
 const TextBaseInput = (props: ReportStateUpdaters) => {
-	const { setReport, report } = useAuth();
 	const { 
 	    label,
 	    placeholder,
 	    validationKeyword,
-	    getInitialState
 	} = props.inputObject;
-	const [ input, setInput ] = useState(getInitialState({
-	    identifier: props.identifier,
-	    index: props.index,
-	    targetKey: props.keyProperty,
-	    report: report
-	}));
+	const [ input, setInput ] = useState<string>(props.); // get initial data
 	const [ validInput, setValidInput ] = useState<boolean>(input !== null ? true : false);
 	const [ edited, setEdited ] = useState<boolean>(input !== null ? true : false);
 	const regExpValidator = props.inputObject.regExpValidator[0];
@@ -38,13 +34,7 @@ const TextBaseInput = (props: ReportStateUpdaters) => {
 		}
 		const isValid = regExpValidator.test(input);
 		if(isValid) {
-		    props.updateState({
-			identifier: props.identifier,
-			setReport: setReport,
-			index: props.index,
-			keyProperty: props.keyProperty,
-			newValue: input
-		    });
+		    //props.updateState(); update!!
 		    props.updateParentValidation(prev => prev.filter(match => match !== label));
 		}
 		else {

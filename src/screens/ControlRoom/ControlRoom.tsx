@@ -42,7 +42,7 @@ const ControlRoom = ({navigation}) => {
 			 key={index}
 			 name={val.name}
 			 component={StoreBuilding}
-			 initialParams={{ storeCode: val.code, storeName: val.name }}
+			 initialParams={{ code: val.code, name: val.name, type: val.type }}
 			/>
 	    })}
 	</Drawer.Navigator>
