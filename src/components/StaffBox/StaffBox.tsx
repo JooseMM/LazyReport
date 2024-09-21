@@ -15,9 +15,9 @@ translatedSmallQuantities
 import { useState } from "react";
 
 const StaffBox = (props: StaffBoxProps) => {
-    const [ groupName ] = useState(translateStaffGroupName(props.utils.name as ControlRoomStaffGroup));
+    const [ groupName ] = useState(translateStaffGroupName(props.utils.staffName as ControlRoomStaffGroup));
     const [ staffQuantity ] = useState(
-	translatedSmallQuantities(props.state.state?.[props.utils.name]?.length)
+	translatedSmallQuantities(props.state.state?.[props.utils.staffName]?.length)
     );
     const create = () => {
 	props.state.popupControl({ 
@@ -31,11 +31,11 @@ const StaffBox = (props: StaffBoxProps) => {
 	    <Text style={staffBox.title}>{ groupName }</Text>
 	    <Text style={staffBox.secondTitle}>{ 
 		staffQuantity + " " +
-		(props.state.state?.[props.utils.name].length === 1 ? "Colaborador" : "Colaboradores") 
+		(props.state.state?.[props.utils.staffName].length === 1 ? "Colaborador" : "Colaboradores") 
 	    }</Text>
 	    <View style={{ marginHorizontal: 15 }}>
 		{
-			    props.state.state?.[props.utils.name].map((operator: { name: string, position: string }, index: number) => {
+			    props.state.state?.[props.utils.staffName].map((operator: { name: string, position: string }, index: number) => {
 				return (
 				    <TouchableOpacity 
 				     onPress={()=>props.state.popupControl({
@@ -46,7 +46,7 @@ const StaffBox = (props: StaffBoxProps) => {
 				     key={index}
 				     style={[
 					 staffBox.operatorNameContainer,
-					 index === (props.state.state?.[props.utils.name].length - 1) &&
+					 index === (props.state.state?.[props.utils.staffName].length - 1) &&
 					 { borderBottomWidth: 0 } 
 				     ]}
 				     >

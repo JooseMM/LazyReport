@@ -18,12 +18,14 @@ type CreateEmptyElement = {
 }
 export const newElement = (props: CreateEmptyElement) => {
 	if(props.indexState.current === null) {
+	    console.log("this is undefind")
 	    props.utils.methods.createEmptyElement({
 		state: { current: props.state.current, updater: props.state.updater },
 		indexState: { updater: props.indexState.updater },
-		targetProperty: props.utils.name
+		targetProperty: props.utils.key
 	    })
 	}
+	console.log("this is not undefind")
 }
 type CloseBox = {
     validationState: { 

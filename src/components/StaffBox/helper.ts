@@ -14,7 +14,7 @@ export const ControlRoomStaffMethods = {
     removeElement: (props: StaffUtilityMethods) => {
 	props.state.updater((prev: ControlRoomReport) => ({
 		...prev,
-		[props.targetProperty]: prev?.[props.targetProperty].filter((_, index: number) => index !== props.indexState.current)
+		[props.targetProperty]: prev?.[props.targetProperty].filter((_, index: number) => index == props.indexState.current)
 	    })
 	);
 	props.indexState.updater(undefined);
@@ -34,12 +34,12 @@ export const ControlRoomStaffMethods = {
     },
 }
 export const STAFF_GROUPS: Array<{ 
-name: ControlRoomStaffGroup,
+staffName: ControlRoomStaffGroup,
 methods: UtilMethods 
 }> = [
-     { name: "bossStaff", methods: ControlRoomStaffMethods },
-     { name: "securityStaff", methods: ControlRoomStaffMethods },
-     { name: "cctvStaff", methods: ControlRoomStaffMethods },
+     { staffName: "bossStaff", methods: ControlRoomStaffMethods },
+     { staffName: "securityStaff", methods: ControlRoomStaffMethods },
+     { staffName: "cctvStaff", methods: ControlRoomStaffMethods },
 ];
 const spanishNumbers = [
     "Sin",

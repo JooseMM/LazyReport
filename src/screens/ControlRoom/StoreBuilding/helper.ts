@@ -9,7 +9,6 @@ InitialStateConnectionHealthProps,
 UpdateStateConnectionHealthProps
 } from "../../../constants/customTypes";
 import { connectionHealthOptions } from "../../../constants/constantData";
-import { Dispatch, SetStateAction } from "react";
 
 
 type Utils = {

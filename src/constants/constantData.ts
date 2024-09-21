@@ -5,6 +5,7 @@ InputObject,
 connectionStateOptions,
 UpdaterProps,
 GetInitialStateParams,
+StaffGetDataParams,
 } from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
 import { 
@@ -177,33 +178,20 @@ export const ControlRoomDrawerRoutes: Array<{
 ];
 
 
+const get = (props: StaffGetDataParams):string => {
+    return props.state?.[props.staffGroup]?.[props.index]?.[props.key] ?? "";
+}
 export const STAFF_UPDATE: Array<InputObject> = [
     {
 	label: "Nombre",
 	placeholder: "Ingresa el nombre del colaborador",
 	validationKeyword: "nombre valido",
 	regExpValidator: [lettersOnlyFormat],
-	updaterFunction: (props: UpdaterProps)=> staffUpdater({...props,  staffProperty: "name"}),
-	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "name" }),
-	targetProperty: "name"
     },
     {
 	label: "Cargo",
 	placeholder: "Ingresa el cargo del colaborador",
 	validationKeyword: "cargo valido",
 	regExpValidator: [lettersOnlyFormat],
-	updaterFunction: (props: UpdaterProps) => staffUpdater({...props, staffProperty: "position"}),
-	getInitialState: (props: GetInitialStateParams) => getStaffInitialState({...props, staffProperty: "position" }),
-	targetProperty: "position"
     }
 ]
-const getStaffInitialState = (props: GetInitialStateParams & { staffProperty: "position" | "name" }):string | undefined=> {
-    const currentLenght = props.report.controlRoomState.reportState.length;
-    for(let i = 0; i < currentLenght; i++) {
-	const item = props.report.controlRoomState.reportState[i];
-	if(item?.storeCode === props.identifier) {
-	    return item?.[props.targetKey]?.[props.index]?.[props.staffProperty] ?? null;
-	}
-    }
-    return undefined;
-}

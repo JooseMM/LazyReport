@@ -9,10 +9,6 @@ ScrollView,
 ViewStyle
 } from "react-native";
 import { storeBuildingStyles } from "./styles";
-import { 
-ControlRoomReport,
-UpdateStaff
-} from "../../../constants/customTypes";
 import StaffBox from "../../../components/StaffBox/StaffBox";
 import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
@@ -23,16 +19,17 @@ import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
 const StoreBuilding = ({ route }) => {
     const { report } = useAuth();
-    const [ currentStoreInfo, setCurrentStoreInfo ] = useState<ControlRoomReport>({
+    const [ currentStoreInfo, setCurrentStoreInfo ] = useState<ControlRoom.StoreInfo>({
 	...route.params,
 	...report.controlRoomState
 	    .reportState.find(store => store.storeCode === route.params.code)
     }
     );
-    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<UpdateStaff>({
+    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<ControlRoom.CurrentPopupInfo>({
 	isOpen: false,
-	utils: undefined,
-	index: undefined
+	targetInfo: undefined,
+	targetInfoKey: undefined,
+	optionalIndex: undefined
     });
 
     return (
@@ -44,9 +41,8 @@ const StoreBuilding = ({ route }) => {
 	    {
 		currentUpdateStaff.isOpen && 
 		    <StaffUpdatePopup
-		     index={currentUpdateStaff.index}
+		     index={currentUpdateStaff.optionalIndex}
 		     state={{ current: currentStoreInfo, updater: setCurrentStoreInfo, popupControl: setCurrentUpdateStaff }}
-		     utils={currentUpdateStaff.utils}
 		    /> 
 	    }
 	    <View style={storeBuildingStyles.titleContainer}>
