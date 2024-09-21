@@ -1,21 +1,4 @@
-import {
-AppReportState,
-ControlRoomReport,
-InputObject,
-connectionStateOptions,
-UpdaterProps,
-GetInitialStateParams,
-StaffGetDataParams,
-} from "./customTypes";
 import { DateTimePickerAndroid } from "@react-native-community/datetimepicker";
-import { 
-lettersOnlyFormat,
-storeCodeFormat,
-timeFormat24hrs,
-numberOnlyFormat,
-wordsOrNumberFormat,
-lettersOrEmptyFormat 
-} from "./regexPatterns";
 import { Dispatch, SetStateAction } from "react";
 import { DrawerNavigationOptions } from "@react-navigation/drawer";
 import { NativeStackNavigationOptions } from "@react-navigation/native-stack";
@@ -55,7 +38,6 @@ export const DETAINED_INFO: Array<InputObject> = [
 		label: "Hora de Ingreso",
 		placeholder: "Ejem: 03:08 (formato: HH:mm)",
 		validationKeyword: "hora",
-		regExpValidator: [timeFormat24hrs],
 	},
 	{
 		label: "Menor de Edad",
@@ -67,13 +49,11 @@ export const DETAINED_INFO: Array<InputObject> = [
 		label: "Cantidad de Retenidos",
 		placeholder: "Ejem: 1",
 		validationKeyword: "cantidad",
-		regExpValidator: [numberOnlyFormat],
 	}, 
 	{
 		label: "Informante",
 		placeholder: "Ejem: Cristian Sepulveda GGSS",
 		validationKeyword: "nombre y cargo",
-		regExpValidator: [lettersOnlyFormat],
 	},
 ]
 export const UPSCALE_INFO: Array<InputObject> = [
@@ -81,19 +61,16 @@ export const UPSCALE_INFO: Array<InputObject> = [
 		label: "Escalamiento Principal",
 		placeholder: "Ejem: Juan Vega GTEO",
 		validationKeyword: "nombre y cargo",
-		regExpValidator: [lettersOrEmptyFormat],
 	}, 
 	{
 		label: "Escalamiento Secundario",
 		placeholder: "Ejem: Ingrid Arancibia Zonal AP",
 		validationKeyword: "nombre y cargo",
-		regExpValidator: [lettersOrEmptyFormat],
 	},
 	{
 		label: "Escalamiento Terciario",
 		placeholder: "Ejem: Ronald Gonzalez Jefe de Formato",
 		validationKeyword: "nombre y cargo",
-		regExpValidator: [lettersOrEmptyFormat]
 	}
 
 ]
@@ -101,7 +78,6 @@ export const EMERGENCY_CALL_INFO: InputObject = {
 		label: "Operador o Anexo",
 		placeholder: "Ejem: 13653 o Carabinero Juan Alberto",
 		validationKeyword: "nombre o anexo",
-		regExpValidator: [timeFormat24hrs, wordsOrNumberFormat],
 };
 
 export const STORE_INFO : Array<InputObject> = [
@@ -116,13 +92,11 @@ export const STORE_INFO : Array<InputObject> = [
 		label: "Nombre de Local",
 		placeholder: "Ejem: Lyons",
 		validationKeyword: "nombre de local",
-		regExpValidator: [lettersOnlyFormat],
 	},
 	{
 		label: "Numero de Local",
 		placeholder: "Ejem: 04",
 		validationKeyword: "numero de local",
-		regExpValidator: [storeCodeFormat]
 	},
 ];
 
@@ -177,21 +151,15 @@ export const ControlRoomDrawerRoutes: Array<{
     { code: 6020, name: "El Penon", type: "CD" },
 ];
 
-
-const get = (props: StaffGetDataParams):string => {
-    return props.state?.[props.staffGroup]?.[props.index]?.[props.key] ?? "";
-}
-export const STAFF_UPDATE: Array<InputObject> = [
+export const STAFF_UPDATE: Array<ControlRoom.StaffInfo> = [
     {
 	label: "Nombre",
 	placeholder: "Ingresa el nombre del colaborador",
-	validationKeyword: "nombre valido",
-	regExpValidator: [lettersOnlyFormat],
+	contentType: "onlyLetters"
     },
     {
 	label: "Cargo",
 	placeholder: "Ingresa el cargo del colaborador",
-	validationKeyword: "cargo valido",
-	regExpValidator: [lettersOnlyFormat],
+	contentType: "onlyLetters"
     }
 ]

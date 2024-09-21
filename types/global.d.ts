@@ -10,6 +10,16 @@ declare global {
 	    infoTargetIndex?: number;
 	    infoTargetKey?: string;
 	}
+	interface State {
+	    current: unknow;
+	    updater: Dispatch<SetStateAction<unknown>>;
+	}
+	interface CurrentPopupProps {
+	    isOpen: boolean;
+	    infoTarget: Props.TargetKeys;
+	    state: Props.State;
+	    propsUpdater: Dispatch<SetStateAction<Props.CurrentPopupProps>>;
+	}
     }
     namespace Input {
 	type ContentType = "onlyLetters" | "words" | "wordsOrEmpty" | "storeCodes" | "time";
@@ -20,8 +30,8 @@ declare global {
 	}
 
 	interface ValidationState {
-	    current: Array<string>;
-	    updater: Dispatch<SetStateAction<string[]>>
+	    current: Array<string> | boolean;
+	    updater: Dispatch<SetStateAction<string[] | boolean>>
 	}
 
 	interface Text {
@@ -47,14 +57,10 @@ declare global {
 	    completed: boolean;
 	    news: StateNews;
 	}
-	interface CurrentPopupInfo {
-	    isOpen: boolean;
-	    infoTarget: Props.targetKeys;
-	}
 	interface StaffInfo {
 	    label: string;
 	    placeholder: string;
-	    regExpValidator: Array<RegExp>;
+	    contentType: Input.ContentType;
 	}
     }
 

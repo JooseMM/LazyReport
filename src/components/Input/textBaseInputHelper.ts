@@ -66,24 +66,20 @@ type Props = {
     newValue: string | number;
 }
 export const shouldUpdateState = (props: Props):void => {
-    const updater = props.parentState.updater;
-
     if(!props.validationResult)
 	return;
 
-    updateFunction({
-	updater: updater,
+    updateState({
+	updater: props.parentState.updater,
 	target: props.target,
 	newValue: props.newValue
     });
 }
-
-type UpdateStateParams = {
+const updateState = (props: {
     updater: Dispatch<SetStateAction<ControlRoom.StoreInfo | any>>;
     target: Props.TargetKeys;
     newValue: any;
-}
-const updateFunction = (props: UpdateStateParams):void => {
+}):void => {
     const secondLevelDeep = props.target.infoTargetIndex != null;
     const thirdLevelDeep = props.target.infoTargetKey != null;
 
@@ -115,6 +111,22 @@ const updateFunction = (props: UpdateStateParams):void => {
     }
 }
 
+export const previousState = (props: {
+    state: ControlRoom.StaffInfo | unknown;
+    target: Props.TargetKeys;
+}):string => {
+    const secondLevelDeep = props.target.infoTargetIndex != null;
+    const thirdLevelDeep = props.target.infoTargetKey != null;
+    const state = props.state;
 
-
-
+    if(secondLevelDeep && thirdLevelDeep) {
+	return state?.[props.target.infoTarget]?.[props.target.infoTargetIndex]?.[props.target.infoTargetKey];
+    }
+    if(secondLevelDeep && !thirdLevelDeep) {
+	return state?.[props.target.infoTarget]?.[props.target.infoTargetIndex];
+    }
+    if(!secondLevelDeep && !thirdLevelDeep) {
+	return state?.[props.target.infoTarget];
+    }
+    return undefined;
+}

@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
 import { textInputStyles } from "./styles";
-import { 
-TextInput,
-View,
+import { TextInput, View,
 Text
 } from "react-native";
 import { colors } from "../../constants/constantData";
-import { shouldUpdateState, validation, validationUserOutput } from "./textBaseInputHelper";
-
+import { previousState, shouldUpdateState, validation, validationUserOutput } from "./textBaseInputHelper";
 
 const TextBaseInput = (props: Input.Text) => {
 	const { 
@@ -17,9 +14,14 @@ const TextBaseInput = (props: Input.Text) => {
 	    target,
 	    contentType,
 	} = props;
-	const [ input, setInput ] = useState<string>(); // get initial data
-	const [ selfValidation, setSelfValidation ] = useState<boolean>(input !== null ? true : false);
-	const [ edited, setEdited ] = useState<boolean>(input !== null ? true : false);
+	const [ input, setInput ] = useState<string>(
+	    previousState({
+	    state: state.current,
+	    target: target
+	    })
+	);
+	const [ selfValidation, setSelfValidation ] = useState<boolean>(input != null);
+	const [ edited, setEdited ] = useState<boolean>(input != null);
 
 	const onEndEditing = () => {
 	    const result = validation({
@@ -50,7 +52,7 @@ const TextBaseInput = (props: Input.Text) => {
 		    	onEndEditing={onEndEditing}
 		    	onFocus={()=> setEdited(false)}
 			/>
-			{ edited && !setSelfValidation ? <Text style={{color: "red", position: "absolute", top: "100%" }}>{ validationUserOutput(contentType) }</Text> : null}
+			{ edited && !selfValidation && <Text style={{color: "red", position: "absolute", top: "100%" }}>{ validationUserOutput(contentType) }</Text> }
 		</View>
 	);
 }
