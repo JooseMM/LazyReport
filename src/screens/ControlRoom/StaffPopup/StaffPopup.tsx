@@ -17,6 +17,7 @@ const StaffPopup = (props: Props.CurrentPopupProps) => {
     const [ invalidCounter, setInvalidCounter ] = useState<string[]>([]); 
     const [ currentIndex, setCurrentIndex ] = useState<number>(props.infoTarget.infoTargetIndex);
     useEffect(()=> {
+	console.log(props.infoTarget);
 	if(currentIndex == null)
 	    setCurrentIndex(
 		createEmptyElement({
@@ -28,7 +29,13 @@ const StaffPopup = (props: Props.CurrentPopupProps) => {
     return(
 	<View style={popupInput.background}>
 	    <View style={popupInput.container}>
-		<TouchableOpacity style={popupInput.closeButton} onPress={()=> onCloseOrDelete(props)}>
+		<TouchableOpacity style={popupInput.closeButton} onPress={()=> onCloseOrDelete({
+			 ...props,
+			 infoTarget: {
+			     ...props.infoTarget,
+			     infoTargetIndex: currentIndex 
+			 }
+		})}>
 		    <Image source={require("../../../../assets/close.svg")} style={{ width: 35, height: 35 }}/>
 		</TouchableOpacity>
 		{
@@ -38,7 +45,10 @@ const StaffPopup = (props: Props.CurrentPopupProps) => {
 			 placeholder={current.placeholder}
 			 state={props.state}
 			 key={index}
-			 target={{ ...props.infoTarget, infoTargetOptional: current.optinalKey }}
+			 target={{ 
+			     ...props.infoTarget,
+			     infoTargetIndex: currentIndex,
+			     infoTargetOptional: current.optinalKey }}
 			 validation={{ current: invalidCounter, updater: setInvalidCounter }}
 			 contentType={current.contentType}
 			 styles={index > 0 && { marginTop: 14 }}
@@ -52,7 +62,7 @@ const StaffPopup = (props: Props.CurrentPopupProps) => {
 			 ...props,
 			 infoTarget: {
 			     ...props.infoTarget,
-			     infoTargetOptional: currentIndex 
+			     infoTargetIndex: currentIndex 
 			 },
 			 validData: invalidCounter 
 		     })}
@@ -65,7 +75,8 @@ const StaffPopup = (props: Props.CurrentPopupProps) => {
 			 ...props,
 			 infoTarget: {
 			     ...props.infoTarget,
-			     infoTargetOptional: currentIndex 
+			     infoTargetKey: props.infoTarget.infoTargetKey,
+			     infoTargetIndex: currentIndex 
 			 }
 		     })}
 		    >

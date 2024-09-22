@@ -1,6 +1,6 @@
 import { ControlRoomReport, ControlRoomStaffGroup, StaffUtilityMethods, UtilMethods } from "../../constants/customTypes";
 
-export const translateStaffGroupName = (name: ControlRoomStaffGroup) => {
+export const translateTitle = (name: ControlRoomStaffGroup) => {
     switch(name) {
 	case "bossStaff":
 	    return "Jefaturas";

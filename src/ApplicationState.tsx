@@ -20,7 +20,7 @@ const ControlRoomInitialState: Array<ControlRoomReport> = ControlRoomDrawerRoute
 	storeCode: store.code,
 	connectionHealth: undefined,
 	completed: false,
-	bossStaff: [{ name: "Jose Moreno", position: "Jefe de Area" }],
+	bossStaff: [{ name: "Jose Moreno", position: "Jefe" }],
 	securityStaff: [],
 	news: [],
 	cctvStaff: []

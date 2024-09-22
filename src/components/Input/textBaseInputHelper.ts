@@ -51,9 +51,9 @@ export const validation = (props: {
     const result = checker.test(props.input);
 
     if(result) 
-	props.parentValidationUpdater((prev:string[])=> prev.filter(match => match !== props.key));
+	props.parentValidationUpdater((prev:string[])=> prev?.filter(match => match !== props.key));
     else
-	props.parentValidationUpdater((prev:string[]) => prev.includes(props.key) ? prev : [...prev, props.key]);
+	props.parentValidationUpdater((prev:string[]) => prev?.includes(props.key) ? prev : [...prev, props.key]);
 
     props.ownValidationState(result);
     return result;
@@ -83,11 +83,12 @@ const updateState = (props: {
     const indexUndefined = props.target.infoTargetIndex == null;
     const optionalUndefined = props.target.infoTargetKey == null;
 
+    console.log(props.target)
     if(optionalUndefined) {
 	props.updater((prev: ControlRoom.StoreInfo | object)=> ({
 	    ...prev,
-	    [props.target.infoTargetOptional]: [
-		...prev[props.target.infoTargetOptional],
+	    [props.target.infoTargetKey]: [
+		...prev[props.target.infoTargetKey],
 		prev[props.target.infoTargetKey][props.target.infoTargetIndex] = props.newValue
 	    ]
 	}))

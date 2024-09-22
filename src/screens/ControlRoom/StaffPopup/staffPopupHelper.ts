@@ -19,9 +19,11 @@ export const createEmptyElement = (props: {
 }
 
 export const onCloseOrDelete = (props: Props.CurrentPopupProps) => {
+    console.log(props.infoTarget);
     props.state.updater((prev: ControlRoom.StoreInfo)=> ({
 	...prev,
-	[props.infoTarget.infoTargetKey]: prev?.[props.infoTarget.infoTargetKey].filter((_, index)=> index !== props.infoTarget.infoTargetIndex)
+	[props.infoTarget.infoTargetKey]: prev?.[props.infoTarget.infoTargetKey]
+					    .filter((_, index: number)=> index !== props.infoTarget.infoTargetIndex)
     }));
     props.propsUpdater((prev: Props.CurrentPopupProps) => ({
 	...prev,

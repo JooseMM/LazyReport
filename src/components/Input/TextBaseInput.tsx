@@ -10,13 +10,12 @@ const TextBaseInput = (props: Input.Text) => {
 	const { 
 	    label,
 	    placeholder,
-	    state,
 	    target,
 	    contentType,
 	} = props;
 	const [ input, setInput ] = useState<string>(
 	    previousState({
-	    state: state.current,
+	    state: props.state.current,
 	    target: target
 	    })
 	);
@@ -33,7 +32,7 @@ const TextBaseInput = (props: Input.Text) => {
 	    })
 
 	    shouldUpdateState({
-		parentState: state,
+		parentState: props.state,
 		validationResult: result,
 		target: target,
 		newValue: input

@@ -1,5 +1,5 @@
 import { 
-useEffect,
+    useEffect,
 useState
 } from "react";
 import {
@@ -11,18 +11,18 @@ ViewStyle
 import { storeBuildingStyles } from "./styles";
 import StaffBox from "../../../components/StaffBox/StaffBox";
 import { useAuth } from "../../../ApplicationState";
-import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
+import { STAFF_GROUPS } from "../../../components/StaffBox/staffBoxHelper";
 import ControlRoomReportActions from "../../../components/ControlRoomReportActions";
 import StaffUpdatePopup from "../StaffPopup/StaffPopup";
 import { CONTROL_ROOM_CONNECTION_HEALTH } from "./helper";
 import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
 const StoreBuilding = ({ route }) => {
-    const { report } = useAuth();
+    const { report, setReport } = useAuth();
     const [ currentStoreInfo, setCurrentStoreInfo ] = useState<ControlRoom.StoreInfo>({
 	...route.params,
 	...report.controlRoomState
-	    .reportState.find(store => store.storeCode === route.params.code)
+	    .reportState.find((store:ControlRoom.StoreInfo) => store.storeCode === route.params.code)
     }
     );
     const [ currentPopupInfo, setCurrentPopupInfo ] = useState<Props.CurrentPopupProps>({
@@ -30,6 +30,22 @@ const StoreBuilding = ({ route }) => {
 	infoTarget: undefined,
 	state: { current: currentStoreInfo, updater: setCurrentStoreInfo },
     });
+
+    useEffect(()=>{
+	setReport(prev => ({
+	    ...prev,
+	    controlRoomState: {
+		...prev.controlRoomState,
+		reportState: prev.controlRoomState.reportState.map(store => {
+		    if(store.storeCode === currentStoreInfo.storeCode) {
+			store = currentStoreInfo;
+			console.log(store);
+		    }
+		    return store;
+		})
+	    }
+	}))
+    }, [currentStoreInfo])
 
     return (
 	<ScrollView 
@@ -69,7 +85,6 @@ const StoreBuilding = ({ route }) => {
 			 state={{ current: currentStoreInfo, updater: setCurrentStoreInfo}}
 			 isOpen={currentPopupInfo.isOpen}
 			 infoTarget={{
-			     ...currentPopupInfo.infoTarget,
 			     infoTargetKey: name
 			 }}
 			 propsUpdater={setCurrentPopupInfo}
