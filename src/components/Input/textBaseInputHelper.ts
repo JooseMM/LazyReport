@@ -45,15 +45,15 @@ export const validation = (props: {
     ownValidationState: Dispatch<SetStateAction<boolean>>
     input: string;
     contentType: Input.ContentType;
-    label: string;
+    key: string;
 }):boolean => {
     const checker = getValidatorPattern(props.contentType);
     const result = checker.test(props.input);
 
     if(result) 
-	props.parentValidationUpdater((prev:string[])=> prev.filter(match => match !== props.label));
+	props.parentValidationUpdater((prev:string[])=> prev.filter(match => match !== props.key));
     else
-	props.parentValidationUpdater((prev:string[]) => prev.includes(props.label) ? prev : [...prev, props.label]);
+	props.parentValidationUpdater((prev:string[]) => prev.includes(props.key) ? prev : [...prev, props.key]);
 
     props.ownValidationState(result);
     return result;
@@ -80,53 +80,50 @@ const updateState = (props: {
     target: Props.TargetKeys;
     newValue: any;
 }):void => {
-    const secondLevelDeep = props.target.infoTargetIndex != null;
-    const thirdLevelDeep = props.target.infoTargetKey != null;
+    const indexUndefined = props.target.infoTargetIndex == null;
+    const optionalUndefined = props.target.infoTargetKey == null;
 
-    if(secondLevelDeep && thirdLevelDeep) {
+    if(optionalUndefined) {
 	props.updater((prev: ControlRoom.StoreInfo | object)=> ({
 	    ...prev,
-	    [props.target.infoTarget]: prev[props.target.infoTarget].map((obj: object, index:number)=> {
-		if(index === props.target.infoTargetIndex) {
-		    obj[props.target.infoTargetKey] = props.newValue;
-		}
-		return obj;
-	    })
-	}))
-    }
-    if(secondLevelDeep && !thirdLevelDeep) {
-	props.updater((prev: ControlRoom.StoreInfo | object)=> ({
-	    ...prev,
-	    [props.target.infoTarget]: [
-		...prev[props.target.infoTarget],
-		prev[props.target.infoTarget][props.target.infoTargetIndex] = props.newValue
+	    [props.target.infoTargetOptional]: [
+		...prev[props.target.infoTargetOptional],
+		prev[props.target.infoTargetKey][props.target.infoTargetIndex] = props.newValue
 	    ]
 	}))
+	return;
     }
-    if(!secondLevelDeep && !thirdLevelDeep) {
+    if(indexUndefined) {
 	props.updater((prev: ControlRoom.StoreInfo | object)=> ({
 	    ...prev,
-	    [props.target.infoTarget]: props.newValue
+	    [props.target.infoTargetKey]: props.newValue
 	}))
+	return;
     }
+    props.updater((prev: ControlRoom.StoreInfo | object)=> ({
+	...prev,
+	[props.target.infoTargetKey]: prev[props.target.infoTargetKey]?.map((obj: object, index:number)=> {
+	    if(index === props.target.infoTargetIndex) {
+		obj[props.target.infoTargetOptional] = props.newValue;
+	    }
+	    return obj;
+	})
+    }))
 }
 
 export const previousState = (props: {
     state: ControlRoom.StaffInfo | unknown;
     target: Props.TargetKeys;
 }):string => {
-    const secondLevelDeep = props.target.infoTargetIndex != null;
-    const thirdLevelDeep = props.target.infoTargetKey != null;
+    const indexUndefined = props.target.infoTargetIndex == null;
+    const optionalUndefined = props.target.infoTargetKey == null;
     const state = props.state;
 
-    if(secondLevelDeep && thirdLevelDeep) {
-	return state?.[props.target.infoTarget]?.[props.target.infoTargetIndex]?.[props.target.infoTargetKey];
+    if(optionalUndefined) {
+	return state?.[props.target.infoTargetKey]?.[props.target.infoTargetIndex];
     }
-    if(secondLevelDeep && !thirdLevelDeep) {
-	return state?.[props.target.infoTarget]?.[props.target.infoTargetIndex];
+    if(indexUndefined) {
+	return state?.[props.target.infoTargetKey];
     }
-    if(!secondLevelDeep && !thirdLevelDeep) {
-	return state?.[props.target.infoTarget];
-    }
-    return undefined;
+    return state?.[props.target.infoTargetKey]?.[props.target.infoTargetIndex]?.[props.target.infoTargetOptional];
 }

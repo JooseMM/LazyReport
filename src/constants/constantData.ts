@@ -154,11 +154,13 @@ export const ControlRoomDrawerRoutes: Array<{
 export const STAFF_UPDATE: Array<ControlRoom.StaffInfo> = [
     {
 	label: "Nombre",
+	optinalKey: "name",
 	placeholder: "Ingresa el nombre del colaborador",
 	contentType: "onlyLetters"
     },
     {
 	label: "Cargo",
+	optinalKey: "position",
 	placeholder: "Ingresa el cargo del colaborador",
 	contentType: "onlyLetters"
     }

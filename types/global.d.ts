@@ -6,9 +6,9 @@ export {};
 declare global {
     namespace Props {
 	interface TargetKeys {
-	    infoTarget: string;
+	    infoTargetKey: string;
 	    infoTargetIndex?: number;
-	    infoTargetKey?: string;
+	    infoTargetOptional?: string | number;
 	}
 	interface State {
 	    current: unknow;
@@ -18,7 +18,7 @@ declare global {
 	    isOpen: boolean;
 	    infoTarget: Props.TargetKeys;
 	    state: Props.State;
-	    propsUpdater: Dispatch<SetStateAction<Props.CurrentPopupProps>>;
+	    propsUpdater?: Dispatch<SetStateAction<Props.CurrentPopupProps>>;
 	}
     }
     namespace Input {
@@ -59,6 +59,7 @@ declare global {
 	}
 	interface StaffInfo {
 	    label: string;
+	    optinalKey: string | number;
 	    placeholder: string;
 	    contentType: Input.ContentType;
 	}

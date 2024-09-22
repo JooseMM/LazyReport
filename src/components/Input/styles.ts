@@ -1,7 +1,7 @@
 import { StyleSheet } from "react-native";
 import { colors } from "../../constants/constantData";
 
-export const textInputStyles = StyleSheet.create({
+export const baseStyles = StyleSheet.create({
 	label: {
 		marginBottom: 2,
 		marginLeft: 20,

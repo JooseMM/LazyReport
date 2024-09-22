@@ -5,42 +5,41 @@ TouchableOpacity,
 ViewStyle,
 } from "react-native";
 import staffBox from "./styles";
-import { 
-translateStaffGroupName,
-translatedSmallQuantities
-} from "./helper";
-import { useState } from "react";
+import { getStaffCount } from "./helper";
 
-const StaffBox = (props: Props.CurrentPopupProps & { styles: ViewStyle}) => {
-    const [ groupName ] = useState();
-    const [ staffQuantity ] = useState(/*translatedSmallQuantities(props.state.state?.[props.utils.staffName]?.length*/);
+const StaffBox = (props: Props.CurrentPopupProps & { styles: ViewStyle }) => {
     const { 
 	state,
 	infoTarget,
     } = props;
 
-    const openPopup = (index: number):void => {
-	
+    const openPopup = (index: number,):void => {
+	props.propsUpdater((prev: Props.CurrentPopupProps)=> ({
+	    isOpen: true,
+	    infoTarget: {
+		infoTargetKey: props.infoTarget.infoTargetKey,
+		infoTargetIndex: index,
+		infoTargetOptional: props.infoTarget.infoTargetOptional,
+	    },
+	    state: props.state,
+	    propsUpdter: props.propsUpdater
+	}))
     }
     return(
 	<View style={[staffBox.container, props.styles]}>
-	    <Text style={staffBox.title}>{ groupName }</Text>
-	    <Text style={staffBox.secondTitle}>{ 
-		/*
-		staffQuantity + " " +
-		(props.state.state?.[props.utils.staffName].length === 1 ? "Colaborador" : "Colaboradores") 
-		*/
-	    }</Text>
+
+	    <Text style={staffBox.title}>{ props.infoTarget.infoTargetKey }</Text>
+	    <Text style={staffBox.secondTitle}>{ getStaffCount(props.state?.[props.infoTarget.infoTargetKey]?.length) }</Text>
 	    <View style={{ marginHorizontal: 15 }}>
 		{
-			    state.current?.[props.infoTarget.infoTarget].map((operator: { name: string, position: string }, index: number) => {
+			    state.current?.[props.infoTarget.infoTargetKey]?.map((operator: { name: string, position: string }, index: number) => {
 				return (
 				    <TouchableOpacity 
 				     onPress={()=> openPopup(index)}
 				     key={index}
 				     style={[
 					 staffBox.operatorNameContainer,
-					 index === (state.current?.[infoTarget.infoTarget]?.length - 1) &&
+					 index === (state.current?.[infoTarget.infoTargetKey]?.length - 1) &&
 					 { borderBottomWidth: 0 } 
 				     ]}
 				     >
@@ -51,7 +50,7 @@ const StaffBox = (props: Props.CurrentPopupProps & { styles: ViewStyle}) => {
 			    })
 		}
 	    </View>
-	    <TouchableOpacity style={staffBox.button} onPress={()=> openPopup(index)}>
+	    <TouchableOpacity style={staffBox.button} onPress={()=> openPopup(undefined)}>
 		<Text style={staffBox.buttonLabel}>Agregar</Text>
 	    </TouchableOpacity>
 	</View>

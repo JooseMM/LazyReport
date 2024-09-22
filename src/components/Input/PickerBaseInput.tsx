@@ -2,7 +2,7 @@ import { Text, View } from "react-native";
 import { useEffect, useState } from "react";
 import { Picker } from "@react-native-picker/picker";
 import { InitialStateConnectionHealthProps, ReportStateUpdaters, UpdateStateConnectionHealthProps, UtilMethods } from  "../../constants/customTypes";
-import { styles } from "./styles";
+import { baseStyles } from "./styles";
 import { colors } from "../../constants/constantData";
 
 type Utils = {
@@ -53,7 +53,7 @@ export const PickerBaseInput = (props: ReportStateUpdaters & Utils) => {
 
 	return (
 		<View style={props.styles}>
-			<Text style={styles.label}>{ label + ":" }</Text>
+			<Text style={baseStyles.label}>{ label + ":" }</Text>
 			<View style={{borderWidth: 1, borderColor: !valid && dirty ? colors.red : colors.paragraphText, borderRadius: 5}}>
 				<Picker selectedValue={selected} onValueChange={itemValue => updateState(itemValue)}>
 					{options.map((option, index) => <Picker.Item key={index} color={index > 0 ? colors.blue : colors.paragraphText} label={option.label} value={option.value}/>)}

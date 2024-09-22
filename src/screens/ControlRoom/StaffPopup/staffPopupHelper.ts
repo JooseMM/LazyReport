@@ -6,20 +6,22 @@ export const createEmptyElement = (props: {
     state: Props.State;
     infoTarget: "bossStaff" | "securityStaff" | "cctvStaff" | string;
 }):number => {
+    let newArr = props.state.current?.[props.infoTarget];
+    newArr = [
+	...newArr,
+	{ name: undefined, position: undefined }
+    ]
     props.state.updater((prev: ControlRoom.StoreInfo)=> ({
 	...prev,
-	[props.infoTarget]: [
-	    ...prev?.[props.infoTarget],
-	    { name: undefined, position: undefined } 
-	]
+	[props.infoTarget]: newArr
     }))
-    return props.state.current?.[props.infoTarget]?.length;
+    return newArr.length > 0 ? newArr.length - 1 : 1;
 }
 
 export const onCloseOrDelete = (props: Props.CurrentPopupProps) => {
     props.state.updater((prev: ControlRoom.StoreInfo)=> ({
 	...prev,
-	[props.infoTarget.infoTarget]: prev?.[props.infoTarget.infoTarget].filter((_, index)=> index !== props.infoTarget.infoTargetIndex)
+	[props.infoTarget.infoTargetKey]: prev?.[props.infoTarget.infoTargetKey].filter((_, index)=> index !== props.infoTarget.infoTargetIndex)
     }));
     props.propsUpdater((prev: Props.CurrentPopupProps) => ({
 	...prev,
@@ -31,7 +33,7 @@ export const onCloseOrDelete = (props: Props.CurrentPopupProps) => {
 	},
     }));
 }
-export const onFinish = (props: Props.CurrentPopupProps & { validData: boolean }) => {
+export const onFinish = (props: Props.CurrentPopupProps & { validData: string[] }) => {
     if(!props.validData) {
 	return;
     }

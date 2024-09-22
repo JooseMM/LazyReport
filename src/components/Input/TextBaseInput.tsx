@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { textInputStyles } from "./styles";
+import { useState } from "react";
+import { baseStyles } from "./styles";
 import { TextInput, View,
 Text
 } from "react-native";
@@ -28,7 +28,7 @@ const TextBaseInput = (props: Input.Text) => {
 		parentValidationUpdater: props.validation.updater,
 		ownValidationState: setSelfValidation,
 		input: input,
-		label: label,
+		key: props.target.infoTargetOptional as string,
 		contentType: contentType,
 	    })
 
@@ -42,12 +42,12 @@ const TextBaseInput = (props: Input.Text) => {
 
 	return (
 		<View style={props.styles}>
-			<Text style={textInputStyles.label} >{ label }</Text>
+			<Text style={baseStyles.label} >{ label }</Text>
 			<TextInput 
 		    	placeholder={placeholder} 
 		    	placeholderTextColor="gray"
 		    	cursorColor="gray"
-		    	style={ edited && !setSelfValidation? [textInputStyles.border, { borderColor: colors.red }] : textInputStyles.border} 
+		    	style={ edited && !setSelfValidation? [baseStyles.border, { borderColor: colors.red }] : baseStyles.border} 
 		    	onChangeText={(buffer) => setInput(buffer)} value={input} 
 		    	onEndEditing={onEndEditing}
 		    	onFocus={()=> setEdited(false)}

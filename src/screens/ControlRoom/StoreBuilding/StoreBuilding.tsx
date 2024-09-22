@@ -13,7 +13,7 @@ import StaffBox from "../../../components/StaffBox/StaffBox";
 import { useAuth } from "../../../ApplicationState";
 import { STAFF_GROUPS } from "../../../components/StaffBox/helper";
 import ControlRoomReportActions from "../../../components/ControlRoomReportActions";
-import StaffUpdatePopup from "../PopupInput/PopupInput";
+import StaffUpdatePopup from "../StaffPopup/StaffPopup";
 import { CONTROL_ROOM_CONNECTION_HEALTH } from "./helper";
 import { PickerBaseInput } from "../../../components/Input/PickerBaseInput";
 
@@ -25,24 +25,23 @@ const StoreBuilding = ({ route }) => {
 	    .reportState.find(store => store.storeCode === route.params.code)
     }
     );
-    const [ currentUpdateStaff, setCurrentUpdateStaff ] = useState<ControlRoom.CurrentPopupInfo>({
+    const [ currentPopupInfo, setCurrentPopupInfo ] = useState<Props.CurrentPopupProps>({
 	isOpen: false,
-	targetInfo: undefined,
-	targetInfoKey: undefined,
-	optionalIndex: undefined
+	infoTarget: undefined,
+	state: { current: currentStoreInfo, updater: setCurrentStoreInfo },
     });
 
     return (
 	<ScrollView 
-	 scrollEnabled={!currentUpdateStaff.isOpen}
+	 scrollEnabled={!currentPopupInfo.isOpen}
 	 style={storeBuildingStyles.container}
 	 contentContainerStyle={{ justifyContent: "center", alignItems: "center" }}
 	>
 	    {
-		currentUpdateStaff.isOpen && 
+		currentPopupInfo.isOpen && 
 		    <StaffUpdatePopup
-		     index={currentUpdateStaff.optionalIndex}
-		     state={{ current: currentStoreInfo, updater: setCurrentStoreInfo, popupControl: setCurrentUpdateStaff }}
+		    {...currentPopupInfo}
+		    propsUpdater={setCurrentPopupInfo}
 		    /> 
 	    }
 	    <View style={storeBuildingStyles.titleContainer}>
@@ -65,12 +64,16 @@ const StoreBuilding = ({ route }) => {
 	    <View style={storeBuildingStyles.staffContainer}>
 		<Text style={storeBuildingStyles.labels}>Dotaciones:</Text>
 		{
-		    STAFF_GROUPS.map((group, index)=> (
+		    STAFF_GROUPS.map((name, index)=> (
 			<StaffBox 
-			 state={{ state: currentStoreInfo, popupControl: setCurrentUpdateStaff}}
+			 state={{ current: currentStoreInfo, updater: setCurrentStoreInfo}}
+			 isOpen={currentPopupInfo.isOpen}
+			 infoTarget={{
+			     ...currentPopupInfo.infoTarget,
+			     infoTargetKey: name
+			 }}
+			 propsUpdater={setCurrentPopupInfo}
 			 key={index}
-			 utils={group}
-			 completed={currentStoreInfo.completed} 
 			 styles={index > 0 && { marginTop: 20 } as ViewStyle}
 			/>
 		    ))
